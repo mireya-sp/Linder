@@ -1,6 +1,9 @@
 package com.mireyaserrano.linder
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -8,28 +11,36 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.mireyaserrano.linder.databinding.ActivityMainBinding
+import com.mireyaserrano.linder.ui.auth.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splashscreen)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        //Delay al inicio de la aplicación
+        Handler(Looper.getMainLooper()).postDelayed({
+            navigateToNextScreen()
+        }, 2000)
+    }
 
-        val navView: BottomNavigationView = binding.navView
+    private fun navigateToNextScreen() {
+        //TODO: Implementar lógica de sesión en el futuro.
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        val isUserLoggedIn = false
+
+        if (isUserLoggedIn) {
+            // Ir a la actividad principal que aloja el fragment_home_individual
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        } else {
+            // Ir a la pantalla de Login
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        //Finalizamos la actividad para que no se pueda volver a ella.
+        finish()
     }
 }
