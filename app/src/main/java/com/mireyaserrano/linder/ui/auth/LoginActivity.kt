@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         btnTroubles.setOnClickListener { contactWithSupport() }
 
         btnPhone.setOnClickListener {
-            val intent = Intent(this, RegistrationActivity::class.java)
+            val intent = Intent(this, Reg1PhoneFragment::class.java)
             startActivity(intent)
         }
     }
