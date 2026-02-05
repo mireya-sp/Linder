@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.mireyaserrano.linder.R
 
 class Reg1PhoneFragment : Fragment() {
 

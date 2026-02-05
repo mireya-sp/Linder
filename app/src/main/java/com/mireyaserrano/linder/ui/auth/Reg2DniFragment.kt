@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import android.os.Handler
 import android.os.Looper
+import com.mireyaserrano.linder.R
 
 class Reg2DniFragment : Fragment() {
 
