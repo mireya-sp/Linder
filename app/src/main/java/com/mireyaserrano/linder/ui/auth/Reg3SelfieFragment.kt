@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.mireyaserrano.linder.R
+import com.mireyaserrano.linder.Reg4NameFragment
 
 class Reg3SelfieFragment : Fragment() {
 
@@ -74,7 +75,7 @@ class Reg3SelfieFragment : Fragment() {
     private fun navigateToNextStep() {
         // TODO: Asegurarse de que Reg4UsernameFragment existe en tu paquete auth
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, Reg4UsernameFragment())
+            .replace(R.id.fragment_container, Reg4NameFragment())
             .addToBackStack(null)
             .commit()
     }
