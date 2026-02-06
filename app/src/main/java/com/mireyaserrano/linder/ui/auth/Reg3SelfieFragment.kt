@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.mireyaserrano.linder.R
 
-
 class Reg3SelfieFragment : Fragment() {
 
     private var isIdentityVerified = false
@@ -25,6 +24,9 @@ class Reg3SelfieFragment : Fragment() {
         val btnTakeSelfie = view.findViewById<Button>(R.id.btn_take_selfie)
         val btnNext = view.findViewById<Button>(R.id.btn_next_selfie)
         val btnBack = view.findViewById<View>(R.id.btn_back)
+
+        // Estado inicial del botón para que parezca desactivado
+        btnNext.alpha = 0.5f
 
         btnTakeSelfie.setOnClickListener {
             verifyIdentityWithDni()
@@ -46,29 +48,31 @@ class Reg3SelfieFragment : Fragment() {
     }
 
     private fun verifyIdentityWithDni() {
-        //Simulación del proceso de comparación facial
+        // Simulación del proceso de comparación facial
         Toast.makeText(requireContext(), "Comparando rostro con DNI...", Toast.LENGTH_SHORT).show()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            //TODO: Implementar ML Kit Face Detection o Amazon Rekognition
-            //Comprobamos si el rostro coincide con el del DNI
-            val identityMatch = true //Devolvemos true
-            if (identityMatch) {
-                isIdentityVerified = true
-                Toast.makeText(requireContext(), "Identidad verificada correctamente", Toast.LENGTH_SHORT).show()
+            // Verificamos que el fragmento siga adjunto a la actividad
+            if (isAdded) {
+                // TODO: Implementar ML Kit Face Detection o Amazon Rekognition
+                // Comprobamos si el rostro coincide con el del DNI
+                val identityMatch = true // Simulamos que devuelve true
 
-                // Activamos visualmente el botón siguiente
-                val btnNext = view?.findViewById<Button>(R.id.btn_next_selfie)
-                btnNext?.alpha = 1.0f
-            } else {
-                Toast.makeText(requireContext(), "El rostro no coincide. Inténtalo de nuevo.", Toast.LENGTH_LONG).show()
+                if (identityMatch) {
+                    isIdentityVerified = true
+                    Toast.makeText(requireContext(), "Identidad verificada correctamente", Toast.LENGTH_SHORT).show()
+
+                    // Activamos visualmente el botón siguiente
+                    view?.findViewById<Button>(R.id.btn_next_selfie)?.alpha = 1.0f
+                } else {
+                    Toast.makeText(requireContext(), "El rostro no coincide. Inténtalo de nuevo.", Toast.LENGTH_LONG).show()
+                }
             }
-        }, 3000) //Simulamos 3 segundos de procesamiento
+        }, 3000) // Simulamos 3 segundos de procesamiento
     }
 
     private fun navigateToNextStep() {
-
-        //Marcamos en la cuenta que el usuario está verificado
+        // TODO: Asegurarse de que Reg4UsernameFragment existe en tu paquete auth
         parentFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, Reg4UsernameFragment())
             .addToBackStack(null)

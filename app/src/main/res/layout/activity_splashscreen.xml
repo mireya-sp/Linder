@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/linder_purple">
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/tv_pantalla_carga"
         android:layout_width="wrap_content"

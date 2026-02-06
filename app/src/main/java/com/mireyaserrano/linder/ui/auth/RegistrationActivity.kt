@@ -1,19 +1,27 @@
 package com.mireyaserrano.linder.ui.auth
 
-import com.mireyaserrano.linder.R
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.Fragment
+import com.mireyaserrano.linder.R
 
-class RegistrationActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration)
+class RegistrationActivity : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_reg1_phone, container, false)
 
-        // Al abrir la actividad, cargamos el primer fragmento (el del teléfono)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, Reg1PhoneFragment())
+        val btnNext = view.findViewById<Button>(R.id.btn_next)
+        btnNext.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, Reg2DniFragment())
+                .addToBackStack(null)
                 .commit()
         }
+        return view
     }
 }

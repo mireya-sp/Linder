@@ -27,6 +27,7 @@
         app:layout_constraintTop_toTopOf="@id/header_background" />
 
     <LinearLayout
+        android:id="@+id/login_options_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -106,7 +107,12 @@
             android:fontFamily="@font/nunito"
             android:textColor="@color/white"
             android:textSize="14sp" />
-
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
