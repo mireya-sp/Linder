@@ -8,138 +8,165 @@
 8        android:minSdkVersion="24"
 9        android:targetSdkVersion="36" />
 10
-11    <permission
-11-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
-12        android:name="com.mireyaserrano.linder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
-13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
-14
-15    <uses-permission android:name="com.mireyaserrano.linder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+11    <uses-permission android:name="android.permission.CAMERA" />
+11-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:5-65
+11-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:22-62
+12
+13    <uses-feature
+13-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:5-84
+14        android:name="android.hardware.camera"
+14-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:19-57
+15        android:required="true" />
+15-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:58-81
 16
-17    <application
-17-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:5-24:19
-18        android:allowBackup="true"
-18-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:9-35
-19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
-20        android:dataExtractionRules="@xml/data_extraction_rules"
-20-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:7:9-65
-21        android:debuggable="true"
-22        android:extractNativeLibs="false"
-23        android:fullBackupContent="@xml/backup_rules"
-23-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:8:9-54
-24        android:icon="@mipmap/ic_launcher"
-24-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:9:9-43
-25        android:label="@string/app_name"
-25-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:10:9-41
-26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:11:9-54
-27        android:supportsRtl="true"
-27-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:12:9-35
-28        android:testOnly="true"
-29        android:theme="@style/Theme.Linder" >
-29-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:13:9-44
-30        <activity
-30-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:14:9-23:20
-31            android:name="com.mireyaserrano.linder.MainActivity"
-31-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:15:13-41
-32            android:exported="true"
-32-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:16:13-36
-33            android:label="@string/app_name" >
-33-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:17:13-45
-34            <intent-filter>
-34-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:18:13-22:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:19:17-69
-35-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:19:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:21:17-77
-37-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:21:27-74
-38            </intent-filter>
-39        </activity>
-40
-41        <provider
-41-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
-42            android:name="androidx.startup.InitializationProvider"
-42-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
-43            android:authorities="com.mireyaserrano.linder.androidx-startup"
-43-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
-44            android:exported="false" >
-44-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
-45            <meta-data
-45-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
-46                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-46-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
-47                android:value="androidx.startup" />
-47-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
-48            <meta-data
-48-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:29:13-31:52
-49                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-49-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:30:17-78
-50                android:value="androidx.startup" />
-50-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:31:17-49
-51            <meta-data
-51-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
-52                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-52-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
-53                android:value="androidx.startup" />
-53-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
-54        </provider>
-55
-56        <uses-library
-56-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
-57            android:name="androidx.window.extensions"
-57-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
-58            android:required="false" />
-58-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
-59        <uses-library
-59-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
-60            android:name="androidx.window.sidecar"
-60-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
-61            android:required="false" />
-61-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
-62
-63        <receiver
-63-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
-64            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-64-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
-65            android:directBootAware="false"
-65-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
-66            android:enabled="true"
-66-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
-67            android:exported="true"
-67-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
-68            android:permission="android.permission.DUMP" >
-68-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
-69            <intent-filter>
-69-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
-70                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-70-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
-70-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
-71            </intent-filter>
-72            <intent-filter>
-72-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
-73                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-73-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
-73-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
-74            </intent-filter>
-75            <intent-filter>
-75-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
-76                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-76-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
-76-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
-77            </intent-filter>
-78            <intent-filter>
-78-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
-79                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-79-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
-79-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
-80            </intent-filter>
-81        </receiver>
-82    </application>
-83
-84</manifest>
+17    <permission
+17-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+18        android:name="com.mireyaserrano.linder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.mireyaserrano.linder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:8:5-40:19
+24        android:allowBackup="true"
+24-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:9:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+26        android:dataExtractionRules="@xml/data_extraction_rules"
+26-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:10:9-65
+27        android:debuggable="true"
+28        android:extractNativeLibs="false"
+29        android:fullBackupContent="@xml/backup_rules"
+29-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:11:9-54
+30        android:icon="@mipmap/ic_launcher"
+30-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:12:9-43
+31        android:label="@string/app_name"
+31-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:13:9-41
+32        android:roundIcon="@mipmap/ic_launcher_round"
+32-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:14:9-54
+33        android:supportsRtl="true"
+33-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:15:9-35
+34        android:testOnly="true"
+35        android:theme="@style/Theme.Linder" >
+35-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:16:9-44
+36        <activity
+36-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:19:9-26:20
+37            android:name="com.mireyaserrano.linder.SplashActivity"
+37-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:20:13-43
+38            android:exported="true" >
+38-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:21:13-36
+39            <intent-filter>
+39-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:22:13-25:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:23:17-69
+40-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:23:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:24:17-77
+42-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:24:27-74
+43            </intent-filter>
+44        </activity>
+45        <activity
+45-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:28:9-30:40
+46            android:name="com.mireyaserrano.linder.MainActivity"
+46-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:29:13-41
+47            android:exported="false" />
+47-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:30:13-37
+48        <activity
+48-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:32:9-34:40
+49            android:name="com.mireyaserrano.linder.ui.auth.LoginActivity"
+49-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:33:13-50
+50            android:exported="false" />
+50-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:34:13-37
+51        <activity
+51-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:36:9-38:40
+52            android:name="com.mireyaserrano.linder.ui.auth.RegistrationActivity"
+52-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:37:13-57
+53            android:exported="false" />
+53-->/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:38:13-37
+54
+55        <provider
+55-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+56            android:name="androidx.startup.InitializationProvider"
+56-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+57            android:authorities="com.mireyaserrano.linder.androidx-startup"
+57-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+58            android:exported="false" >
+58-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+59            <meta-data
+59-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+60                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+60-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+61                android:value="androidx.startup" />
+61-->[androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+62            <meta-data
+62-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:29:13-31:52
+63                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+63-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:30:17-78
+64                android:value="androidx.startup" />
+64-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:31:17-49
+65            <meta-data
+65-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+66-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+67                android:value="androidx.startup" />
+67-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+68        </provider>
+69
+70        <uses-library
+70-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+71            android:name="androidx.window.extensions"
+71-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+72            android:required="false" />
+72-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+73        <uses-library
+73-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+74            android:name="androidx.window.sidecar"
+74-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+75            android:required="false" />
+75-->[androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+76
+77        <receiver
+77-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+78            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+78-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+79            android:directBootAware="false"
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+80            android:enabled="true"
+80-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+81            android:exported="true"
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+82            android:permission="android.permission.DUMP" >
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+83            <intent-filter>
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+84                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+85            </intent-filter>
+86            <intent-filter>
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+87                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+88            </intent-filter>
+89            <intent-filter>
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+90                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+91            </intent-filter>
+92            <intent-filter>
+92-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+93                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+94            </intent-filter>
+95        </receiver>
+96    </application>
+97
+98</manifest>

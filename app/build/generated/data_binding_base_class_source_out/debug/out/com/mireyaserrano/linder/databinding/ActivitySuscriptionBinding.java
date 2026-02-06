@@ -4,20 +4,64 @@ package com.mireyaserrano.linder.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.mireyaserrano.linder.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class ActivitySuscriptionBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
-  private ActivitySuscriptionBinding(@NonNull ConstraintLayout rootView) {
+  @NonNull
+  public final ImageView btnBack;
+
+  @NonNull
+  public final AppCompatButton btnContinue;
+
+  @NonNull
+  public final ImageView icGoldBadge2;
+
+  @NonNull
+  public final ImageView icGoldBadge3;
+
+  @NonNull
+  public final TextView tvDuration1;
+
+  @NonNull
+  public final TextView tvDuration2;
+
+  @NonNull
+  public final TextView tvDuration3;
+
+  @NonNull
+  public final TextView tvSubtitle;
+
+  @NonNull
+  public final TextView tvTitle;
+
+  private ActivitySuscriptionBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
+      @NonNull AppCompatButton btnContinue, @NonNull ImageView icGoldBadge2,
+      @NonNull ImageView icGoldBadge3, @NonNull TextView tvDuration1, @NonNull TextView tvDuration2,
+      @NonNull TextView tvDuration3, @NonNull TextView tvSubtitle, @NonNull TextView tvTitle) {
     this.rootView = rootView;
+    this.btnBack = btnBack;
+    this.btnContinue = btnContinue;
+    this.icGoldBadge2 = icGoldBadge2;
+    this.icGoldBadge3 = icGoldBadge3;
+    this.tvDuration1 = tvDuration1;
+    this.tvDuration2 = tvDuration2;
+    this.tvDuration3 = tvDuration3;
+    this.tvSubtitle = tvSubtitle;
+    this.tvTitle = tvTitle;
   }
 
   @Override
@@ -43,10 +87,68 @@ public final class ActivitySuscriptionBinding implements ViewBinding {
 
   @NonNull
   public static ActivitySuscriptionBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btnBack;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
 
-    return new ActivitySuscriptionBinding((ConstraintLayout) rootView);
+      id = R.id.btnContinue;
+      AppCompatButton btnContinue = ViewBindings.findChildViewById(rootView, id);
+      if (btnContinue == null) {
+        break missingId;
+      }
+
+      id = R.id.ic_gold_badge2;
+      ImageView icGoldBadge2 = ViewBindings.findChildViewById(rootView, id);
+      if (icGoldBadge2 == null) {
+        break missingId;
+      }
+
+      id = R.id.ic_gold_badge3;
+      ImageView icGoldBadge3 = ViewBindings.findChildViewById(rootView, id);
+      if (icGoldBadge3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDuration1;
+      TextView tvDuration1 = ViewBindings.findChildViewById(rootView, id);
+      if (tvDuration1 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDuration2;
+      TextView tvDuration2 = ViewBindings.findChildViewById(rootView, id);
+      if (tvDuration2 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDuration3;
+      TextView tvDuration3 = ViewBindings.findChildViewById(rootView, id);
+      if (tvDuration3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvSubtitle;
+      TextView tvSubtitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvSubtitle == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTitle;
+      TextView tvTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvTitle == null) {
+        break missingId;
+      }
+
+      return new ActivitySuscriptionBinding((ConstraintLayout) rootView, btnBack, btnContinue,
+          icGoldBadge2, icGoldBadge3, tvDuration1, tvDuration2, tvDuration3, tvSubtitle, tvTitle);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

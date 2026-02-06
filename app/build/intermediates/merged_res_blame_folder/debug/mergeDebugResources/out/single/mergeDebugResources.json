@@ -4,6 +4,10 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-hdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/layout_activity_edit_profile.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/layout/activity_edit_profile.xml"
+    },
+    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_main.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_main.xml"
     },
@@ -28,12 +32,12 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_back_arrow.png"
     },
     {
-        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_dashboard_black_24dp.xml.flat",
-        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_dashboard_black_24dp.xml"
-    },
-    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_dashboard_black_24dp.xml"
     },
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_edit_profile.xml.flat",
@@ -66,6 +70,10 @@
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_home.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_gold_badge_try.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_gold_badge_try.png"
     },
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xhdpi_ic_launcher.webp.flat",
@@ -104,6 +112,10 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_profile_main.xml"
     },
     {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_arrow_forward.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_arrow_forward.png"
+    },
+    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
@@ -140,6 +152,10 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_registration.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_registration.xml"
+    },
+    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/font_marko_one.ttf.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/font/marko_one.ttf"
     },
@@ -164,6 +180,10 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_explore.xml"
     },
     {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/layout_activity_suscription.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/layout/activity_suscription.xml"
+    },
+    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg3_selfie.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg3_selfie.xml"
     },
@@ -184,6 +204,10 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_settings.png"
     },
     {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_chevron_left.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_chevron_left.png"
+    },
+    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg4_name.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg4_name.xml"
     },
@@ -196,12 +220,20 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_notifications_black_24dp.xml"
     },
     {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_button_background.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/button_background.xml"
+    },
+    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_home.png.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_home.png"
     },
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_launcher_foreground.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_card_shadow_bg.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/card_shadow_bg.xml"
     },
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-mdpi_ic_launcher.webp.flat",
@@ -240,6 +272,10 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/user_thumb.JPG"
     },
     {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_card_gradient.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/card_gradient.xml"
+    },
+    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_likes.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_likes.xml"
     },
@@ -258,6 +294,10 @@
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_chat_list.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_chat_list.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_gold_badge.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_gold_badge.png"
     },
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_launcher_background.xml.flat",
@@ -280,10 +320,6 @@
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.mireyaserrano.linder.app-debug-51:/layout_activity_registration.xml.flat",
-        "source": "com.mireyaserrano.linder.app-main-53:/layout/activity_registration.xml"
-    },
-    {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_attach.png.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_attach.png"
     },
@@ -298,5 +334,9 @@
     {
         "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg2_dni.xml.flat",
         "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg2_dni.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_subscription_button_gradient.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/subscription_button_gradient.xml"
     }
 ]

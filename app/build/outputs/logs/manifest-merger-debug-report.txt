@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-26:12
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
 MERGED from [androidx.databinding:viewbinding:8.13.2] /home/mireyasp/.gradle/caches/8.13/transforms/df91050b0683ef4209da8bca12f49be7/transformed/viewbinding-8.13.2/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/20063b47c51495f2c7e2522e97035169/transformed/navigation-common-2.6.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/5af0b21ebfad8739095aaab6ef5d7234/transformed/navigation-common-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
@@ -72,9 +72,19 @@ MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/mireyasp/.gradle/cache
 		INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.CAMERA
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:22-62
+uses-feature#android.hardware.camera
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:5-84
+	android:required
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:58-81
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:19-57
 application
-ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:5-24:19
-INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:5-24:19
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:8:5-40:19
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:8:5-40:19
 MERGED from [com.google.android.material:material:1.13.0] /home/mireyasp/.gradle/caches/8.13/transforms/6758faa8aa4a2c2a5fe389ef64bffa04/transformed/material-1.13.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.13.0] /home/mireyasp/.gradle/caches/8.13/transforms/6758faa8aa4a2c2a5fe389ef64bffa04/transformed/material-1.13.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/86541e9b1c75e12ea408b191f85b79a5/transformed/constraintlayout-2.2.1/AndroidManifest.xml:7:5-20
@@ -98,39 +108,57 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:15:9-35
 	android:label
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:10:9-41
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:13:9-41
 	android:fullBackupContent
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:8:9-54
-	android:roundIcon
 		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:11:9-54
+	android:roundIcon
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:14:9-54
+	tools:targetApi
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:17:9-29
 	android:icon
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:9:9-43
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:13:9-44
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:16:9-44
 	android:dataExtractionRules
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:7:9-65
-activity#com.mireyaserrano.linder.MainActivity
-ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:14:9-23:20
-	android:label
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:17:13-45
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:10:9-65
+activity#com.mireyaserrano.linder.SplashActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:19:9-26:20
 	android:exported
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:16:13-36
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:21:13-36
 	android:name
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:15:13-41
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:20:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:18:13-22:29
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:22:13-25:29
 action#android.intent.action.MAIN
-ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:19:17-69
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:19:25-66
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:21:17-77
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:21:27-74
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:24:27-74
+activity#com.mireyaserrano.linder.MainActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:28:9-30:40
+	android:exported
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:29:13-41
+activity#com.mireyaserrano.linder.ui.auth.LoginActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:33:13-50
+activity#com.mireyaserrano.linder.ui.auth.RegistrationActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:37:13-57
 uses-sdk
 INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml

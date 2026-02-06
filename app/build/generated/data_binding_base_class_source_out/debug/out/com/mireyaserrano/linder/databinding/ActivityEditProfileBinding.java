@@ -4,25 +4,62 @@ package com.mireyaserrano.linder.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.mireyaserrano.linder.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class ActivityEditProfileBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final ScrollView rootView;
 
-  private ActivityEditProfileBinding(@NonNull ConstraintLayout rootView) {
+  @NonNull
+  public final RelativeLayout btnAboutMe;
+
+  @NonNull
+  public final ImageView btnBack;
+
+  @NonNull
+  public final RelativeLayout btnImages;
+
+  @NonNull
+  public final RelativeLayout btnLookingFor;
+
+  @NonNull
+  public final RelativeLayout btnSexualOrientation;
+
+  @NonNull
+  public final EditText etEmail;
+
+  @NonNull
+  public final EditText etName;
+
+  private ActivityEditProfileBinding(@NonNull ScrollView rootView,
+      @NonNull RelativeLayout btnAboutMe, @NonNull ImageView btnBack,
+      @NonNull RelativeLayout btnImages, @NonNull RelativeLayout btnLookingFor,
+      @NonNull RelativeLayout btnSexualOrientation, @NonNull EditText etEmail,
+      @NonNull EditText etName) {
     this.rootView = rootView;
+    this.btnAboutMe = btnAboutMe;
+    this.btnBack = btnBack;
+    this.btnImages = btnImages;
+    this.btnLookingFor = btnLookingFor;
+    this.btnSexualOrientation = btnSexualOrientation;
+    this.etEmail = etEmail;
+    this.etName = etName;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -43,10 +80,56 @@ public final class ActivityEditProfileBinding implements ViewBinding {
 
   @NonNull
   public static ActivityEditProfileBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btnAboutMe;
+      RelativeLayout btnAboutMe = ViewBindings.findChildViewById(rootView, id);
+      if (btnAboutMe == null) {
+        break missingId;
+      }
 
-    return new ActivityEditProfileBinding((ConstraintLayout) rootView);
+      id = R.id.btnBack;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
+      id = R.id.btnImages;
+      RelativeLayout btnImages = ViewBindings.findChildViewById(rootView, id);
+      if (btnImages == null) {
+        break missingId;
+      }
+
+      id = R.id.btnLookingFor;
+      RelativeLayout btnLookingFor = ViewBindings.findChildViewById(rootView, id);
+      if (btnLookingFor == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSexualOrientation;
+      RelativeLayout btnSexualOrientation = ViewBindings.findChildViewById(rootView, id);
+      if (btnSexualOrientation == null) {
+        break missingId;
+      }
+
+      id = R.id.etEmail;
+      EditText etEmail = ViewBindings.findChildViewById(rootView, id);
+      if (etEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.etName;
+      EditText etName = ViewBindings.findChildViewById(rootView, id);
+      if (etName == null) {
+        break missingId;
+      }
+
+      return new ActivityEditProfileBinding((ScrollView) rootView, btnAboutMe, btnBack, btnImages,
+          btnLookingFor, btnSexualOrientation, etEmail, etName);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }
