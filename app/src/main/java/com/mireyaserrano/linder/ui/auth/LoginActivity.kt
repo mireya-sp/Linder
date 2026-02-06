@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.mireyaserrano.linder.R
+import com.mireyaserrano.linder.Reg1PhoneFragment
 
 class LoginActivity : AppCompatActivity() {
 
