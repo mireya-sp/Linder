@@ -1,0 +1,342 @@
+[
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/layout_activity_edit_profile.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/layout/activity_edit_profile.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_main.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_dashboard.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_home_double.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_home_double.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_close.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_close.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_refresh.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_refresh.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_back_arrow.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_back_arrow.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_edit_profile.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_edit_profile.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_google.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_google.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_facebook.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_facebook.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_camera.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_camera.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_notifications.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_notifications.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_circle_background_black.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/circle_background_black.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_home.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_gold_badge_try.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_gold_badge_try.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_heart.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_heart.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg5_sexual_orientation.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg5_sexual_orientation.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_action_button_ring.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/action_button_ring.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_chat.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_chat.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_dialog_verify_images.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/dialog_verify_images.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_heart_anatomical.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_heart_anatomical.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_profile_main.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_profile_main.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_arrow_forward.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_arrow_forward.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_user.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_user.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/font_trirong.ttf.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/font/trirong.ttf"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_home_black_24dp.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_home_individual.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_home_individual.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg8_photos.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg8_photos.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_login.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_login.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_registration.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_registration.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/font_marko_one.ttf.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/font/marko_one.ttf"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_text_scrim.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/text_scrim.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_monetization.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_monetization.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_phone.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_phone.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_search.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_search.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_explore.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_explore.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/layout_activity_suscription.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/layout/activity_suscription.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg3_selfie.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg3_selfie.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/font_nunito.ttf.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/font/nunito.ttf"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg7_bio.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg7_bio.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_bottom_gradient_bg.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/bottom_gradient_bg.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_settings.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_settings.png"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_chevron_left.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_chevron_left.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg4_name.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg4_name.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg6_intent.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg6_intent.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_button_background.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/button_background.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_home.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_home.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_card_shadow_bg.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/card_shadow_bg.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg1_phone.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg1_phone.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_people.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_people.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_suscription.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_suscription.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_bg_button_rounded.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/bg_button_rounded.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_splashscreen.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_splashscreen.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_user_thumb.JPG.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/user_thumb.JPG"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_card_gradient.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/card_gradient.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_likes.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_likes.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/menu_bottom_nav_menu.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_manage_double.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_manage_double.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_chat.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_chat.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_chat_list.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_chat_list.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_ic_gold_badge.png.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/ic_gold_badge.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_profile_placeholder.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/profile_placeholder.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/xml_backup_rules.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_ic_attach.png.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/ic_attach.png"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_activity_settings_general.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_settings_general.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/drawable_button_gradient.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/drawable/button_gradient.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-debug-51:/layout_fragment_reg2_dni.xml.flat",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg2_dni.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-debug-51:/drawable_subscription_button_gradient.xml.flat",
+        "source": "com.mireyaserrano.linder.app-main-53:/drawable/subscription_button_gradient.xml"
+    }
+]

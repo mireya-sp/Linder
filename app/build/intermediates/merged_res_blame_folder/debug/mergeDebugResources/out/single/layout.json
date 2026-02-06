@@ -1,0 +1,118 @@
+[
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/dialog_verify_images.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/dialog_verify_images.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_explore.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_explore.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_home.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_dashboard.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_login.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_login.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_splashscreen.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_splashscreen.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_home_individual.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_home_individual.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_registration.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_registration.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg3_selfie.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg3_selfie.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg4_name.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg4_name.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_likes.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_likes.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_notifications.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_notifications.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg5_sexual_orientation.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg5_sexual_orientation.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_suscription.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_suscription.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_profile_main.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_profile_main.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_edit_profile.xml",
+        "source": "com.mireyaserrano.linder.app-main-53:/layout/activity_edit_profile.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_home_double.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_home_double.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_settings_general.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_settings_general.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg8_photos.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg8_photos.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg6_intent.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg6_intent.xml"
+    },
+    {
+        "merged": "com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_suscription.xml",
+        "source": "com.mireyaserrano.linder.app-main-53:/layout/activity_suscription.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_chat.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_chat.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg7_bio.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg7_bio.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg1_phone.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg1_phone.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_edit_profile.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_edit_profile.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/activity_manage_double.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/activity_manage_double.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_chat_list.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_chat_list.xml"
+    },
+    {
+        "merged": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-mergeDebugResources-50:/layout/fragment_reg2_dni.xml",
+        "source": "/home/mireyasp/.gradle/daemon/8.13/com.mireyaserrano.linder.app-main-53:/layout/fragment_reg2_dni.xml"
+    }
+]

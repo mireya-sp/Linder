@@ -1,0 +1,387 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:1-42:12
+MERGED from [androidx.databinding:viewbinding:8.13.2] /home/mireyasp/.gradle/caches/8.13/transforms/df91050b0683ef4209da8bca12f49be7/transformed/viewbinding-8.13.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/20063b47c51495f2c7e2522e97035169/transformed/navigation-common-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/5af0b21ebfad8739095aaab6ef5d7234/transformed/navigation-common-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/30b073fb945b6a0bc37eadd79ebb2eed/transformed/navigation-runtime-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/f3b50884599bc882000a4db7a2350d45/transformed/navigation-runtime-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/7757ddbbbeb5bce3b0257bdbe5c05e36/transformed/navigation-fragment-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/8412331bcce4d8573c7850591e933f99/transformed/navigation-fragment-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/eaf9a7fd9620bb40138d5d97391d80a4/transformed/navigation-ui-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-ui:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/92544921a3947445bbf662046e24be31/transformed/navigation-ui-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.material:material:1.13.0] /home/mireyasp/.gradle/caches/8.13/transforms/6758faa8aa4a2c2a5fe389ef64bffa04/transformed/material-1.13.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/86541e9b1c75e12ea408b191f85b79a5/transformed/constraintlayout-2.2.1/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] /home/mireyasp/.gradle/caches/8.13/transforms/3049ebd5144bd93c4cfc585b1ff6fff1/transformed/appcompat-resources-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.1] /home/mireyasp/.gradle/caches/8.13/transforms/5945d830f6e01e8952095aa38a5a29df/transformed/appcompat-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/263080b5bb48b34ae3cc30c79f1b3569/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/ec604810687c8c1baec06c5c73d72789/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/5aee87540d768e943ec33b0b6a9d0d3f/transformed/fragment-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.0] /home/mireyasp/.gradle/caches/8.13/transforms/285dc03cfce7c751b944aa9d8b4bfb49/transformed/activity-ktx-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.8.0] /home/mireyasp/.gradle/caches/8.13/transforms/948065b81a36f944e73e4ae7255fcb43/transformed/activity-1.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/6ab6cb3fd3e50aab3dc332e5f5ec9a25/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/d4f90295cb027745dd787a0cce9525f8/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/d4ba936401ac8f0ab7a5209ce35adadb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/37f5034b1df6e1bba7f889a61346c7e4/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.5.0] /home/mireyasp/.gradle/caches/8.13/transforms/483186834eb65f6d572a107a8e94161a/transformed/transition-1.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/3c028154c0464b9e83eeb770c4578fff/transformed/dynamicanimation-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/8c3f2f791fc8f34f4b2038e9de4f0bd7/transformed/recyclerview-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/f87e5b678ef5e75558aa72e4a7ea0f0a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/2e8ce4db12b460d09bdcf43069fe9125/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/e8c909674d4efbfba68d8a7343dd6357/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/8d1fac5380d411e9ef8b4d987e50c3c8/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.loader:loader:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/7ae717546d622b0f8a125215c65473d4/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] /home/mireyasp/.gradle/caches/8.13/transforms/c1081839ac2274cbc94b7cf1133c820f/transformed/graphics-shapes-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/ee64cdaea4dfbbc4cfa8b14032dafa90/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /home/mireyasp/.gradle/caches/8.13/transforms/c3bfd1d5ab1095c932cc30f0cce60cc3/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /home/mireyasp/.gradle/caches/8.13/transforms/7d8e0c70cfc841efcdfc6150d264538b/transformed/savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b8eb3df8edf596f3b79f1a326b466422/transformed/lifecycle-viewmodel-2.9.3/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/62f215005a4317bd24ee0d168d877589/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/73d38e61fc86f802d85c9f5d26ccf551/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/6fc2b7864aad3d6ebb308a4d75784dab/transformed/lifecycle-livedata-core-2.9.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/4b33047182e1a247cc32bf67ed8bbe51/transformed/lifecycle-livedata-core-ktx-2.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/67c772ad6950c7b18ecfe941cbe7507d/transformed/lifecycle-livedata-2.9.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/f59e3f39b2b906aad9bbf6ca094d4271/transformed/lifecycle-livedata-ktx-2.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/1a8020f99efbbaa8a443c57fc70ebd07/transformed/lifecycle-viewmodel-ktx-2.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/390b977bf9b76543ffae43b65c9e84a4/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/f4c13ec04d385260bfe860daf6427001/transformed/core-ktx-1.17.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/mireyasp/.gradle/caches/8.13/transforms/a2cdc4bb41d2117c5127a9f6995bd0e2/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/0eef5221f5ea31a5312af07a35ddfc6e/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8e9f6c9017825f13e9c9b10a2d8facab/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/7fdd91f1a371b0e14963b4cf2c27b8dc/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/f447dfe38f33a1cc00ea358ab73a0ba6/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/b54bc8156a9599845668d5bd5bca2702/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8f7032813354f09be6cdaa1156297644/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/0f96375799a7965bcba8614cfd750c85/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/2ea6e88420f729920375f39989441325/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.CAMERA
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:5:22-62
+uses-feature#android.hardware.camera
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:5-84
+	android:required
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:58-81
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:6:19-57
+application
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:8:5-40:19
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:8:5-40:19
+MERGED from [com.google.android.material:material:1.13.0] /home/mireyasp/.gradle/caches/8.13/transforms/6758faa8aa4a2c2a5fe389ef64bffa04/transformed/material-1.13.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.13.0] /home/mireyasp/.gradle/caches/8.13/transforms/6758faa8aa4a2c2a5fe389ef64bffa04/transformed/material-1.13.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/86541e9b1c75e12ea408b191f85b79a5/transformed/constraintlayout-2.2.1/AndroidManifest.xml:7:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/86541e9b1c75e12ea408b191f85b79a5/transformed/constraintlayout-2.2.1/AndroidManifest.xml:7:5-20
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8e9f6c9017825f13e9c9b10a2d8facab/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8e9f6c9017825f13e9c9b10a2d8facab/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8f7032813354f09be6cdaa1156297644/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8f7032813354f09be6cdaa1156297644/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:15:9-35
+	android:label
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:13:9-41
+	android:fullBackupContent
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:11:9-54
+	android:roundIcon
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:14:9-54
+	tools:targetApi
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:17:9-29
+	android:icon
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:12:9-43
+	android:allowBackup
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:16:9-44
+	android:dataExtractionRules
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:10:9-65
+activity#com.mireyaserrano.linder.SplashActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:19:9-26:20
+	android:exported
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:21:13-36
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:20:13-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:22:13-25:29
+action#android.intent.action.MAIN
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:23:17-69
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:23:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:24:17-77
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:24:27-74
+activity#com.mireyaserrano.linder.MainActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:28:9-30:40
+	android:exported
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:29:13-41
+activity#com.mireyaserrano.linder.ui.auth.LoginActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:33:13-50
+activity#com.mireyaserrano.linder.ui.auth.RegistrationActivity
+ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml:37:13-57
+uses-sdk
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:8.13.2] /home/mireyasp/.gradle/caches/8.13/transforms/df91050b0683ef4209da8bca12f49be7/transformed/viewbinding-8.13.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.13.2] /home/mireyasp/.gradle/caches/8.13/transforms/df91050b0683ef4209da8bca12f49be7/transformed/viewbinding-8.13.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/20063b47c51495f2c7e2522e97035169/transformed/navigation-common-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/20063b47c51495f2c7e2522e97035169/transformed/navigation-common-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/5af0b21ebfad8739095aaab6ef5d7234/transformed/navigation-common-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/5af0b21ebfad8739095aaab6ef5d7234/transformed/navigation-common-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/30b073fb945b6a0bc37eadd79ebb2eed/transformed/navigation-runtime-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/30b073fb945b6a0bc37eadd79ebb2eed/transformed/navigation-runtime-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/f3b50884599bc882000a4db7a2350d45/transformed/navigation-runtime-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/f3b50884599bc882000a4db7a2350d45/transformed/navigation-runtime-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/7757ddbbbeb5bce3b0257bdbe5c05e36/transformed/navigation-fragment-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/7757ddbbbeb5bce3b0257bdbe5c05e36/transformed/navigation-fragment-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/8412331bcce4d8573c7850591e933f99/transformed/navigation-fragment-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/8412331bcce4d8573c7850591e933f99/transformed/navigation-fragment-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/eaf9a7fd9620bb40138d5d97391d80a4/transformed/navigation-ui-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/eaf9a7fd9620bb40138d5d97391d80a4/transformed/navigation-ui-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/92544921a3947445bbf662046e24be31/transformed/navigation-ui-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/92544921a3947445bbf662046e24be31/transformed/navigation-ui-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.13.0] /home/mireyasp/.gradle/caches/8.13/transforms/6758faa8aa4a2c2a5fe389ef64bffa04/transformed/material-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.13.0] /home/mireyasp/.gradle/caches/8.13/transforms/6758faa8aa4a2c2a5fe389ef64bffa04/transformed/material-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/86541e9b1c75e12ea408b191f85b79a5/transformed/constraintlayout-2.2.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/86541e9b1c75e12ea408b191f85b79a5/transformed/constraintlayout-2.2.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] /home/mireyasp/.gradle/caches/8.13/transforms/3049ebd5144bd93c4cfc585b1ff6fff1/transformed/appcompat-resources-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] /home/mireyasp/.gradle/caches/8.13/transforms/3049ebd5144bd93c4cfc585b1ff6fff1/transformed/appcompat-resources-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.1] /home/mireyasp/.gradle/caches/8.13/transforms/5945d830f6e01e8952095aa38a5a29df/transformed/appcompat-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.1] /home/mireyasp/.gradle/caches/8.13/transforms/5945d830f6e01e8952095aa38a5a29df/transformed/appcompat-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/263080b5bb48b34ae3cc30c79f1b3569/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/263080b5bb48b34ae3cc30c79f1b3569/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/ec604810687c8c1baec06c5c73d72789/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/ec604810687c8c1baec06c5c73d72789/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/5aee87540d768e943ec33b0b6a9d0d3f/transformed/fragment-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.0] /home/mireyasp/.gradle/caches/8.13/transforms/5aee87540d768e943ec33b0b6a9d0d3f/transformed/fragment-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /home/mireyasp/.gradle/caches/8.13/transforms/285dc03cfce7c751b944aa9d8b4bfb49/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /home/mireyasp/.gradle/caches/8.13/transforms/285dc03cfce7c751b944aa9d8b4bfb49/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.8.0] /home/mireyasp/.gradle/caches/8.13/transforms/948065b81a36f944e73e4ae7255fcb43/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /home/mireyasp/.gradle/caches/8.13/transforms/948065b81a36f944e73e4ae7255fcb43/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/6ab6cb3fd3e50aab3dc332e5f5ec9a25/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/6ab6cb3fd3e50aab3dc332e5f5ec9a25/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/d4f90295cb027745dd787a0cce9525f8/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/d4f90295cb027745dd787a0cce9525f8/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/d4ba936401ac8f0ab7a5209ce35adadb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/d4ba936401ac8f0ab7a5209ce35adadb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/37f5034b1df6e1bba7f889a61346c7e4/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/37f5034b1df6e1bba7f889a61346c7e4/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.5.0] /home/mireyasp/.gradle/caches/8.13/transforms/483186834eb65f6d572a107a8e94161a/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.5.0] /home/mireyasp/.gradle/caches/8.13/transforms/483186834eb65f6d572a107a8e94161a/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/3c028154c0464b9e83eeb770c4578fff/transformed/dynamicanimation-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/3c028154c0464b9e83eeb770c4578fff/transformed/dynamicanimation-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/8c3f2f791fc8f34f4b2038e9de4f0bd7/transformed/recyclerview-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /home/mireyasp/.gradle/caches/8.13/transforms/8c3f2f791fc8f34f4b2038e9de4f0bd7/transformed/recyclerview-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/f87e5b678ef5e75558aa72e4a7ea0f0a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/f87e5b678ef5e75558aa72e4a7ea0f0a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/2e8ce4db12b460d09bdcf43069fe9125/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/2e8ce4db12b460d09bdcf43069fe9125/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/e8c909674d4efbfba68d8a7343dd6357/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/e8c909674d4efbfba68d8a7343dd6357/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/8d1fac5380d411e9ef8b4d987e50c3c8/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/mireyasp/.gradle/caches/8.13/transforms/8d1fac5380d411e9ef8b4d987e50c3c8/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/7ae717546d622b0f8a125215c65473d4/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/7ae717546d622b0f8a125215c65473d4/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] /home/mireyasp/.gradle/caches/8.13/transforms/c1081839ac2274cbc94b7cf1133c820f/transformed/graphics-shapes-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] /home/mireyasp/.gradle/caches/8.13/transforms/c1081839ac2274cbc94b7cf1133c820f/transformed/graphics-shapes-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/ee64cdaea4dfbbc4cfa8b14032dafa90/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/ee64cdaea4dfbbc4cfa8b14032dafa90/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /home/mireyasp/.gradle/caches/8.13/transforms/c3bfd1d5ab1095c932cc30f0cce60cc3/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /home/mireyasp/.gradle/caches/8.13/transforms/c3bfd1d5ab1095c932cc30f0cce60cc3/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /home/mireyasp/.gradle/caches/8.13/transforms/7d8e0c70cfc841efcdfc6150d264538b/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /home/mireyasp/.gradle/caches/8.13/transforms/7d8e0c70cfc841efcdfc6150d264538b/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b8eb3df8edf596f3b79f1a326b466422/transformed/lifecycle-viewmodel-2.9.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b8eb3df8edf596f3b79f1a326b466422/transformed/lifecycle-viewmodel-2.9.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/62f215005a4317bd24ee0d168d877589/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/62f215005a4317bd24ee0d168d877589/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/73d38e61fc86f802d85c9f5d26ccf551/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/73d38e61fc86f802d85c9f5d26ccf551/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/6fc2b7864aad3d6ebb308a4d75784dab/transformed/lifecycle-livedata-core-2.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/6fc2b7864aad3d6ebb308a4d75784dab/transformed/lifecycle-livedata-core-2.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/4b33047182e1a247cc32bf67ed8bbe51/transformed/lifecycle-livedata-core-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/4b33047182e1a247cc32bf67ed8bbe51/transformed/lifecycle-livedata-core-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/67c772ad6950c7b18ecfe941cbe7507d/transformed/lifecycle-livedata-2.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/67c772ad6950c7b18ecfe941cbe7507d/transformed/lifecycle-livedata-2.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/f59e3f39b2b906aad9bbf6ca094d4271/transformed/lifecycle-livedata-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/f59e3f39b2b906aad9bbf6ca094d4271/transformed/lifecycle-livedata-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/1a8020f99efbbaa8a443c57fc70ebd07/transformed/lifecycle-viewmodel-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/1a8020f99efbbaa8a443c57fc70ebd07/transformed/lifecycle-viewmodel-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/390b977bf9b76543ffae43b65c9e84a4/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/390b977bf9b76543ffae43b65c9e84a4/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/f4c13ec04d385260bfe860daf6427001/transformed/core-ktx-1.17.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/f4c13ec04d385260bfe860daf6427001/transformed/core-ktx-1.17.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/mireyasp/.gradle/caches/8.13/transforms/a2cdc4bb41d2117c5127a9f6995bd0e2/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/mireyasp/.gradle/caches/8.13/transforms/a2cdc4bb41d2117c5127a9f6995bd0e2/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/0eef5221f5ea31a5312af07a35ddfc6e/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/0eef5221f5ea31a5312af07a35ddfc6e/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8e9f6c9017825f13e9c9b10a2d8facab/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8e9f6c9017825f13e9c9b10a2d8facab/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/7fdd91f1a371b0e14963b4cf2c27b8dc/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/7fdd91f1a371b0e14963b4cf2c27b8dc/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/f447dfe38f33a1cc00ea358ab73a0ba6/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/f447dfe38f33a1cc00ea358ab73a0ba6/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/b54bc8156a9599845668d5bd5bca2702/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/b54bc8156a9599845668d5bd5bca2702/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8f7032813354f09be6cdaa1156297644/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8f7032813354f09be6cdaa1156297644/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/0f96375799a7965bcba8614cfd750c85/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/0f96375799a7965bcba8614cfd750c85/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/2ea6e88420f729920375f39989441325/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/mireyasp/.gradle/caches/8.13/transforms/2ea6e88420f729920375f39989441325/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/src/main/AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8f7032813354f09be6cdaa1156297644/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/mireyasp/.gradle/caches/8.13/transforms/8f7032813354f09be6cdaa1156297644/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/mireyasp/.gradle/caches/8.13/transforms/9364a26c7fbdb789c60e9cce593f7909/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /home/mireyasp/.gradle/caches/8.13/transforms/3199b3acca994113a020176050b6a3dc/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+permission#com.mireyaserrano.linder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+uses-permission#com.mireyaserrano.linder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/mireyasp/.gradle/caches/8.13/transforms/dda22a5e5aecef8284070a92e11f4c04/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/mireyasp/.gradle/caches/8.13/transforms/b6fc2c97852d00bd5b01c067675f4e5a/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/mireyasp/.gradle/caches/8.13/transforms/c2387ecc376428114fb59769291fb115/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
