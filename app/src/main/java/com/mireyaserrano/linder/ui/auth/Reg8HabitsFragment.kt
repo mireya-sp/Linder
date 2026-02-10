@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.mireyaserrano.linder.ui.auth.Reg9PhotosFragment
 
 class Reg8HabitsFragment : Fragment() {
 

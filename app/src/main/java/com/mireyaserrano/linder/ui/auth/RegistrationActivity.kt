@@ -1,27 +1,20 @@
 package com.mireyaserrano.linder.ui.auth
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.mireyaserrano.linder.R
+import com.mireyaserrano.linder.Reg1PhoneFragment
 
-class RegistrationActivity : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_reg1_phone, container, false)
+class RegistrationActivity : AppCompatActivity() {
 
-        val btnNext = view.findViewById<Button>(R.id.btn_next)
-        btnNext.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, Reg2DniFragment())
-                .addToBackStack(null)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_registration)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, Reg1PhoneFragment())
                 .commit()
         }
-        return view
     }
 }
