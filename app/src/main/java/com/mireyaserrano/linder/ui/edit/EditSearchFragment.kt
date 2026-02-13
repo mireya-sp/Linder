@@ -14,7 +14,7 @@ class EditSearchFragment : Fragment(R.layout.fragment_edit_searching) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentEditSearchingBinding.bind(view)
-
+        /*
         // Configurar selección (puedes añadir lógica para cambiar el color al clicar)
         binding.btnRelacionSeria.setOnClickListener { seleccion = "Relación Seria" }
         binding.btnRollo.setOnClickListener { seleccion = "Un rollo" }
@@ -24,9 +24,13 @@ class EditSearchFragment : Fragment(R.layout.fragment_edit_searching) {
             //findNavController().navigateUp()
         }
 
+
+
         binding.btnGuardar.setOnClickListener {
             // Aquí guardarías el dato en tu ViewModel o base de datos
             //findNavController().navigateUp()
         }
+        
+         */
     }
 }
