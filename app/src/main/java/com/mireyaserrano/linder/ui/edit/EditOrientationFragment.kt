@@ -16,9 +16,12 @@ class EditOrientationFragment : Fragment(R.layout.fragment_edit_sexual_orientati
             parentFragmentManager.popBackStack()
         }
 
+        /*
         binding.btnGuardar.setOnClickListener {
             // Aquí cierras y vuelves al perfil
             parentFragmentManager.popBackStack()
         }
+
+         */
     }
 }
