@@ -3,24 +3,23 @@ package com.mireyaserrano.linder
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+// Importa la ubicación real de tu fragmento
+import com.mireyaserrano.linder.ui.main.HomeIndividualFragment
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Este layout debe tener el FragmentContainerView con ID 'main_container'
         setContentView(R.layout.activity_main)
 
-        // Si es la primera vez que se crea la actividad, cargamos el Home
+        // Ahora sí: si la actividad es nueva, inyectamos el fragmento de inicio
         if (savedInstanceState == null) {
-            // Por ejemplo, cargar el fragmento de "Descubrir" o "Home"
-            // loadFragment(HomeFragment())
+            loadFragment(HomeIndividualFragment())
         }
     }
 
     /**
-     * Función de utilidad para cambiar fragmentos dentro de la MainActivity
-     * sin repetir código.
+     * Función para intercambiar fragmentos en el contenedor principal
      */
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
