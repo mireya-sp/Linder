@@ -35,12 +35,14 @@ class Reg9PhotosFragment : Fragment() {
         }
 
         btnFinish.setOnClickListener {
-            // Ir a MainActivity y cerrar el flujo de registro
             val intent = Intent(requireContext(), MainActivity::class.java)
+
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
             startActivity(intent)
+
             requireActivity().finish()
         }
-
         return view
     }
 
