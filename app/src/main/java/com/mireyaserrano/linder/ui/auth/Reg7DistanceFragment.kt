@@ -1,48 +1,93 @@
 package com.mireyaserrano.linder
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.slider.Slider
 
-class Reg7DistanceFragment : Fragment() {
+class Reg7DistanceFragment : Fragment(R.layout.fragment_reg7_distance) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_reg7_distance, container, false)
+    // Variables de datos acumulados
+    private var receivedPhone: String? = null
+    private var receivedPass: String? = null
+    private var receivedDni: String? = null
+    private var receivedBirthDate: String? = null
+    private var receivedSelfieUri: String? = null
+    private var receivedUsername: String? = null
+    private var receivedOrientation: String? = null
+    private var receivedIntent: String? = null
 
-        val slider = view.findViewById<Slider>(R.id.slider_distance)
+    // Variable para la distancia (valor por defecto del XML: 10)
+    private var selectedDistance: Int = 10
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 1. RECUPERAR DATOS DEL FRAGMENTO ANTERIOR
+        arguments?.let {
+            receivedPhone = it.getString("phone")
+            receivedPass = it.getString("password")
+            receivedDni = it.getString("dni")
+            receivedBirthDate = it.getString("birthDate")
+            receivedSelfieUri = it.getString("selfieUri")
+            receivedUsername = it.getString("username")
+            receivedOrientation = it.getString("sexualOrientation")
+            receivedIntent = it.getString("userIntent")
+        }
+
+        // 2. INICIALIZAR VISTAS
+        val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
         val tvDistanceValue = view.findViewById<TextView>(R.id.tv_distance_value)
-        val btnNext = view.findViewById<Button>(R.id.btn_next_distance)
-        val btnBack = view.findViewById<View>(R.id.btn_back)
+        val sliderDistance = view.findViewById<Slider>(R.id.slider_distance)
+        val btnNext = view.findViewById<MaterialButton>(R.id.btn_next_distance)
 
-        // Escuchar cambios en el slider
-        slider.addOnChangeListener { _, value, _ ->
-            val distance = value.toInt()
-            tvDistanceValue.text = "${distance}km"
+        // Actualizamos el texto inicial por si acaso
+        tvDistanceValue.text = "${selectedDistance}km"
+
+        // 3. LISTENER DEL SLIDER
+        sliderDistance.addOnChangeListener { _, value, _ ->
+            // El slider devuelve un float (ej: 50.0), lo convertimos a Int
+            selectedDistance = value.toInt()
+
+            // Actualizamos el texto en pantalla
+            tvDistanceValue.text = "${selectedDistance}km"
         }
 
-        btnNext.setOnClickListener {
-            // TODO: Guardar slider.value en UserAccount
-            navigateToHabits()
-        }
-
+        // 4. NAVEGACIÓN
         btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
-        return view
+        btnNext.setOnClickListener {
+            navigateToPhotos()
+        }
     }
 
-    private fun navigateToHabits() {
+    private fun navigateToPhotos() {
+        // Ahora vamos al fragmento de fotos (que pasa a ser el 8)
+        val nextFragment = Reg8HabitsFragment()
+
+        val bundle = Bundle().apply {
+            putString("phone", receivedPhone)
+            putString("password", receivedPass)
+            putString("dni", receivedDni)
+            putString("birthDate", receivedBirthDate)
+            putString("selfieUri", receivedSelfieUri)
+            putString("username", receivedUsername)
+            putString("sexualOrientation", receivedOrientation)
+            putString("userIntent", receivedIntent)
+
+            // NUEVO DATO: Distancia preferida
+            putInt("distancePreference", selectedDistance)
+        }
+
+        nextFragment.arguments = bundle
+
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, Reg8HabitsFragment())
+            .replace(R.id.fragment_container, nextFragment)
             .addToBackStack(null)
             .commit()
     }
