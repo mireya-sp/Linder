@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:clickable="true"
+    android:focusable="true">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -34,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/trirong"
-        android:text="¿Cuál es tu orientación sexual?"
+        android:text="¿Cuál es tu orientación\nsexual?"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +59,9 @@
             android:fontFamily="@font/nunito"
             android:paddingStart="20dp"
             android:text="Lesbiana"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:gravity="center_vertical" />
 
         <RadioButton
             android:id="@+id/rb_bisexual"
@@ -69,7 +73,9 @@
             android:fontFamily="@font/nunito"
             android:paddingStart="20dp"
             android:text="Bisexual"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:gravity="center_vertical" />
 
         <RadioButton
             android:id="@+id/rb_asexual"
@@ -80,7 +86,10 @@
             android:fontFamily="@font/nunito"
             android:paddingStart="20dp"
             android:text="Asexual"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:gravity="center_vertical" />
+
     </RadioGroup>
 
     <com.google.android.material.button.MaterialButton

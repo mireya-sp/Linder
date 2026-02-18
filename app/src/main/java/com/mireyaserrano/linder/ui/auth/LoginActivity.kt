@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.mireyaserrano.linder.R
-import com.mireyaserrano.linder.Reg1PhoneFragment
+import com.mireyaserrano.linder.ui.auth.Reg1PhoneFragment
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,10 +25,9 @@ class LoginActivity : AppCompatActivity() {
         btnTroubles.setOnClickListener { contactWithSupport() }
 
         btnPhone.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, Reg1PhoneFragment())
-                .addToBackStack(null)
-                .commit()
+            val intent = Intent(this, RegistrationActivity::class.java)
+            startActivity(intent)
+            // No cerramos LoginActivity por si el usuario quiere volver atrás
         }
     }
 
