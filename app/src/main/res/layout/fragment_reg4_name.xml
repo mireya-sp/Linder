@@ -2,10 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:clickable="true"
+    android:focusable="true">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -34,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/trirong"
-        android:text="Como quieres llamarte?"
+        android:text="¿Cómo quieres llamarte?"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +51,27 @@
         android:background="#262626"
         android:fontFamily="@font/nunito"
         android:hint="Escribe tu nombre"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textCapWords"
         android:paddingStart="16dp"
         android:textColor="@color/white"
         android:textColorHint="#808080"
         app:layout_constraintTop_toBottomOf="@id/tv_title_name" />
+
+    <TextView
+        android:id="@+id/tv_error_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/nunito"
+        android:gravity="center"
+        android:text="Error placeholder"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btn_next_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next_name"

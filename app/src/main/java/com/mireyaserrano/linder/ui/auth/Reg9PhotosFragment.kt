@@ -12,8 +12,9 @@ import com.google.android.material.button.MaterialButton
 import com.mireyaserrano.linder.data.LocalDatabase
 import com.mireyaserrano.linder.data.SexualOrientation
 import com.mireyaserrano.linder.data.UserAccount
-// ALIAS IMPORTANTE: Usamos 'UserIntent' para referirnos a TU enum de datos
 import com.mireyaserrano.linder.data.Intent as UserIntent
+// ALIAS IMPORTANTE: Usamos 'UserIntent' para referirnos a TU enum de datos
+
 // ALIAS IMPORTANTE: Usamos 'AndroidIntent' para navegar entre pantallas
 import android.content.Intent as AndroidIntent
 
@@ -114,40 +115,44 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
     }
 
     private fun completeRegistration() {
-        // Convertimos las URIs a Strings para guardarlas
-        val finalPhotos = photoUris.filterNotNull().map { it.toString() }.toMutableList()
+        val context = requireContext()
+
+        // 1. Copiamos las fotos de la galería a la carpeta privada de la app
+        // Esto hace que las fotos "vivan" en la aplicación si o si
+        val savedPhotoPaths = photoUris.filterNotNull().mapNotNull { uri ->
+            LocalDatabase.importImageToApp(context, uri)
+        }
+
+        if (savedPhotoPaths.isEmpty()) {
+            Toast.makeText(context, "Por favor, añade al menos una foto", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         try {
-            // Creamos el usuario usando los nombres EXACTOS de tu UserAccount
             val newUser = UserAccount(
                 dniNumber = receivedDni,
                 phoneNumber = receivedPhone,
                 password = receivedPass,
                 birthDate = receivedBirthDate,
                 username = receivedUsername,
-                sexualOrientation = SexualOrientation.valueOf(receivedOrientation), // String a Enum
-                intent = UserIntent.valueOf(receivedIntent), // String a Enum
+                // Usamos el alias MyIntentEnum para acceder a valueOf()
+                intent = UserIntent.valueOf(receivedIntent),
+                sexualOrientation = SexualOrientation.valueOf(receivedOrientation),
                 habits = receivedHabits,
                 distancePreferenceKm = receivedDistance,
-                userPhotos = finalPhotos,
-                // gender = ... (si lo pedimos antes, si no, null por defecto)
-                // subscription = ... (por defecto ya es NINGUNA)
+                userPhotos = savedPhotoPaths.toMutableList()
             )
 
-            // Guardar en BD (persistencia en disco)
             LocalDatabase.saveUser(newUser)
 
-            Toast.makeText(requireContext(), "¡Bienvenido a Linder!", Toast.LENGTH_LONG).show()
-
-            // Navegar a Main usando el alias 'AndroidIntent'
-            val intent = AndroidIntent(requireContext(), MainActivity::class.java)
-            intent.flags = AndroidIntent.FLAG_ACTIVITY_NEW_TASK or AndroidIntent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
+            // Usamos el alias AndroidIntent para la navegación
+            val nextScreen = AndroidIntent(requireContext(), MainActivity::class.java)
+            nextScreen.flags = AndroidIntent.FLAG_ACTIVITY_NEW_TASK or AndroidIntent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(nextScreen)
             requireActivity().finish()
 
         } catch (e: Exception) {
-            Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-            e.printStackTrace()
+            Toast.makeText(context, "Error al guardar: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 }

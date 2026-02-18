@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.mireyaserrano.linder.MainActivity
 import com.mireyaserrano.linder.R
@@ -37,34 +38,28 @@ class Reg1PhoneFragment : Fragment() {
         tvError = view.findViewById(R.id.tv_error)
         btnBack = view.findViewById(R.id.btn_back)
 
-        // Estado inicial del botón: Deshabilitado
+        // Estado inicial del botón
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
 
-        // Botón atrás
         btnBack.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        // TextWatcher para validar campos y ocultar errores al escribir
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // IMPORTANTE: Si el usuario escribe, ocultamos el error inmediatamente
                 if (tvError.visibility == View.VISIBLE) {
                     tvError.visibility = View.GONE
                 }
                 validateInputNotEmpty()
             }
-
             override fun afterTextChanged(s: Editable?) {}
         }
 
         etPhone.addTextChangedListener(textWatcher)
         etPass.addTextChangedListener(textWatcher)
 
-        // Acción del botón siguiente
         btnNext.setOnClickListener {
             handleNavigation()
         }
@@ -75,45 +70,38 @@ class Reg1PhoneFragment : Fragment() {
     private fun validateInputNotEmpty() {
         val phone = etPhone.text.toString().trim()
         val pass = etPass.text.toString().trim()
+        val isReady = phone.isNotEmpty() && pass.isNotEmpty()
 
-        if (phone.isNotEmpty() && pass.isNotEmpty()) {
-            btnNext.isEnabled = true
-            btnNext.alpha = 1.0f
-        } else {
-            btnNext.isEnabled = false
-            btnNext.alpha = 0.5f
-        }
+        btnNext.isEnabled = isReady
+        btnNext.alpha = if (isReady) 1.0f else 0.5f
     }
 
     private fun handleNavigation() {
         val phone = etPhone.text.toString().trim()
         val pass = etPass.text.toString().trim()
 
-        // 1. Buscamos si el usuario ya existe en nuestra base de datos simulada
+        // 1. Verificar si el usuario ya existe
         val existingUser = LocalDatabase.getUserByPhone(phone)
 
         if (existingUser != null) {
-            // --- CASO A: USUARIO EXISTE (LOGIN) ---
+            // --- CASO A: LOGIN ---
             if (existingUser.password == pass) {
-                // Login correcto: Guardamos sesión y vamos a Home
-                // (Opcional: LocalDatabase.setCurrentUser(existingUser))
+                // Login correcto: Guardamos la sesión activa en el disco
+                LocalDatabase.saveUser(existingUser)
+
+                Toast.makeText(requireContext(), "Bienvenida, ${existingUser.username}", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 requireActivity().finish()
             } else {
-                // Contraseña incorrecta
-                showError("Los datos de sesión introducidos no son correctos")
+                showError("La contraseña es incorrecta para este número.")
             }
-
         } else {
-            // --- CASO B: USUARIO NUEVO (REGISTRO) ---
+            // --- CASO B: REGISTRO ---
             if (isValidPassword(pass)) {
-                // Contraseña válida: Pasamos al siguiente paso (DNI)
                 val nextFragment = Reg2DniFragment()
-
-                // Pasamos los datos recogidos al siguiente fragmento
                 val bundle = Bundle()
                 bundle.putString("phone", phone)
                 bundle.putString("password", pass)
@@ -124,7 +112,6 @@ class Reg1PhoneFragment : Fragment() {
                     .addToBackStack(null)
                     .commit()
             } else {
-                // Contraseña no cumple requisitos
                 showError("La contraseña debe tener al menos 8 caracteres, letras y números.")
             }
         }
