@@ -21,8 +21,8 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/ic_back_arrow"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Volver"
@@ -97,7 +97,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginStart="16dp"
-            android:tint="#FFFFFF"
+            app:tint="#FFFFFF"
             android:background="@drawable/ic_user"
             android:padding="8dp"
             android:contentDescription="Agregar amiga" />
@@ -108,7 +108,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginStart="16dp"
-            android:tint="#FFFFFF"
+            app:tint="#FFFFFF"
             android:background="@drawable/ic_user"
             android:padding="8dp"
             android:contentDescription="Agregar amiga" />
@@ -159,7 +159,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:src="@drawable/ic_mail"
-            android:tint="#FFFFFF"
+            app:tint="#FFFFFF"
             android:contentDescription="Invitaciones" />
 
         <TextView
