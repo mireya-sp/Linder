@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#0D0010">
 
-    <!-- ===== TOP BAR ===== -->
     <include
         android:id="@+id/include_top_bar"
         layout="@layout/top_bar_layout"
@@ -15,7 +14,6 @@
         android:layout_height="60dp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ===== SCROLL CONTENT ===== -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContent"
         android:layout_width="0dp"
@@ -23,7 +21,7 @@
         android:fillViewport="true"
         android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@id/include_top_bar"
-        app:layout_constraintBottom_toTopOf="@id/include_bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -36,7 +34,6 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
-            <!-- ===== PROFILE CARD ===== -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardProfile"
                 android:layout_width="match_parent"
@@ -54,7 +51,7 @@
                         android:id="@+id/imgProfilePhoto"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/img_profile_placeholder"
+                        android:src="@drawable/user_thumb"
                         app:civ_border_width="2dp"
                         app:civ_border_color="#8B008B"
                         app:layout_constraintTop_toTopOf="parent"
@@ -66,6 +63,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Carla García, 23"
+                        android:fontFamily="@font/trirong"
                         android:textColor="#FFFFFF"
                         android:textSize="22sp"
                         android:textStyle="bold"
@@ -92,6 +90,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:text="✏ Editar perfil"
+                        android:fontFamily="@font/nunito"
                         android:textColor="#FFFFFF"
                         android:textSize="13sp"
                         android:backgroundTint="#3A0050"
@@ -104,7 +103,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- ===== GESTIONAR DOBLE CITAS CARD ===== -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardDoubleDates"
                 android:layout_width="match_parent"
@@ -138,6 +136,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Gestionar Doble Citas"
+                            android:fontFamily="@font/trirong"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -146,6 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Elige tu dúo"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#CC99FF"
                             android:textSize="13sp" />
 
@@ -155,7 +155,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- ===== PLUS CARD ===== -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardPlus"
                 android:layout_width="match_parent"
@@ -171,7 +170,6 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <!-- Header: Linder PLUS + Actualizar -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -182,6 +180,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Linder"
+                            android:fontFamily="@font/marko_one"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -190,6 +189,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="PLUS"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#FFFFFF"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -208,6 +208,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="36dp"
                             android:text="Actualizar"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#FFFFFF"
                             android:textSize="13sp"
                             android:backgroundTint="#E53935"
@@ -215,7 +216,6 @@
 
                     </LinearLayout>
 
-                    <!-- Column headers -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -227,6 +227,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Incluye:"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#FFFFFF"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -235,6 +236,7 @@
                             android:layout_width="64dp"
                             android:layout_height="wrap_content"
                             android:text="Gratis"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#CCCCCC"
                             android:textSize="13sp"
                             android:gravity="center" />
@@ -243,20 +245,19 @@
                             android:layout_width="48dp"
                             android:layout_height="wrap_content"
                             android:text="Plus"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#CCCCCC"
                             android:textSize="13sp"
                             android:gravity="center" />
 
                     </LinearLayout>
 
-                    <!-- Header divider -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:background="#3A0050" />
 
-                    <!-- ROW 1: Descubre a quién le gustas -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -270,6 +271,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Descubre a quién le gustas"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#DDDDDD"
                             android:textSize="13sp" />
 
@@ -283,8 +285,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_lock"
                                 app:tint="#888888"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Bloqueado en versión gratis" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                         <FrameLayout
@@ -297,15 +298,13 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_check_mark"
                                 app:tint="#9C27B0"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Disponible en Plus" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2A0040" />
 
-                    <!-- ROW 2: Retroceder ilimitados -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -319,6 +318,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Retroceder ilimitados"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#DDDDDD"
                             android:textSize="13sp" />
 
@@ -332,8 +332,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_lock"
                                 app:tint="#888888"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Bloqueado en versión gratis" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                         <FrameLayout
@@ -346,15 +345,13 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_check_mark"
                                 app:tint="#9C27B0"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Disponible en Plus" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2A0040" />
 
-                    <!-- ROW 3: Likes prioritarios -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -368,6 +365,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Likes prioritarios"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#DDDDDD"
                             android:textSize="13sp" />
 
@@ -381,8 +379,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_lock"
                                 app:tint="#888888"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Bloqueado en versión gratis" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                         <FrameLayout
@@ -395,15 +392,13 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_check_mark"
                                 app:tint="#9C27B0"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Disponible en Plus" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2A0040" />
 
-                    <!-- ROW 4: Mensaje antes de hacer match -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -417,6 +412,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Mensaje antes de hacer match"
+                            android:fontFamily="@font/nunito"
                             android:textColor="#DDDDDD"
                             android:textSize="13sp" />
 
@@ -430,8 +426,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_lock"
                                 app:tint="#888888"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Bloqueado en versión gratis" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                         <FrameLayout
@@ -444,8 +439,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ico_check_mark"
                                 app:tint="#9C27B0"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="Disponible en Plus" />
+                                android:scaleType="fitCenter" />
                         </FrameLayout>
 
                     </LinearLayout>
@@ -457,13 +451,5 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <!-- ===== BOTTOM NAV ===== -->
-    <include
-        android:id="@+id/include_bottom_nav"
-        layout="@layout/bottom_nav_layout"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
