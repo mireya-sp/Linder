@@ -15,8 +15,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/include_bottom_nav"
-        app:layout_constraintTop_toBottomOf="@id/include_top_bar">
+        app:layout_constraintTop_toBottomOf="@id/include_top_bar"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:id="@+id/ll_double_photos"
@@ -24,7 +24,9 @@
             android:layout_height="0dp"
             android:orientation="horizontal"
             app:layout_constraintHeight_percent="0.70"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <ImageView
                 android:id="@+id/iv_photo_left"
@@ -62,8 +64,8 @@
                 android:id="@+id/tv_couple_names"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/marko_one"
-                android:text="Carla Y Isabel"
+                android:fontFamily="@font/trirong"
+                android:text="Carla e Isabel"
                 android:textColor="#FFFFFF"
                 android:textSize="32sp" />
 
@@ -117,12 +119,5 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <include
-        android:id="@+id/include_bottom_nav"
-        layout="@layout/bottom_nav_layout"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

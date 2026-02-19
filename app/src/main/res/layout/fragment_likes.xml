@@ -25,7 +25,6 @@
         android:paddingEnd="16dp"
         android:paddingTop="12dp"
         android:paddingBottom="0dp"
-        android:background="@drawable/bg_header_gradient"
         app:layout_constraintTop_toBottomOf="@id/include_top_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -103,15 +102,6 @@
         app:layout_constraintTop_toBottomOf="@id/dividerHeader"
         app:layout_constraintBottom_toTopOf="@id/include_bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_like_card" />
-
-    <!-- ===== BOTTOM NAV ===== -->
-    <include
-        android:id="@+id/include_bottom_nav"
-        layout="@layout/bottom_nav_layout"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

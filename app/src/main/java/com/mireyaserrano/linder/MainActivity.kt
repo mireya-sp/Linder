@@ -3,37 +3,63 @@ package com.mireyaserrano.linder
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mireyaserrano.linder.data.LocalDatabase
-import com.mireyaserrano.linder.ui.auth.Reg1PhoneFragment // Tu primer fragmento de registro
-import com.mireyaserrano.linder.ui.main.HomeIndividualFragment
+import com.mireyaserrano.linder.ui.auth.Reg1PhoneFragment
+import com.mireyaserrano.linder.ui.main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 1. Inicializar la base de datos para recuperar datos guardados
         LocalDatabase.init(this)
-
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            // 2. Verificar si ya existe un usuario logueado
-            val currentUser = LocalDatabase.getCurrentUser()
+        setupNavigation()
 
+        if (savedInstanceState == null) {
+            val currentUser = LocalDatabase.getCurrentUser()
             if (currentUser != null) {
-                // Si ya está registrado, vamos a la Home
                 loadFragment(HomeIndividualFragment())
             } else {
-                // Si NO hay usuario, forzamos que empiece el registro
                 loadFragment(Reg1PhoneFragment())
+            }
+        }
+    }
+
+    private fun setupNavigation() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.include_bottom_nav)
+        
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    loadFragment(HomeIndividualFragment())
+                    true
+                }
+                R.id.nav_search -> {
+                    loadFragment(ExploreFragment())
+                    true
+                }
+                R.id.nav_likes -> {
+                    loadFragment(LikesFragment())
+                    true
+                }
+                R.id.nav_chat -> {
+                    loadFragment(ChatListFragment())
+                    true
+                }
+                R.id.nav_profile -> {
+                    loadFragment(ProfileMainFragment())
+                    true
+                }
+                else -> false
             }
         }
     }
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            // Asegúrate de que el ID en activity_main.xml sea main_container
-            .replace(R.id.main_container, fragment)
+            .replace(R.id.fragment_container, fragment)
             .commit()
     }
 }

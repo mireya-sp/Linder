@@ -361,12 +361,4 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <include
-        android:id="@+id/include_bottom_nav"
-        layout="@layout/bottom_nav_layout"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
