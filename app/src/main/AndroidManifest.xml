@@ -53,6 +53,14 @@
             android:name=".ui.auth.RegistrationActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.edit.SubscriptionActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.edit.SettingsGeneralActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
