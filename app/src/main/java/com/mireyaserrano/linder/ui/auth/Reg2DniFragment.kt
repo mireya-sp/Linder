@@ -2,6 +2,7 @@ package com.mireyaserrano.linder.ui.auth
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -26,22 +27,17 @@ import java.util.regex.Pattern
 
 class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
 
-    // Variables de datos
     private var receivedPhone: String? = null
     private var receivedPass: String? = null
 
-    // Datos extraídos
     private var extractedDni: String? = null
     private var extractedBirthDate: String? = null
 
-    // Variable temporal para guardar la ruta de la foto HD
     private var latestTmpUri: Uri? = null
 
-    // Vistas
-    private lateinit var tvError: TextView
+    private lateinit var tvStatus: TextView // Renombrado lógicamente a tvStatus
     private lateinit var btnNext: Button
 
-    // --- PERMISOS ---
     private val requestCameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
@@ -51,17 +47,12 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
             }
         }
 
-    // --- LANZADORES ---
-
-    // Galería (Ya te funciona bien)
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         if (uri != null) analyzeImageFromUri(uri)
     }
 
-    // Cámara HD (NUEVO: Devuelve un booleano, la imagen se guarda en latestTmpUri)
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
         if (isSuccess && latestTmpUri != null) {
-            // Reutilizamos la lógica de la galería porque ahora tenemos una URI de alta calidad
             analyzeImageFromUri(latestTmpUri!!)
         }
     }
@@ -74,23 +65,21 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
             receivedPass = it.getString("password")
         }
 
-        // Inicializar vistas con tipos explícitos
-        btnNext = view.findViewById<Button>(R.id.btn_next_dni)
+        btnNext = view.findViewById(R.id.btn_next_dni)
         val btnUpload = view.findViewById<Button>(R.id.btn_upload_photo)
         val btnTake = view.findViewById<Button>(R.id.btn_take_photo)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
-        tvError = view.findViewById<TextView>(R.id.tv_error_dni)
+        tvStatus = view.findViewById(R.id.tv_error_dni) // Usamos el mismo TextView
 
         disableNextButton()
 
-        // Listeners
         btnUpload.setOnClickListener {
-            hideError()
+            hideStatus() // Oculta cualquier mensaje (error o éxito) al intentar de nuevo
             pickImageLauncher.launch("image/*")
         }
 
         btnTake.setOnClickListener {
-            hideError()
+            hideStatus()
             checkCameraPermissionAndLaunch()
         }
 
@@ -111,27 +100,20 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
         }
     }
 
-    // --- LÓGICA CÁMARA HD ---
-
     private fun takePhotoHD() {
-        // 1. Crear un archivo temporal vacío en la caché de la app
         val tmpFile = File.createTempFile("dni_photo", ".jpg", requireContext().cacheDir).apply {
             createNewFile()
             deleteOnExit()
         }
 
-        // 2. Obtener la URI segura usando FileProvider
         latestTmpUri = FileProvider.getUriForFile(
             requireContext(),
-            "${requireContext().packageName}.provider", // Debe coincidir con el authorities del Manifest
+            "${requireContext().packageName}.provider",
             tmpFile
         )
 
-        // 3. Lanzar la cámara pasándole esa URI para que guarde ahí la foto HD
         takePictureLauncher.launch(latestTmpUri)
     }
-
-    // --- ANÁLISIS (Ahora siempre recibe URI) ---
 
     private fun analyzeImageFromUri(uri: Uri) {
         try {
@@ -143,7 +125,7 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
     }
 
     private fun processImageWithMLKit(image: InputImage) {
-        Toast.makeText(requireContext(), "Analizando imagen HD...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Analizando documento...", Toast.LENGTH_SHORT).show()
 
         val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
@@ -157,7 +139,6 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
     }
 
     private fun validateData(fullText: String) {
-        // 1. Regex DNI
         val dniPattern = Pattern.compile("\\b[0-9]{8}[-\\s]?[A-Z]\\b")
         val dniMatcher = dniPattern.matcher(fullText)
 
@@ -168,11 +149,9 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
 
         if (tempDni == null) {
             showError("No se ha podido leer el DNI. Asegúrate de que haya buena luz.")
-            disableNextButton()
             return
         }
 
-        // 2. Regex Fechas
         val datePattern = Pattern.compile("\\b(\\d{2})[\\s/\\-\\.](\\d{2})[\\s/\\-\\.](\\d{4})\\b")
         val dateMatcher = datePattern.matcher(fullText)
 
@@ -191,11 +170,9 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
 
         if (foundDates.isEmpty()) {
             showError("No se ha encontrado ninguna fecha válida.")
-            disableNextButton()
             return
         }
 
-        // 3. La fecha más antigua es la de nacimiento
         val birthDate = foundDates.minOrNull()
 
         if (birthDate == null) {
@@ -203,16 +180,15 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
             return
         }
 
-        // 4. Verificar edad
         if (isAdult(birthDate)) {
             extractedDni = tempDni
             extractedBirthDate = sdf.format(birthDate)
-            hideError()
-            enableNextButton()
-            Toast.makeText(requireContext(), "Datos verificados correctamente.", Toast.LENGTH_SHORT).show()
+
+            // --- MOSTRAR ÉXITO ---
+            showSuccess("¡Documento verificado!\nDNI: $extractedDni\nNacimiento: $extractedBirthDate")
+
         } else {
             showError("Debes ser mayor de 18 años para registrarte.")
-            disableNextButton()
         }
     }
 
@@ -226,26 +202,38 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
         return age >= 18
     }
 
-    // --- UI HELPERS ---
+    // --- UI HELPERS (COLORES Y ESTADOS) ---
 
     private fun showError(message: String) {
-        tvError.text = message
-        tvError.visibility = View.VISIBLE
+        tvStatus.text = message
+        tvStatus.setTextColor(Color.parseColor("#FF5252")) // Rojo Material Design
+        tvStatus.visibility = View.VISIBLE
         disableNextButton()
     }
 
-    private fun hideError() {
-        tvError.visibility = View.GONE
+    private fun showSuccess(message: String) {
+        tvStatus.text = message
+        tvStatus.setTextColor(Color.parseColor("#4CAF50")) // Verde Material Design
+        tvStatus.visibility = View.VISIBLE
+        enableNextButton()
+    }
+
+    private fun hideStatus() {
+        tvStatus.visibility = View.GONE
     }
 
     private fun enableNextButton() {
         btnNext.isEnabled = true
         btnNext.alpha = 1.0f
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setTextColor(Color.WHITE)
     }
 
     private fun disableNextButton() {
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris claro
+        btnNext.setTextColor(Color.parseColor("#202124"))
     }
 
     private fun navigateToSelfie() {

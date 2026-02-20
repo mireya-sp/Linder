@@ -1,13 +1,14 @@
 package com.mireyaserrano.linder
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
-import com.google.android.material.button.MaterialButton
 
 class Reg8HabitsFragment : Fragment(R.layout.fragment_reg8_habits) {
 
@@ -20,12 +21,15 @@ class Reg8HabitsFragment : Fragment(R.layout.fragment_reg8_habits) {
     private var receivedUsername: String? = null
     private var receivedOrientation: String? = null
     private var receivedIntent: String? = null
-    private var receivedDistance: Int = 10 // Valor por defecto
+    private var receivedDistance: Int = 10
+
+    // Vista del botón
+    private lateinit var btnNext: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. RECUPERAR DATOS DEL BUNDLE ANTERIOR
+        // 1. RECUPERAR DATOS
         arguments?.let {
             receivedPhone = it.getString("phone")
             receivedPass = it.getString("password")
@@ -41,25 +45,25 @@ class Reg8HabitsFragment : Fragment(R.layout.fragment_reg8_habits) {
         // 2. INICIALIZAR VISTAS
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
         val etHabits = view.findViewById<EditText>(R.id.et_habits)
-        val btnNext = view.findViewById<MaterialButton>(R.id.btn_next_habits)
+        btnNext = view.findViewById<Button>(R.id.btn_next_habits)
 
-        // Estado inicial del botón
-        btnNext.isEnabled = false
-        btnNext.alpha = 0.5f
+        // Estado inicial: El botón está activo pero en modo "Omitir"
+        btnNext.isEnabled = true
+        setSkipState()
 
-        // 3. VALIDACIÓN DE TEXTO (Habilitar botón si escribe algo)
+        // 3. TEXT WATCHER (Cambiar entre Omitir y Siguiente)
         etHabits.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val text = s.toString().trim()
-                // Validación simple: que no esté vacío y tenga al menos un mínimo de contenido
-                if (text.length >= 5) {
-                    btnNext.isEnabled = true
-                    btnNext.alpha = 1.0f
+
+                // Si ha escrito algo, cambiamos a "Siguiente" en morado
+                if (text.isNotEmpty()) {
+                    setNextState()
                 } else {
-                    btnNext.isEnabled = false
-                    btnNext.alpha = 0.5f
+                    // Si lo borra todo, vuelve a "Omitir" en gris
+                    setSkipState()
                 }
             }
 
@@ -72,13 +76,26 @@ class Reg8HabitsFragment : Fragment(R.layout.fragment_reg8_habits) {
         }
 
         btnNext.setOnClickListener {
+            // Pasamos el texto (puede ir vacío si decidieron omitirlo)
             val habits = etHabits.text.toString().trim()
             navigateToPhotos(habits)
         }
     }
 
+    private fun setSkipState() {
+        btnNext.text = "OMITIR POR AHORA"
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris
+        btnNext.setTextColor(Color.parseColor("#202124"))
+    }
+
+    private fun setNextState() {
+        btnNext.text = "SIGUIENTE"
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setTextColor(Color.WHITE)
+    }
+
     private fun navigateToPhotos(habits: String) {
-        // Ahora vamos al fragmento de fotos (que pasa a ser el 9 en el flujo)
+        // Asegúrate de tener creado Reg9PhotosFragment
         val nextFragment = Reg9PhotosFragment()
 
         val bundle = Bundle().apply {
@@ -91,8 +108,6 @@ class Reg8HabitsFragment : Fragment(R.layout.fragment_reg8_habits) {
             putString("sexualOrientation", receivedOrientation)
             putString("userIntent", receivedIntent)
             putInt("distancePreference", receivedDistance)
-
-            // NUEVO DATO: Hábitos / Bio
             putString("userHabits", habits)
         }
 

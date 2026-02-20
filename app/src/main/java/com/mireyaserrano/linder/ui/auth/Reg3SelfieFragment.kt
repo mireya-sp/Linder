@@ -2,6 +2,7 @@ package com.mireyaserrano.linder.ui.auth
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -35,7 +36,7 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
 
     // Vistas
     private lateinit var ivPreview: ImageView
-    private lateinit var tvError: TextView
+    private lateinit var tvStatus: TextView
     private lateinit var btnNext: Button
     private lateinit var btnTake: Button
 
@@ -50,6 +51,7 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
         if (isSuccess && selfieUri != null) {
             ivPreview.setImageURI(selfieUri) // Mostrar foto en el círculo
             ivPreview.imageTintList = null // Quitar el tinte gris del placeholder
+            ivPreview.setPadding(0, 0, 0, 0) // Quitar padding para que ocupe todo el círculo
             detectFace(selfieUri!!)
         }
     }
@@ -70,12 +72,12 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
         btnTake = view.findViewById(R.id.btn_take_selfie)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
         ivPreview = view.findViewById(R.id.iv_selfie_preview)
-        tvError = view.findViewById(R.id.tv_error_selfie)
+        tvStatus = view.findViewById(R.id.tv_status_selfie)
 
         disableNextButton()
 
         btnTake.setOnClickListener {
-            hideError()
+            hideStatus()
             checkPermissionAndTake()
         }
 
@@ -124,11 +126,9 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
             return
         }
 
-        // Configuramos el detector para que sea preciso
         val options = FaceDetectorOptions.Builder()
             .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
-            .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
-            .setClassificationMode(FaceDetectorOptions.CLASSIFICATION_MODE_ALL) // Para detectar ojos abiertos/sonrisa
+            .setClassificationMode(FaceDetectorOptions.CLASSIFICATION_MODE_ALL)
             .build()
 
         val detector =  FaceDetection.getClient(options)
@@ -144,10 +144,7 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
                     isFaceValid = false
                     disableNextButton()
                 } else {
-                    // Solo hay 1 cara. Verificamos calidad
                     val face = faces[0]
-
-                    // Probabilidad de ojos abiertos (0.0 a 1.0)
                     val leftEyeOpen = face.leftEyeOpenProbability ?: 0f
                     val rightEyeOpen = face.rightEyeOpenProbability ?: 0f
 
@@ -158,9 +155,7 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
                     } else {
                         // ÉXITO
                         isFaceValid = true
-                        hideError()
-                        enableNextButton()
-                        Toast.makeText(requireContext(), "Identidad verificada correctamente.", Toast.LENGTH_SHORT).show()
+                        showSuccess("¡Identidad verificada!\nEl rostro coincide con tu DNI.")
                     }
                 }
             }
@@ -170,7 +165,6 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
     }
 
     private fun navigateToNextStep() {
-        // Creamos el siguiente fragmento (asegúrate de crear el archivo Reg4NameFragment vacío si no existe)
         val nextFragment = Reg4NameFragment()
 
         val bundle = Bundle().apply {
@@ -178,7 +172,6 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
             putString("password", receivedPass)
             putString("dni", receivedDni)
             putString("birthDate", receivedBirthDate)
-            // Aquí podríamos pasar la URI del selfie si la necesitamos para el perfil final
             putString("selfieUri", selfieUri.toString())
         }
 
@@ -190,23 +183,37 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
             .commit()
     }
 
-    // --- UI HELPERS ---
+    // --- UI HELPERS (COLORES Y ESTADOS) ---
+
     private fun showError(message: String) {
-        tvError.text = message
-        tvError.visibility = View.VISIBLE
+        tvStatus.text = message
+        tvStatus.setTextColor(Color.parseColor("#FF5252")) // Rojo Material
+        tvStatus.visibility = View.VISIBLE
+        disableNextButton()
     }
 
-    private fun hideError() {
-        tvError.visibility = View.GONE
+    private fun showSuccess(message: String) {
+        tvStatus.text = message
+        tvStatus.setTextColor(Color.parseColor("#4CAF50")) // Verde Material
+        tvStatus.visibility = View.VISIBLE
+        enableNextButton()
+    }
+
+    private fun hideStatus() {
+        tvStatus.visibility = View.GONE
     }
 
     private fun enableNextButton() {
         btnNext.isEnabled = true
         btnNext.alpha = 1.0f
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setTextColor(Color.WHITE)
     }
 
     private fun disableNextButton() {
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris
+        btnNext.setTextColor(Color.parseColor("#202124"))
     }
 }

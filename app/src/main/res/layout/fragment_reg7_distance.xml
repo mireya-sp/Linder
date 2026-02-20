@@ -15,7 +15,7 @@
         android:layout_height="4dp"
         android:layout_marginTop="16dp"
         android:progress="70"
-        android:progressTint="@color/linder_purple"
+        android:progressTint="#7B0082"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -98,10 +98,10 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="#C4C4C4"
+        android:backgroundTint="#CC99FF"
         android:fontFamily="@font/nunito"
         android:text="SIGUIENTE"
-        android:textColor="#202124"
+        android:textColor="#FFFFFF"
         app:cornerRadius="28dp"
         app:layout_constraintBottom_toBottomOf="parent" />
 

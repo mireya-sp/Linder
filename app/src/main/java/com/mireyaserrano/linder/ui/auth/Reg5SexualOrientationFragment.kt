@@ -1,5 +1,6 @@
 package com.mireyaserrano.linder
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -7,9 +8,6 @@ import android.widget.ImageButton
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import com.mireyaserrano.linder.data.SexualOrientation
-
-// IMPORTANTE: Asegúrate de importar tu Enum correctamente según tu estructura de paquetes
-// import com.mireyaserrano.linder.data.SexualOrientation
 
 class Reg5SexualOrientationFragment : Fragment(R.layout.fragment_reg5_sexual_orientation) {
 
@@ -20,6 +18,9 @@ class Reg5SexualOrientationFragment : Fragment(R.layout.fragment_reg5_sexual_ori
     private var receivedBirthDate: String? = null
     private var receivedSelfieUri: String? = null
     private var receivedUsername: String? = null
+
+    // Vista del botón
+    private lateinit var btnNext: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,23 +36,21 @@ class Reg5SexualOrientationFragment : Fragment(R.layout.fragment_reg5_sexual_ori
         }
 
         val rgOrientation = view.findViewById<RadioGroup>(R.id.rg_orientation)
-        val btnNext = view.findViewById<Button>(R.id.btn_next_orientation)
+        btnNext = view.findViewById(R.id.btn_next_orientation)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
 
-        btnNext.isEnabled = false
-        btnNext.alpha = 0.5f
+        // Estado inicial
+        disableNextButton()
 
         rgOrientation.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId != -1) {
-                btnNext.isEnabled = true
-                btnNext.alpha = 1.0f
+                enableNextButton()
             }
         }
 
         btnBack.setOnClickListener { parentFragmentManager.popBackStack() }
 
         btnNext.setOnClickListener {
-            // Mapeamos ID -> ENUM (SexualOrientation)
             val selectedEnum: SexualOrientation? = when (rgOrientation.checkedRadioButtonId) {
                 R.id.rb_lesbiana -> SexualOrientation.LESBIANA
                 R.id.rb_bisexual -> SexualOrientation.BISEXUAL
@@ -65,6 +64,20 @@ class Reg5SexualOrientationFragment : Fragment(R.layout.fragment_reg5_sexual_ori
         }
     }
 
+    private fun enableNextButton() {
+        btnNext.isEnabled = true
+        btnNext.alpha = 1.0f
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setTextColor(Color.WHITE)
+    }
+
+    private fun disableNextButton() {
+        btnNext.isEnabled = false
+        btnNext.alpha = 0.5f
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris claro
+        btnNext.setTextColor(Color.parseColor("#202124"))
+    }
+
     private fun navigateToIntent(orientation: SexualOrientation) {
         val nextFragment = Reg6IntentFragment()
 
@@ -75,8 +88,6 @@ class Reg5SexualOrientationFragment : Fragment(R.layout.fragment_reg5_sexual_ori
             putString("birthDate", receivedBirthDate)
             putString("selfieUri", receivedSelfieUri)
             putString("username", receivedUsername)
-
-            // Pasamos el Enum como String (.name) para que sea seguro en el Bundle
             putString("sexualOrientation", orientation.name)
         }
 

@@ -129,6 +129,20 @@ object LocalDatabase {
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_carla_1","android.resource://$pkg/drawable/user_carla_2","android.resource://$pkg/drawable/user_carla_3")
         ))
 
+        // USUARIO 6 - Hermenigilda
+        seedUsers.add(UserAccount(
+            dniNumber = "51029384Z",
+            phoneNumber = "666777888",
+            password = "password123",
+            username = "Hermenigilda",
+            birthDate = "19/09/1926",
+            sexualOrientation = SexualOrientation.LESBIANA,
+            intent = Intent.ROLLO_UNA_NOCHE,
+            distancePreferenceKm = 40,
+            habits = "Tejo puntadas y cocino para mis nietos.",
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_hermenigilda_1")
+        ))
+
         seedUsers.forEach { user ->
             user.phoneNumber?.let { phone ->
                 usersMap[phone] = user

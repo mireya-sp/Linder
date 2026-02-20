@@ -1,5 +1,6 @@
 package com.mireyaserrano.linder
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -47,12 +48,15 @@ class Reg7DistanceFragment : Fragment(R.layout.fragment_reg7_distance) {
         // Actualizamos el texto inicial por si acaso
         tvDistanceValue.text = "${selectedDistance}km"
 
+        // El botón ya es válido desde el principio gracias al valor 10km por defecto
+        btnNext.isEnabled = true
+        btnNext.alpha = 1.0f
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF"))
+        btnNext.setTextColor(Color.WHITE)
+
         // 3. LISTENER DEL SLIDER
         sliderDistance.addOnChangeListener { _, value, _ ->
-            // El slider devuelve un float (ej: 50.0), lo convertimos a Int
             selectedDistance = value.toInt()
-
-            // Actualizamos el texto en pantalla
             tvDistanceValue.text = "${selectedDistance}km"
         }
 
@@ -79,8 +83,6 @@ class Reg7DistanceFragment : Fragment(R.layout.fragment_reg7_distance) {
             putString("username", receivedUsername)
             putString("sexualOrientation", receivedOrientation)
             putString("userIntent", receivedIntent)
-
-            // NUEVO DATO: Distancia preferida
             putInt("distancePreference", selectedDistance)
         }
 

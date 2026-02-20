@@ -1,5 +1,6 @@
 package com.mireyaserrano.linder
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -7,10 +8,6 @@ import android.widget.ImageButton
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import com.mireyaserrano.linder.data.Intent
-
-// IMPORTANTE: Importa tu Enum. Si está en el mismo paquete no hace falta,
-// pero ten cuidado con 'android.content.Intent'.
-// import com.mireyaserrano.linder.data.Intent
 
 class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
 
@@ -21,7 +18,10 @@ class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
     private var receivedBirthDate: String? = null
     private var receivedSelfieUri: String? = null
     private var receivedUsername: String? = null
-    private var receivedOrientation: String? = null // Recibimos el nombre del enum anterior
+    private var receivedOrientation: String? = null
+
+    // Vista del botón
+    private lateinit var btnNext: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,25 +38,21 @@ class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
         }
 
         val rgIntent = view.findViewById<RadioGroup>(R.id.rg_intent)
-        val btnNext = view.findViewById<Button>(R.id.btn_next_intent)
+        btnNext = view.findViewById(R.id.btn_next_intent)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
 
         // Estado inicial
-        btnNext.isEnabled = false
-        btnNext.alpha = 0.5f
+        disableNextButton()
 
         rgIntent.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId != -1) {
-                btnNext.isEnabled = true
-                btnNext.alpha = 1.0f
+                enableNextButton()
             }
         }
 
         btnBack.setOnClickListener { parentFragmentManager.popBackStack() }
 
         btnNext.setOnClickListener {
-            // Mapeamos ID -> ENUM (Intent)
-            // Usamos tu Enum: RELACION_SERIA, ROLLO_UNA_NOCHE, HACER_AMIGAS
             val selectedEnum: Intent? = when (rgIntent.checkedRadioButtonId) {
                 R.id.rb_seria -> Intent.RELACION_SERIA
                 R.id.rb_noche -> Intent.ROLLO_UNA_NOCHE
@@ -70,7 +66,22 @@ class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
         }
     }
 
+    private fun enableNextButton() {
+        btnNext.isEnabled = true
+        btnNext.alpha = 1.0f
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setTextColor(Color.WHITE)
+    }
+
+    private fun disableNextButton() {
+        btnNext.isEnabled = false
+        btnNext.alpha = 0.5f
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris claro
+        btnNext.setTextColor(Color.parseColor("#202124"))
+    }
+
     private fun navigateToPhotos(userIntent: Intent) {
+        // Asegúrate de tener creado Reg7DistanceFragment
         val nextFragment = Reg7DistanceFragment()
 
         val bundle = Bundle().apply {
@@ -81,8 +92,6 @@ class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
             putString("selfieUri", receivedSelfieUri)
             putString("username", receivedUsername)
             putString("sexualOrientation", receivedOrientation)
-
-            // Pasamos tu Enum como String
             putString("userIntent", userIntent.name)
         }
 

@@ -47,13 +47,15 @@
                     android:layout_height="wrap_content"
                     android:padding="16dp">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgProfilePhoto"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/user_thumb"
-                        app:civ_border_width="2dp"
-                        app:civ_border_color="#8B008B"
+                        app:shapeAppearanceOverlay="@style/CircleImage"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="#8B008B"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent" />
@@ -62,7 +64,7 @@
                         android:id="@+id/tvProfileName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Carla García, 23"
+                        tools:text="Carla García, 23"
                         android:fontFamily="@font/trirong"
                         android:textColor="#FFFFFF"
                         android:textSize="22sp"
@@ -71,16 +73,15 @@
                         android:layout_marginEnd="8dp"
                         app:layout_constraintTop_toTopOf="@id/imgProfilePhoto"
                         app:layout_constraintStart_toEndOf="@id/imgProfilePhoto"
-                        app:layout_constraintEnd_toStartOf="@id/btnDelete" />
+                        app:layout_constraintEnd_toStartOf="@id/btnVerify" />
 
                     <ImageButton
-                        android:id="@+id/btnDelete"
+                        android:id="@+id/btnVerify"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_close"
+                        tools:src="@drawable/ic_non_verified"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        app:tint="#E53935"
-                        android:contentDescription="Eliminar perfil"
+                        android:scaleType="fitCenter"
                         app:layout_constraintTop_toTopOf="@id/tvProfileName"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="@id/tvProfileName" />
@@ -100,7 +101,6 @@
                         app:layout_constraintStart_toStartOf="@id/tvProfileName" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -108,11 +108,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#2A0035"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp">
 
                 <LinearLayout
+                    android:id="@+id/ll_manage_double"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -150,306 +154,56 @@
                             android:textSize="13sp" />
 
                     </LinearLayout>
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardPlus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:cardBackgroundColor="#1A0020"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+            <androidx.cardview.widget.CardView android:id="@+id/cardPlus" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:cardBackgroundColor="#1A0020" app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Linder" android:fontFamily="@font/marko_one" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PLUS" android:fontFamily="@font/nunito" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:paddingHorizontal="8dp" android:paddingVertical="2dp" android:layout_marginStart="8dp" android:background="@drawable/bg_plus_tag" />
+                        <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Linder"
-                            android:fontFamily="@font/marko_one"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="PLUS"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#FFFFFF"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="8dp"
-                            android:paddingVertical="2dp"
-                            android:layout_marginStart="8dp"
-                            android:background="@drawable/bg_plus_tag" />
-
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_weight="1" />
-
-                        <Button
-                            android:id="@+id/btnActualizar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="36dp"
-                            android:text="Actualizar"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13sp"
-                            android:backgroundTint="#E53935"
-                            app:cornerRadius="18dp" />
-
+                        <Button android:id="@+id/btnActualizar" android:layout_width="wrap_content" android:layout_height="36dp" android:text="Actualizar" android:fontFamily="@font/nunito" android:textColor="#FFFFFF" android:textSize="13sp" android:backgroundTint="#E53935" app:cornerRadius="18dp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="20dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Incluye:"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:text="Gratis"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#CCCCCC"
-                            android:textSize="13sp"
-                            android:gravity="center" />
-
-                        <TextView
-                            android:layout_width="48dp"
-                            android:layout_height="wrap_content"
-                            android:text="Plus"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#CCCCCC"
-                            android:textSize="13sp"
-                            android:gravity="center" />
-
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="20dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Incluye:" android:fontFamily="@font/nunito" android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+                        <TextView android:layout_width="64dp" android:layout_height="wrap_content" android:text="Gratis" android:fontFamily="@font/nunito" android:textColor="#CCCCCC" android:textSize="13sp" android:gravity="center" />
+                        <TextView android:layout_width="48dp" android:layout_height="wrap_content" android:text="Plus" android:fontFamily="@font/nunito" android:textColor="#CCCCCC" android:textSize="13sp" android:gravity="center" />
                     </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="8dp" android:background="#3A0050" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="8dp"
-                        android:background="#3A0050" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:paddingTop="12dp"
-                        android:paddingBottom="12dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Descubre a quién le gustas"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#DDDDDD"
-                            android:textSize="13sp" />
-
-                        <FrameLayout
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_lock"
-                                app:tint="#888888"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:layout_width="48dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_check_mark"
-                                app:tint="#9C27B0"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Descubre a quién le gustas" android:fontFamily="@font/nunito" android:textColor="#DDDDDD" android:textSize="13sp" />
+                        <FrameLayout android:layout_width="64dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_lock" app:tint="#888888" /></FrameLayout>
+                        <FrameLayout android:layout_width="48dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_check_mark" app:tint="#9C27B0" /></FrameLayout>
                     </LinearLayout>
-
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2A0040" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:paddingTop="12dp"
-                        android:paddingBottom="12dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Retroceder ilimitados"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#DDDDDD"
-                            android:textSize="13sp" />
-
-                        <FrameLayout
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_lock"
-                                app:tint="#888888"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:layout_width="48dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_check_mark"
-                                app:tint="#9C27B0"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Retroceder ilimitados" android:fontFamily="@font/nunito" android:textColor="#DDDDDD" android:textSize="13sp" />
+                        <FrameLayout android:layout_width="64dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_lock" app:tint="#888888" /></FrameLayout>
+                        <FrameLayout android:layout_width="48dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_check_mark" app:tint="#9C27B0" /></FrameLayout>
                     </LinearLayout>
-
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2A0040" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:paddingTop="12dp"
-                        android:paddingBottom="12dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Likes prioritarios"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#DDDDDD"
-                            android:textSize="13sp" />
-
-                        <FrameLayout
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_lock"
-                                app:tint="#888888"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:layout_width="48dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_check_mark"
-                                app:tint="#9C27B0"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Likes prioritarios" android:fontFamily="@font/nunito" android:textColor="#DDDDDD" android:textSize="13sp" />
+                        <FrameLayout android:layout_width="64dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_lock" app:tint="#888888" /></FrameLayout>
+                        <FrameLayout android:layout_width="48dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_check_mark" app:tint="#9C27B0" /></FrameLayout>
                     </LinearLayout>
-
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2A0040" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:paddingTop="12dp"
-                        android:paddingBottom="12dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Mensaje antes de hacer match"
-                            android:fontFamily="@font/nunito"
-                            android:textColor="#DDDDDD"
-                            android:textSize="13sp" />
-
-                        <FrameLayout
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_lock"
-                                app:tint="#888888"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:layout_width="48dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ico_check_mark"
-                                app:tint="#9C27B0"
-                                android:scaleType="fitCenter" />
-                        </FrameLayout>
-
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mensaje antes de hacer match" android:fontFamily="@font/nunito" android:textColor="#DDDDDD" android:textSize="13sp" />
+                        <FrameLayout android:layout_width="64dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_lock" app:tint="#888888" /></FrameLayout>
+                        <FrameLayout android:layout_width="48dp" android:layout_height="wrap_content" android:gravity="center"><ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ico_check_mark" app:tint="#9C27B0" /></FrameLayout>
                     </LinearLayout>
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
