@@ -17,7 +17,7 @@
         android:layout_height="4dp"
         android:layout_marginTop="16dp"
         android:progress="30"
-        android:progressTint="@color/linder_purple"
+        android:progressTint="#7B0082"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title_selfie"
-        app:strokeColor="@color/linder_purple"
+        app:strokeColor="#7B0082"
         app:strokeWidth="2dp">
 
         <ImageView
@@ -81,15 +81,15 @@
         app:layout_constraintTop_toBottomOf="@id/camera_container" />
 
     <TextView
-        android:id="@+id/tv_error_selfie"
+        android:id="@+id/tv_status_selfie"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/nunito"
         android:gravity="center"
-        android:text="Error placeholder"
+        android:text="Mensaje de estado"
         android:textColor="#FF0000"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/btn_next_selfie"
         app:layout_constraintEnd_toEndOf="parent"

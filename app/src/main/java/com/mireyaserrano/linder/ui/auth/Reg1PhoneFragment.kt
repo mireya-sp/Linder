@@ -1,6 +1,7 @@
 package com.mireyaserrano.linder.ui.auth
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -31,16 +32,17 @@ class Reg1PhoneFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_reg1_phone, container, false)
 
-        // Inicializar vistas
         etPhone = view.findViewById(R.id.et_phone)
         etPass = view.findViewById(R.id.et_password)
         btnNext = view.findViewById(R.id.btn_next)
         tvError = view.findViewById(R.id.tv_error)
         btnBack = view.findViewById(R.id.btn_back)
 
-        // Estado inicial del botón
+        // Estado inicial del botón: desactivado y gris
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
+        btnNext.setTextColor(Color.parseColor("#202124"))
 
         btnBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
@@ -70,25 +72,34 @@ class Reg1PhoneFragment : Fragment() {
     private fun validateInputNotEmpty() {
         val phone = etPhone.text.toString().trim()
         val pass = etPass.text.toString().trim()
-        val isReady = phone.isNotEmpty() && pass.isNotEmpty()
+
+        // El botón solo se activa si el teléfono tiene exactamente 9 números y hay contraseña
+        val isReady = phone.length == 9 && pass.isNotEmpty()
 
         btnNext.isEnabled = isReady
-        btnNext.alpha = if (isReady) 1.0f else 0.5f
+
+        if (isReady) {
+            // Activo: Morado clarito (ajusta el código hex si prefieres otro tono) y texto blanco
+            btnNext.alpha = 1.0f
+            btnNext.setBackgroundColor(Color.parseColor("#CC99FF"))
+            btnNext.setTextColor(Color.WHITE)
+        } else {
+            // Inactivo: Gris claro y texto oscuro
+            btnNext.alpha = 0.5f
+            btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
+            btnNext.setTextColor(Color.parseColor("#202124"))
+        }
     }
 
     private fun handleNavigation() {
         val phone = etPhone.text.toString().trim()
         val pass = etPass.text.toString().trim()
 
-        // 1. Verificar si el usuario ya existe
         val existingUser = LocalDatabase.getUserByPhone(phone)
 
         if (existingUser != null) {
-            // --- CASO A: LOGIN ---
             if (existingUser.password == pass) {
-                // Login correcto: Guardamos la sesión activa en el disco
                 LocalDatabase.saveUser(existingUser)
-
                 Toast.makeText(requireContext(), "Bienvenida, ${existingUser.username}", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(requireContext(), MainActivity::class.java)
@@ -99,7 +110,6 @@ class Reg1PhoneFragment : Fragment() {
                 showError("La contraseña es incorrecta para este número.")
             }
         } else {
-            // --- CASO B: REGISTRO ---
             if (isValidPassword(pass)) {
                 val nextFragment = Reg2DniFragment()
                 val bundle = Bundle()

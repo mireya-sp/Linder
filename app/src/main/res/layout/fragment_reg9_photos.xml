@@ -14,8 +14,8 @@
         android:layout_width="0dp"
         android:layout_height="4dp"
         android:layout_marginTop="16dp"
-        android:progress="90"
-        android:progressTint="@color/linder_purple"
+        android:progress="100"
+        android:progressTint="#7B0082"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,13 +62,10 @@
             android:layout_margin="6dp"
             app:cardBackgroundColor="#262626"
             app:cardCornerRadius="12dp">
-            <ImageView
-                android:id="@+id/iv_photo_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="35dp"
-                android:src="@android:drawable/ic_menu_camera"
-                app:tint="#80FFFFFF" />
+            <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:id="@+id/iv_photo_1" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="35dp" android:src="@android:drawable/ic_menu_camera" app:tint="#80FFFFFF" />
+                <ImageButton android:id="@+id/btn_delete_1" android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="top|end" android:layout_margin="6dp" android:background="@drawable/bg_distance_container" android:src="@drawable/ic_close" android:scaleType="fitCenter" android:padding="8dp" app:tint="#FFFFFF" android:visibility="gone" />
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -78,13 +75,10 @@
             android:layout_margin="6dp"
             app:cardBackgroundColor="#262626"
             app:cardCornerRadius="12dp">
-            <ImageView
-                android:id="@+id/iv_photo_2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="35dp"
-                android:src="@android:drawable/ic_menu_camera"
-                app:tint="#80FFFFFF" />
+            <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:id="@+id/iv_photo_2" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="35dp" android:src="@android:drawable/ic_menu_camera" app:tint="#80FFFFFF" />
+                <ImageButton android:id="@+id/btn_delete_2" android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="top|end" android:layout_margin="6dp" android:background="@drawable/bg_distance_container" android:src="@drawable/ic_close" android:scaleType="fitCenter" android:padding="8dp" app:tint="#FFFFFF" android:visibility="gone" />
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -94,13 +88,10 @@
             android:layout_margin="6dp"
             app:cardBackgroundColor="#262626"
             app:cardCornerRadius="12dp">
-            <ImageView
-                android:id="@+id/iv_photo_3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="35dp"
-                android:src="@android:drawable/ic_menu_camera"
-                app:tint="#80FFFFFF" />
+            <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:id="@+id/iv_photo_3" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="35dp" android:src="@android:drawable/ic_menu_camera" app:tint="#80FFFFFF" />
+                <ImageButton android:id="@+id/btn_delete_3" android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="top|end" android:layout_margin="6dp" android:background="@drawable/bg_distance_container" android:src="@drawable/ic_close" android:scaleType="fitCenter" android:padding="8dp" app:tint="#FFFFFF" android:visibility="gone" />
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -110,13 +101,10 @@
             android:layout_margin="6dp"
             app:cardBackgroundColor="#262626"
             app:cardCornerRadius="12dp">
-            <ImageView
-                android:id="@+id/iv_photo_4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="35dp"
-                android:src="@android:drawable/ic_menu_camera"
-                app:tint="#80FFFFFF" />
+            <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:id="@+id/iv_photo_4" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="35dp" android:src="@android:drawable/ic_menu_camera" app:tint="#80FFFFFF" />
+                <ImageButton android:id="@+id/btn_delete_4" android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="top|end" android:layout_margin="6dp" android:background="@drawable/bg_distance_container" android:src="@drawable/ic_close" android:scaleType="fitCenter" android:padding="8dp" app:tint="#FFFFFF" android:visibility="gone" />
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -126,13 +114,10 @@
             android:layout_margin="6dp"
             app:cardBackgroundColor="#262626"
             app:cardCornerRadius="12dp">
-            <ImageView
-                android:id="@+id/iv_photo_5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="35dp"
-                android:src="@android:drawable/ic_menu_camera"
-                app:tint="#80FFFFFF" />
+            <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:id="@+id/iv_photo_5" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="35dp" android:src="@android:drawable/ic_menu_camera" app:tint="#80FFFFFF" />
+                <ImageButton android:id="@+id/btn_delete_5" android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="top|end" android:layout_margin="6dp" android:background="@drawable/bg_distance_container" android:src="@drawable/ic_close" android:scaleType="fitCenter" android:padding="8dp" app:tint="#FFFFFF" android:visibility="gone" />
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -142,13 +127,10 @@
             android:layout_margin="6dp"
             app:cardBackgroundColor="#262626"
             app:cardCornerRadius="12dp">
-            <ImageView
-                android:id="@+id/iv_photo_6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="35dp"
-                android:src="@android:drawable/ic_menu_camera"
-                app:tint="#80FFFFFF" />
+            <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:id="@+id/iv_photo_6" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="35dp" android:src="@android:drawable/ic_menu_camera" app:tint="#80FFFFFF" />
+                <ImageButton android:id="@+id/btn_delete_6" android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="top|end" android:layout_margin="6dp" android:background="@drawable/bg_distance_container" android:src="@drawable/ic_close" android:scaleType="fitCenter" android:padding="8dp" app:tint="#FFFFFF" android:visibility="gone" />
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
     </GridLayout>
@@ -158,9 +140,7 @@
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginBottom="32dp"
-        android:alpha="0.5"
         android:backgroundTint="#C4C4C4"
-        android:enabled="false"
         android:fontFamily="@font/nunito"
         android:text="FINALIZAR"
         android:textColor="#202124"

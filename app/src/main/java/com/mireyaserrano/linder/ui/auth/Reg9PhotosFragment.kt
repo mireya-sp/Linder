@@ -1,5 +1,6 @@
 package com.mireyaserrano.linder
 
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -13,14 +14,10 @@ import com.mireyaserrano.linder.data.LocalDatabase
 import com.mireyaserrano.linder.data.SexualOrientation
 import com.mireyaserrano.linder.data.UserAccount
 import com.mireyaserrano.linder.data.Intent as UserIntent
-// ALIAS IMPORTANTE: Usamos 'UserIntent' para referirnos a TU enum de datos
-
-// ALIAS IMPORTANTE: Usamos 'AndroidIntent' para navegar entre pantallas
 import android.content.Intent as AndroidIntent
 
 class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
 
-    // Datos recibidos
     private var receivedPhone: String = ""
     private var receivedPass: String = ""
     private var receivedDni: String = ""
@@ -32,21 +29,22 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
     private var receivedDistance: Int = 10
     private var receivedHabits: String = ""
 
-    // Fotos
-    private val photoUris = arrayOfNulls<Uri>(6)
+    private val photoUris = mutableListOf<Uri>()
+
     private lateinit var imageViews: List<ImageView>
-    private var targetSlotIndex: Int = -1
+    private lateinit var deleteButtons: List<ImageButton>
+    private lateinit var btnFinish: MaterialButton
 
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        if (uri != null && targetSlotIndex != -1) {
-            savePhotoInSlot(uri, targetSlotIndex)
+        if (uri != null) {
+            photoUris.add(uri)
+            rearrangePhotos()
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Recuperar argumentos
         arguments?.let {
             receivedPhone = it.getString("phone") ?: ""
             receivedPass = it.getString("password") ?: ""
@@ -60,9 +58,8 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
             receivedHabits = it.getString("userHabits") ?: ""
         }
 
-        // Vistas
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
-        val btnFinish = view.findViewById<MaterialButton>(R.id.btn_finish)
+        btnFinish = view.findViewById(R.id.btn_finish)
 
         imageViews = listOf(
             view.findViewById(R.id.iv_photo_1),
@@ -73,53 +70,83 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
             view.findViewById(R.id.iv_photo_6)
         )
 
+        deleteButtons = listOf(
+            view.findViewById(R.id.btn_delete_1),
+            view.findViewById(R.id.btn_delete_2),
+            view.findViewById(R.id.btn_delete_3),
+            view.findViewById(R.id.btn_delete_4),
+            view.findViewById(R.id.btn_delete_5),
+            view.findViewById(R.id.btn_delete_6)
+        )
+
         imageViews.forEachIndexed { index, imageView ->
-            imageView.setOnClickListener { handlePhotoClick(index) }
+            imageView.setOnClickListener {
+                if (index >= photoUris.size && photoUris.size < 6) {
+                    pickImageLauncher.launch("image/*")
+                }
+            }
+        }
+
+        deleteButtons.forEachIndexed { index, btnDelete ->
+            btnDelete.setOnClickListener {
+                if (index < photoUris.size) {
+                    photoUris.removeAt(index)
+                    rearrangePhotos()
+                }
+            }
         }
 
         btnBack.setOnClickListener { parentFragmentManager.popBackStack() }
         btnFinish.setOnClickListener { completeRegistration() }
+
+        rearrangePhotos()
     }
 
-    private fun handlePhotoClick(clickedIndex: Int) {
-        if (photoUris[clickedIndex] != null) {
-            targetSlotIndex = clickedIndex
-            pickImageLauncher.launch("image/*")
-        } else {
-            val firstEmptyIndex = photoUris.indexOfFirst { it == null }
-            if (firstEmptyIndex != -1) {
-                targetSlotIndex = firstEmptyIndex
-                pickImageLauncher.launch("image/*")
+    private fun rearrangePhotos() {
+        // Revertimos el padding a 35dp exactos para que la cámara no se deforme
+        val paddingPx = (35 * resources.displayMetrics.density).toInt()
+
+        for (i in 0 until 6) {
+            val iv = imageViews[i]
+            val btnDel = deleteButtons[i]
+
+            if (i < photoUris.size) {
+                iv.setImageURI(photoUris[i])
+                iv.scaleType = ImageView.ScaleType.CENTER_CROP
+                iv.imageTintList = null
+                iv.setPadding(0, 0, 0, 0)
+                btnDel.visibility = View.VISIBLE
             } else {
-                Toast.makeText(requireContext(), "Máximo 6 fotos", Toast.LENGTH_SHORT).show()
+                iv.setImageResource(android.R.drawable.ic_menu_camera)
+                // Usamos FIT_CENTER para recuperar tu diseño original
+                iv.scaleType = ImageView.ScaleType.FIT_CENTER
+                iv.imageTintList = android.content.res.ColorStateList.valueOf(Color.parseColor("#80FFFFFF"))
+                iv.setPadding(paddingPx, paddingPx, paddingPx, paddingPx)
+                btnDel.visibility = View.GONE
             }
         }
+
+        updateFinishButton()
     }
 
-    private fun savePhotoInSlot(uri: Uri, index: Int) {
-        photoUris[index] = uri
-        val imageView = imageViews[index]
-        imageView.setImageURI(uri)
-        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        imageView.imageTintList = null
-        imageView.setPadding(0, 0, 0, 0)
-
-        checkFinishButton()
-    }
-
-    private fun checkFinishButton() {
-        val hasPhotos = photoUris.any { it != null }
-        val btnFinish = view?.findViewById<MaterialButton>(R.id.btn_finish)
-        btnFinish?.isEnabled = hasPhotos
-        btnFinish?.alpha = if (hasPhotos) 1.0f else 0.5f
+    private fun updateFinishButton() {
+        if (photoUris.isNotEmpty()) {
+            btnFinish.isEnabled = true
+            btnFinish.alpha = 1.0f
+            btnFinish.setBackgroundColor(Color.parseColor("#CC99FF"))
+            btnFinish.setTextColor(Color.WHITE)
+        } else {
+            btnFinish.isEnabled = false
+            btnFinish.alpha = 0.5f
+            btnFinish.setBackgroundColor(Color.parseColor("#C4C4C4"))
+            btnFinish.setTextColor(Color.parseColor("#202124"))
+        }
     }
 
     private fun completeRegistration() {
         val context = requireContext()
 
-        // 1. Copiamos las fotos de la galería a la carpeta privada de la app
-        // Esto hace que las fotos "vivan" en la aplicación si o si
-        val savedPhotoPaths = photoUris.filterNotNull().mapNotNull { uri ->
+        val savedPhotoPaths = photoUris.mapNotNull { uri ->
             LocalDatabase.importImageToApp(context, uri)
         }
 
@@ -135,7 +162,6 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
                 password = receivedPass,
                 birthDate = receivedBirthDate,
                 username = receivedUsername,
-                // Usamos el alias MyIntentEnum para acceder a valueOf()
                 intent = UserIntent.valueOf(receivedIntent),
                 sexualOrientation = SexualOrientation.valueOf(receivedOrientation),
                 habits = receivedHabits,
@@ -145,7 +171,6 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
 
             LocalDatabase.saveUser(newUser)
 
-            // Usamos el alias AndroidIntent para la navegación
             val nextScreen = AndroidIntent(requireContext(), MainActivity::class.java)
             nextScreen.flags = AndroidIntent.FLAG_ACTIVITY_NEW_TASK or AndroidIntent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(nextScreen)

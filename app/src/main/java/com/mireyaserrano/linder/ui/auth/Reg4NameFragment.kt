@@ -1,5 +1,6 @@
 package com.mireyaserrano.linder
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,14 +13,12 @@ import androidx.fragment.app.Fragment
 
 class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
 
-    // Variables para guardar los datos acumulados
     private var receivedPhone: String? = null
     private var receivedPass: String? = null
     private var receivedDni: String? = null
     private var receivedBirthDate: String? = null
     private var receivedSelfieUri: String? = null
 
-    // Vistas
     private lateinit var etUsername: EditText
     private lateinit var tvError: TextView
     private lateinit var btnNext: Button
@@ -27,7 +26,6 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. RECUPERAR DATOS DEL BUNDLE ANTERIOR
         arguments?.let {
             receivedPhone = it.getString("phone")
             receivedPass = it.getString("password")
@@ -36,40 +34,33 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
             receivedSelfieUri = it.getString("selfieUri")
         }
 
-        // 2. INICIALIZAR VISTAS
         etUsername = view.findViewById(R.id.et_username)
         tvError = view.findViewById(R.id.tv_error_name)
         btnNext = view.findViewById(R.id.btn_next_name)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
 
         // Estado inicial
-        btnNext.alpha = 0.5f
-        btnNext.isEnabled = false
+        disableNextButton()
 
-        // 3. TEXT WATCHER (Ocultar error al escribir y habilitar botón si no está vacío)
         etUsername.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Ocultar error al modificar texto
                 if (tvError.visibility == View.VISIBLE) {
                     tvError.visibility = View.GONE
                 }
 
-                // Habilitar botón visualmente si hay algo escrito (la validación real va al clickar)
+                // Habilitar botón si hay texto
                 if (s.toString().trim().isNotEmpty()) {
-                    btnNext.alpha = 1.0f
-                    btnNext.isEnabled = true
+                    enableNextButton()
                 } else {
-                    btnNext.alpha = 0.5f
-                    btnNext.isEnabled = false
+                    disableNextButton()
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        // 4. VALIDACIÓN AL PULSAR SIGUIENTE
         btnNext.setOnClickListener {
             val username = etUsername.text.toString().trim()
 
@@ -87,10 +78,12 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
         return when {
             name.length < 4 -> {
                 showError("El nombre es demasiado corto (mínimo 4 caracteres).")
+                disableNextButton()
                 false
             }
             name.length > 20 -> {
                 showError("El nombre es demasiado largo (máximo 20 caracteres).")
+                disableNextButton()
                 false
             }
             else -> true
@@ -98,18 +91,15 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
     }
 
     private fun navigateToNextStep(validUsername: String) {
-        // Creamos el siguiente fragmento
+        // Asegúrate de tener creado Reg5SexualOrientationFragment
         val nextFragment = Reg5SexualOrientationFragment()
 
-        // Pasamos TODOS los datos acumulados + el nuevo nombre
         val bundle = Bundle().apply {
             putString("phone", receivedPhone)
             putString("password", receivedPass)
             putString("dni", receivedDni)
             putString("birthDate", receivedBirthDate)
             putString("selfieUri", receivedSelfieUri)
-
-            // NUEVO DATO
             putString("username", validUsername)
         }
 
@@ -124,5 +114,19 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
     private fun showError(message: String) {
         tvError.text = message
         tvError.visibility = View.VISIBLE
+    }
+
+    private fun enableNextButton() {
+        btnNext.isEnabled = true
+        btnNext.alpha = 1.0f
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setTextColor(Color.WHITE)
+    }
+
+    private fun disableNextButton() {
+        btnNext.isEnabled = false
+        btnNext.alpha = 0.5f
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris
+        btnNext.setTextColor(Color.parseColor("#202124"))
     }
 }

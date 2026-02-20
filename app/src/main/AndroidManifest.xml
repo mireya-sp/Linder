@@ -61,6 +61,14 @@
             android:name=".ui.edit.SettingsGeneralActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.edit.EditProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.edit.ManageDoubleActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

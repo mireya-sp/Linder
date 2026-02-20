@@ -16,7 +16,7 @@
         android:layout_height="4dp"
         android:layout_marginTop="16dp"
         android:progress="60"
-        android:progressTint="@color/linder_purple"
+        android:progressTint="#7B0082"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -58,7 +58,7 @@
             android:button="@null"
             android:fontFamily="@font/nunito"
             android:paddingStart="20dp"
-            android:text="Una relacion seria"
+            android:text="Una relación seria"
             android:textColor="@color/white" />
 
         <RadioButton
@@ -90,7 +90,6 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginBottom="32dp"
-        android:alpha="0.5"
         android:backgroundTint="#C4C4C4"
         android:fontFamily="@font/nunito"
         android:text="SIGUIENTE"

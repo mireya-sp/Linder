@@ -17,7 +17,7 @@
         android:layout_height="4dp"
         android:layout_marginTop="16dp"
         android:progress="40"
-        android:progressTint="@color/linder_purple"
+        android:progressTint="#7B0082"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
