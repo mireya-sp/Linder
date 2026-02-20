@@ -40,5 +40,8 @@ data class UserAccount(
     var isVerified: Boolean = false,
 
     // Suscripción
-    var subscription: SubscriptionData = SubscriptionData()
+    var subscription: SubscriptionData = SubscriptionData(),
+
+    var likedByUsers: MutableList<String> = mutableListOf()
+
 )
