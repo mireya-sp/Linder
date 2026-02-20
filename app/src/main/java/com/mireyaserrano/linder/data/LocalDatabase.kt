@@ -56,7 +56,8 @@ object LocalDatabase {
             intent = Intent.ROLLO_UNA_NOCHE,
             distancePreferenceKm = 100,
             habits = "Me encanta el robar y apoyar genocidios.",
-            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_isabel_1","android.resource://$pkg/drawable/user_isabel_2","android.resource://$pkg/drawable/user_isabel_3")
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_isabel_1","android.resource://$pkg/drawable/user_isabel_2","android.resource://$pkg/drawable/user_isabel_3"),
+            likedByUsers = mutableListOf("612983744", "699231002", "654112233")
         ))
 
         // USUARIO 2 - Marta
@@ -70,7 +71,8 @@ object LocalDatabase {
             intent = Intent.RELACION_SERIA,
             distancePreferenceKm = 50,
             habits = "Amante de la pizza, el cine de terror y viajar sola.",
-            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_marta_1","android.resource://$pkg/drawable/user_marta_2")
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_marta_1","android.resource://$pkg/drawable/user_marta_2"),
+            likedByUsers = mutableListOf("644012665", "677889900", "622334455")
         ))
 
         // USUARIO 3 - Elena
@@ -84,7 +86,8 @@ object LocalDatabase {
             intent = Intent.HACER_AMIGAS,
             distancePreferenceKm = 25,
             habits = "Busco compañera para ir a museos y conciertos de jazz.",
-            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_elena_1")
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_elena_1"),
+            likedByUsers = mutableListOf("666777888", "644012665")
         ))
 
         // USUARIO 4 - Leticia
@@ -92,13 +95,14 @@ object LocalDatabase {
             dniNumber = "03948571X",
             phoneNumber = "654112233",
             password = "password123",
-            username = "Paula",
+            username = "Leticia",
             birthDate = "14/07/1953",
             sexualOrientation = SexualOrientation.LESBIANA,
             intent = Intent.RELACION_SERIA,
             distancePreferenceKm = 80,
             habits = "Estudiante de artes, apasionada de la pintura y la playa.",
-            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_leticia_1","android.resource://$pkg/drawable/user_leticia_2","android.resource://$pkg/drawable/user_leticia_3","android.resource://$pkg/drawable/user_leticia_4","android.resource://$pkg/drawable/user_leticia_5","android.resource://$pkg/drawable/user_leticia_6")
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_leticia_1","android.resource://$pkg/drawable/user_leticia_2","android.resource://$pkg/drawable/user_leticia_3","android.resource://$pkg/drawable/user_leticia_4","android.resource://$pkg/drawable/user_leticia_5","android.resource://$pkg/drawable/user_leticia_6"),
+            likedByUsers = mutableListOf("677889900", "612983744")
         ))
 
         // USUARIO 5 - Carmen
@@ -112,7 +116,8 @@ object LocalDatabase {
             intent = Intent.HACER_AMIGAS,
             distancePreferenceKm = 15,
             habits = "Adoro cocinar recetas nuevas y el vino tinto.",
-            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_carmen_1")
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_carmen_1"),
+            likedByUsers = mutableListOf("622334455", "699231002", "654112233", "666777888")
         ))
 
         // USUARIO 6 - Carla
@@ -120,18 +125,19 @@ object LocalDatabase {
             dniNumber = "51029384Z",
             phoneNumber = "622334455",
             password = "password123",
-            username = "Sofía",
+            username = "Carla",
             birthDate = "19/09/1997",
             sexualOrientation = SexualOrientation.LESBIANA,
             intent = Intent.ROLLO_UNA_NOCHE,
             distancePreferenceKm = 40,
             habits = "Crossfitera y fanática de la montaña.",
-            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_carla_1","android.resource://$pkg/drawable/user_carla_2","android.resource://$pkg/drawable/user_carla_3")
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_carla_1","android.resource://$pkg/drawable/user_carla_2","android.resource://$pkg/drawable/user_carla_3"),
+            likedByUsers = mutableListOf("644012665")
         ))
 
         // USUARIO 6 - Hermenigilda
         seedUsers.add(UserAccount(
-            dniNumber = "51029384Z",
+            dniNumber = "51037384Z",
             phoneNumber = "666777888",
             password = "password123",
             username = "Hermenigilda",
@@ -140,7 +146,23 @@ object LocalDatabase {
             intent = Intent.ROLLO_UNA_NOCHE,
             distancePreferenceKm = 40,
             habits = "Tejo puntadas y cocino para mis nietos.",
-            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_hermenigilda_1")
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_hermenigilda_1"),
+            likedByUsers = mutableListOf("622334455", "612983744", "699231002")
+        ))
+
+        // USUARIO 7 - Eduard
+        seedUsers.add(UserAccount(
+            dniNumber = "58579384Z",
+            phoneNumber = "123456789",
+            password = "password123",
+            username = "Eduard",
+            birthDate = "19/09/1702",
+            sexualOrientation = SexualOrientation.ASEXUAL,
+            intent = Intent.HACER_AMIGAS,
+            distancePreferenceKm = 100,
+            habits = "Me gustan mucho las interfaces y los juegos de ponis uwu.",
+            userPhotos = mutableListOf("android.resource://$pkg/drawable/user_profe"),
+            likedByUsers = mutableListOf("622334455", "612983744", "699231002")
         ))
 
         seedUsers.forEach { user ->
@@ -248,5 +270,9 @@ object LocalDatabase {
             e.printStackTrace()
             null
         }
+    }
+
+    fun getAllUsers(): Map<String, UserAccount> {
+        return usersMap
     }
 }
