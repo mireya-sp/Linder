@@ -28,12 +28,8 @@ object LocalDatabase {
         if (this::prefs.isInitialized) return
         prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
-        // 1. Intentamos cargar lo que ya hay guardado en el móvil
         loadUsersFromDisk()
 
-        // 2. MODIFICACIÓN AQUÍ:
-        // Si el mapa tiene menos de 6 usuarios (porque has añadido nuevos al código),
-        // forzamos que se ejecute preLoadUsers para rellenar los que faltan.
         if (usersMap.size < 6) {
             preLoadUsers(context)
         }
@@ -179,8 +175,6 @@ object LocalDatabase {
 
         saveUsersToDisk()
 
-        // --- PRECARGAR MENSAJES DE CHAT DE PRUEBA ---
-
         // Conversación: Isabel (644012665) y Leticia (654112233)
         saveMessage(ChatMessage(senderPhone = "644012665", receiverPhone = "654112233", message = "¡Hola Leticia! Qué perfil más interesante tienes.", timestamp = System.currentTimeMillis() - 100000))
         saveMessage(ChatMessage(senderPhone = "654112233", receiverPhone = "644012665", message = "¡Hola Isabel! Muchas gracias. ¿Qué tal estás?", timestamp = System.currentTimeMillis() - 50000))
@@ -197,10 +191,8 @@ object LocalDatabase {
         val key = user.phoneNumber ?: return
         usersMap[key] = user
 
-        // Guardamos en el almacenamiento físico
         saveUsersToDisk()
 
-        // Establecemos como usuario activo (Login automático)
         setCurrentUser(user)
     }
 
@@ -222,10 +214,8 @@ object LocalDatabase {
         }
     }
 
-    // --- MÉTODOS PRIVADOS DE PERSISTENCIA ---
 
     private fun saveUsersToDisk() {
-        // Verificación de seguridad para evitar el crash de lateinit
         if (!this::prefs.isInitialized) return
 
         val json = gson.toJson(usersMap)
@@ -267,21 +257,18 @@ object LocalDatabase {
 
     fun importImageToApp(context: Context, uri: Uri): String? {
         return try {
-            // Creamos una carpeta interna llamada 'photos'
             val folder = File(context.filesDir, "photos")
             if (!folder.exists()) folder.mkdirs()
 
-            // Generamos un nombre único
             val fileName = "img_${System.currentTimeMillis()}_${(1..1000).random()}.jpg"
             val destFile = File(folder, fileName)
 
-            // Copiamos el contenido del Uri al archivo nuevo
             context.contentResolver.openInputStream(uri)?.use { input ->
                 FileOutputStream(destFile).use { output ->
                     input.copyTo(output)
                 }
             }
-            // Devolvemos la ruta absoluta donde se ha guardado
+
             destFile.absolutePath
         } catch (e: Exception) {
             e.printStackTrace()
@@ -292,9 +279,6 @@ object LocalDatabase {
     fun getAllUsers(): Map<String, UserAccount> {
         return usersMap
     }
-
-
-    // --- SECCIÓN DE CHATS EN LOCALDATABASE ---
 
     // Lista en memoria para guardar todos los mensajes durante la sesión
     private val allMessages: MutableList<ChatMessage> = mutableListOf()
@@ -314,9 +298,6 @@ object LocalDatabase {
      */
     fun saveMessage(msg: ChatMessage) {
         allMessages.add(msg)
-        // NOTA: En una app real, aquí guardaríamos 'allMessages' en SharedPreferences
-        // o Room para que persista al cerrar la app. Para este prototipo,
-        // se mantendrá en memoria mientras la app esté abierta.
     }
 
     /**
@@ -340,11 +321,8 @@ object LocalDatabase {
         val key = user.phoneNumber ?: return
         usersMap[key] = user
 
-        // Guardamos en el almacenamiento físico
         saveUsersToDisk()
 
-        // Si justo estamos actualizando al usuario que está usando la app,
-        // refrescamos sus datos en memoria, pero si es otro, no hacemos nada.
         if (currentUser?.phoneNumber == key) {
             currentUser = user
         }

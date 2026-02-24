@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat // IMPORTANTE PARA EL TINTE SEGURO
+import androidx.core.view.ViewCompat
 import com.mireyaserrano.linder.R
 import com.mireyaserrano.linder.data.LocalDatabase
 import com.mireyaserrano.linder.data.SubscriptionType
@@ -24,7 +24,6 @@ class SubscriptionActivity : AppCompatActivity() {
 
         val btnBack = findViewById<ImageView>(R.id.btnBack)
 
-        // Si la app crashea aquí, es 100% seguro que te faltan estos IDs en tu XML
         val cardWeekly = findViewById<View>(R.id.cardWeekly)
         val cardMonthly = findViewById<View>(R.id.cardMonthly)
         val cardYearly = findViewById<View>(R.id.cardYearly)
@@ -37,12 +36,10 @@ class SubscriptionActivity : AppCompatActivity() {
             priceToPay = priceText
             btnContinue.text = "Continuar por $priceToPay"
 
-            // 1. Limpiamos colores de forma segura compatible con cualquier Android
             ViewCompat.setBackgroundTintList(cardWeekly, null)
             ViewCompat.setBackgroundTintList(cardMonthly, null)
             ViewCompat.setBackgroundTintList(cardYearly, null)
 
-            // 2. Aplicamos el color morado solo al seleccionado
             val selectedColor = ColorStateList.valueOf(Color.parseColor("#4A2A6A"))
             when (type) {
                 SubscriptionType.WEEKLY -> {
@@ -65,7 +62,6 @@ class SubscriptionActivity : AppCompatActivity() {
         cardMonthly.setOnClickListener { updateSelection(SubscriptionType.MONTHLY, "79,96€") }
         cardYearly.setOnClickListener { updateSelection(SubscriptionType.YEARLY, "519,48€") }
 
-        // Inicializamos
         updateSelection(SubscriptionType.YEARLY, "519,48€")
 
         btnContinue.setOnClickListener {

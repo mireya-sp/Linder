@@ -1,4 +1,4 @@
-package com.mireyaserrano.linder
+package com.mireyaserrano.linder.ui.auth
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,11 +7,11 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
+import com.mireyaserrano.linder.R
 import com.mireyaserrano.linder.data.Intent
 
 class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
 
-    // Variables de datos acumulados
     private var receivedPhone: String? = null
     private var receivedPass: String? = null
     private var receivedDni: String? = null
@@ -20,13 +20,11 @@ class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
     private var receivedUsername: String? = null
     private var receivedOrientation: String? = null
 
-    // Vista del botón
     private lateinit var btnNext: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. RECUPERAR DATOS
         arguments?.let {
             receivedPhone = it.getString("phone")
             receivedPass = it.getString("password")
@@ -41,7 +39,6 @@ class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
         btnNext = view.findViewById(R.id.btn_next_intent)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
 
-        // Estado inicial
         disableNextButton()
 
         rgIntent.setOnCheckedChangeListener { _, checkedId ->
@@ -69,19 +66,18 @@ class Reg6IntentFragment : Fragment(R.layout.fragment_reg6_intent) {
     private fun enableNextButton() {
         btnNext.isEnabled = true
         btnNext.alpha = 1.0f
-        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF"))
         btnNext.setTextColor(Color.WHITE)
     }
 
     private fun disableNextButton() {
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
-        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris claro
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
         btnNext.setTextColor(Color.parseColor("#202124"))
     }
 
     private fun navigateToPhotos(userIntent: Intent) {
-        // Asegúrate de tener creado Reg7DistanceFragment
         val nextFragment = Reg7DistanceFragment()
 
         val bundle = Bundle().apply {

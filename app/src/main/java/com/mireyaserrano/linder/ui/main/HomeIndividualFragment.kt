@@ -28,7 +28,6 @@ class HomeIndividualFragment : Fragment() {
     private var currentPhotoIndex: Int = 0
     private val historyStack = mutableListOf<Int>()
 
-    // Vistas principales
     private lateinit var swipeableCard: View
     private lateinit var ivMainPhoto: ImageView
     private lateinit var tvProfileName: TextView
@@ -44,7 +43,7 @@ class HomeIndividualFragment : Fragment() {
 
         TopBarManager.setup(this, view, TopBarManager.ScreenType.HOME_INDIVIDUAL)
 
-        swipeableCard = view.findViewById(R.id.swipeable_card) // Asignamos la nueva tarjeta
+        swipeableCard = view.findViewById(R.id.swipeable_card)
         ivMainPhoto = view.findViewById(R.id.iv_main_photo)
         tvProfileName = view.findViewById(R.id.tv_profile_name)
         tvProfileBio = view.findViewById(R.id.tv_profile_bio)
@@ -57,7 +56,6 @@ class HomeIndividualFragment : Fragment() {
         setupTouchAndSwipeListeners()
         loadUsers()
 
-        // Los botones físicos lanzan la animación de la tarjeta
         btnLike.setOnClickListener { animateCardOffScreen(true) }
         btnDislike.setOnClickListener { animateCardOffScreen(false) }
         btnRewind.setOnClickListener { processRewind() }
@@ -69,18 +67,13 @@ class HomeIndividualFragment : Fragment() {
         val loggedInUser = LocalDatabase.getCurrentUser() ?: return
         val allUsersMap = LocalDatabase.getAllUsers()
 
-        // Filtramos la lista de usuarios para la pila de cartas:
         usersList = allUsersMap.values.filter { targetUser ->
-            // 1. Que no sea yo misma
             val isNotMe = targetUser.phoneNumber != loggedInUser.phoneNumber
 
-            // 2. Que no hayamos hecho match ya (esperando a chatear)
             val isNotAMatch = !loggedInUser.matches.contains(targetUser.phoneNumber)
 
-            // 3. Que no estemos chateando ya
             val isNotAnActiveChat = !loggedInUser.activeChats.contains(targetUser.phoneNumber)
 
-            // Solo pasa el filtro si cumple TODAS estas condiciones
             isNotMe && isNotAMatch && isNotAnActiveChat
         }
 
@@ -91,7 +84,6 @@ class HomeIndividualFragment : Fragment() {
     }
 
     private fun showCurrentUser() {
-        // 1. Antes de cargar al nuevo usuario, devolvemos la tarjeta al centro
         swipeableCard.translationX = 0f
         swipeableCard.translationY = 0f
         swipeableCard.rotation = 0f
@@ -164,13 +156,11 @@ class HomeIndividualFragment : Fragment() {
                     true
                 }
                 MotionEvent.ACTION_MOVE -> {
-                    // Mueve SOLO la tarjeta
                     val deltaX = event.rawX - startX
                     val deltaY = event.rawY - startY
                     v.translationX = deltaX
                     v.translationY = deltaY
 
-                    // Rotación natural
                     v.rotation = deltaX * 0.05f
                     true
                 }
@@ -244,20 +234,16 @@ class HomeIndividualFragment : Fragment() {
         val likedUser = usersList[currentUserIndex]
 
         if (loggedInUser.likedByUsers.contains(likedUser.phoneNumber)) {
-            // ¡MATCH! Guardamos el match mutuo inmediatamente
             loggedInUser.matches.add(likedUser.phoneNumber ?: "")
             likedUser.matches.add(loggedInUser.phoneNumber ?: "")
 
-            // USAMOS updateUser PARA NO CAMBIAR DE SESIÓN
             LocalDatabase.updateUser(loggedInUser)
             LocalDatabase.updateUser(likedUser)
 
             showMatchDialog(likedUser)
         } else {
-            // Like Normal
             likedUser.likedByUsers.add(loggedInUser.phoneNumber ?: "")
 
-            // USAMOS updateUser PARA NO CAMBIAR DE SESIÓN
             LocalDatabase.updateUser(likedUser)
 
             Toast.makeText(requireContext(), "¡Le has dado Like a ${likedUser.username}!", Toast.LENGTH_SHORT).show()
@@ -274,14 +260,11 @@ class HomeIndividualFragment : Fragment() {
         builder.setPositiveButton("Iniciar Chat") { dialog, _ ->
             dialog.dismiss()
 
-            // 1. Preparamos la siguiente carta para cuando la usuaria vuelva atrás
             moveToNextUser()
 
-            // 2. Navegamos al chat individual
             matchedUser.phoneNumber?.let { phone ->
                 val chatFragment = ChatFragment.newInstance(phone)
                 parentFragmentManager.beginTransaction()
-                    // Asegúrate de que "fragment_container" es el ID correcto de tu contenedor en MainActivity
                     .replace(R.id.fragment_container, chatFragment)
                     .addToBackStack(null)
                     .commit()

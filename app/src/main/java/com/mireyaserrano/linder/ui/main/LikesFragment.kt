@@ -39,7 +39,6 @@ class LikesFragment : Fragment(R.layout.fragment_likes) {
                 rvLikes.visibility = View.VISIBLE
                 layoutEmptyState.visibility = View.GONE
 
-                // PASAMOS LA FUNCIÓN DE NAVEGACIÓN AL ADAPTADOR
                 val adapter = LikesAdapter(likedUsersList) { targetPhone ->
                     navigateToChat(targetPhone)
                 }
@@ -51,11 +50,9 @@ class LikesFragment : Fragment(R.layout.fragment_likes) {
         }
     }
 
-    // Función que realiza el cambio de pantalla
     private fun navigateToChat(targetPhone: String) {
         val chatFragment = ChatFragment.newInstance(targetPhone)
         parentFragmentManager.beginTransaction()
-            // Asumimos que el contenedor principal de tu MainActivity se llama fragment_container
             .replace(R.id.fragment_container, chatFragment)
             .addToBackStack(null)
             .commit()
@@ -67,7 +64,7 @@ class LikesFragment : Fragment(R.layout.fragment_likes) {
 // ==========================================
 class LikesAdapter(
     private val users: List<UserAccount>,
-    private val onUserClick: (String) -> Unit // NUEVO: Recibimos el evento click
+    private val onUserClick: (String) -> Unit
 ) : RecyclerView.Adapter<LikesAdapter.LikeViewHolder>() {
 
     class LikeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -98,7 +95,6 @@ class LikesAdapter(
             holder.imgProfile.setImageResource(R.drawable.profile_placeholder)
         }
 
-        // NUEVO: Al hacer clic en la fila, ejecutamos la función pasando el teléfono
         holder.itemView.setOnClickListener {
             user.phoneNumber?.let { phone ->
                 onUserClick(phone)

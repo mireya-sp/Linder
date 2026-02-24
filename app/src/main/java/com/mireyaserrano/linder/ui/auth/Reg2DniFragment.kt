@@ -35,7 +35,7 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
 
     private var latestTmpUri: Uri? = null
 
-    private lateinit var tvStatus: TextView // Renombrado lógicamente a tvStatus
+    private lateinit var tvStatus: TextView
     private lateinit var btnNext: Button
 
     private val requestCameraPermissionLauncher =
@@ -69,12 +69,12 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
         val btnUpload = view.findViewById<Button>(R.id.btn_upload_photo)
         val btnTake = view.findViewById<Button>(R.id.btn_take_photo)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
-        tvStatus = view.findViewById(R.id.tv_error_dni) // Usamos el mismo TextView
+        tvStatus = view.findViewById(R.id.tv_error_dni)
 
         disableNextButton()
 
         btnUpload.setOnClickListener {
-            hideStatus() // Oculta cualquier mensaje (error o éxito) al intentar de nuevo
+            hideStatus()
             pickImageLauncher.launch("image/*")
         }
 
@@ -184,7 +184,6 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
             extractedDni = tempDni
             extractedBirthDate = sdf.format(birthDate)
 
-            // --- MOSTRAR ÉXITO ---
             showSuccess("¡Documento verificado!\nDNI: $extractedDni\nNacimiento: $extractedBirthDate")
 
         } else {
@@ -202,18 +201,16 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
         return age >= 18
     }
 
-    // --- UI HELPERS (COLORES Y ESTADOS) ---
-
     private fun showError(message: String) {
         tvStatus.text = message
-        tvStatus.setTextColor(Color.parseColor("#FF5252")) // Rojo Material Design
+        tvStatus.setTextColor(Color.parseColor("#FF5252"))
         tvStatus.visibility = View.VISIBLE
         disableNextButton()
     }
 
     private fun showSuccess(message: String) {
         tvStatus.text = message
-        tvStatus.setTextColor(Color.parseColor("#4CAF50")) // Verde Material Design
+        tvStatus.setTextColor(Color.parseColor("#4CAF50"))
         tvStatus.visibility = View.VISIBLE
         enableNextButton()
     }
@@ -225,14 +222,14 @@ class Reg2DniFragment : Fragment(R.layout.fragment_reg2_dni) {
     private fun enableNextButton() {
         btnNext.isEnabled = true
         btnNext.alpha = 1.0f
-        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF"))
         btnNext.setTextColor(Color.WHITE)
     }
 
     private fun disableNextButton() {
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
-        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris claro
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
         btnNext.setTextColor(Color.parseColor("#202124"))
     }
 
