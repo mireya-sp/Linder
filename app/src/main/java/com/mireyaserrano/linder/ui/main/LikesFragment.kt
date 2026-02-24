@@ -19,35 +19,30 @@ class LikesFragment : Fragment(R.layout.fragment_likes) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configuramos la Top Bar
         TopBarManager.setup(this, view, TopBarManager.ScreenType.OTHER)
 
         val tvLikesCount = view.findViewById<TextView>(R.id.tvLikesCount)
         val rvLikes = view.findViewById<RecyclerView>(R.id.rvLikes)
         val layoutEmptyState = view.findViewById<View>(R.id.layoutEmptyState)
 
-        // 1. Obtener el usuario actual
         val currentUser = LocalDatabase.getCurrentUser()
 
         if (currentUser != null) {
-            // 2. Obtener la lista de teléfonos de la gente que le dio like
             val likedPhones = currentUser.likedByUsers
-
-            // 3. Convertir esos teléfonos en objetos UserAccount
             val likedUsersList = likedPhones.mapNotNull { phone ->
                 LocalDatabase.getUserByPhone(phone)
             }
 
-            // 4. Actualizar el contador
             tvLikesCount.text = "${likedUsersList.size} Likes"
 
-            // 5. Mostrar la lista o el estado vacío
             if (likedUsersList.isNotEmpty()) {
                 rvLikes.visibility = View.VISIBLE
                 layoutEmptyState.visibility = View.GONE
 
-                // Configurar el adaptador
-                val adapter = LikesAdapter(likedUsersList)
+                // PASAMOS LA FUNCIÓN DE NAVEGACIÓN AL ADAPTADOR
+                val adapter = LikesAdapter(likedUsersList) { targetPhone ->
+                    navigateToChat(targetPhone)
+                }
                 rvLikes.adapter = adapter
             } else {
                 rvLikes.visibility = View.GONE
@@ -55,13 +50,25 @@ class LikesFragment : Fragment(R.layout.fragment_likes) {
             }
         }
     }
+
+    // Función que realiza el cambio de pantalla
+    private fun navigateToChat(targetPhone: String) {
+        val chatFragment = ChatFragment.newInstance(targetPhone)
+        parentFragmentManager.beginTransaction()
+            // Asumimos que el contenedor principal de tu MainActivity se llama fragment_container
+            .replace(R.id.fragment_container, chatFragment)
+            .addToBackStack(null)
+            .commit()
+    }
 }
 
 // ==========================================
 // ADAPTADOR PARA EL RECYCLERVIEW
 // ==========================================
-class LikesAdapter(private val users: List<UserAccount>) :
-    RecyclerView.Adapter<LikesAdapter.LikeViewHolder>() {
+class LikesAdapter(
+    private val users: List<UserAccount>,
+    private val onUserClick: (String) -> Unit // NUEVO: Recibimos el evento click
+) : RecyclerView.Adapter<LikesAdapter.LikeViewHolder>() {
 
     class LikeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgProfile: ShapeableImageView = view.findViewById(R.id.imgProfile)
@@ -78,13 +85,9 @@ class LikesAdapter(private val users: List<UserAccount>) :
     override fun onBindViewHolder(holder: LikeViewHolder, position: Int) {
         val user = users[position]
 
-        // Asignamos el nombre
         holder.tvName.text = user.username ?: "Usuario"
-
-        // Usamos los hobbies como descripción en esta vista
         holder.tvLastMessage.text = user.habits ?: "Aún no ha escrito nada sobre sí misma."
 
-        // Cargamos la primera foto del usuario (si tiene)
         if (user.userPhotos.isNotEmpty()) {
             Glide.with(holder.itemView.context)
                 .load(Uri.parse(user.userPhotos[0]))
@@ -93,6 +96,13 @@ class LikesAdapter(private val users: List<UserAccount>) :
                 .into(holder.imgProfile)
         } else {
             holder.imgProfile.setImageResource(R.drawable.profile_placeholder)
+        }
+
+        // NUEVO: Al hacer clic en la fila, ejecutamos la función pasando el teléfono
+        holder.itemView.setOnClickListener {
+            user.phoneNumber?.let { phone ->
+                onUserClick(phone)
+            }
         }
     }
 

@@ -12,76 +12,111 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.imageview.ShapeableImageView
 import com.mireyaserrano.linder.R
 import com.mireyaserrano.linder.data.LocalDatabase
+import com.mireyaserrano.linder.data.SubscriptionType // Importante para el enum
+import com.mireyaserrano.linder.ui.edit.SubscriptionActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
 class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
 
+    // Declaramos las vistas a nivel de clase para poder actualizarlas desde onResume
+    private lateinit var imgProfilePhoto: ShapeableImageView
+    private lateinit var tvProfileName: TextView
+    private lateinit var tvVipBadge: TextView
+    private lateinit var btnVerify: ImageButton
+    private lateinit var btnActualizar: Button
+    private lateinit var tvSubscriptionInfo: TextView
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Configuración de la Top Bar centralizada
         TopBarManager.setup(this, view, TopBarManager.ScreenType.OTHER)
 
-        // 2. Vincular las vistas del XML
-        val imgProfilePhoto = view.findViewById<ShapeableImageView>(R.id.imgProfilePhoto)
-        val tvProfileName = view.findViewById<TextView>(R.id.tvProfileName)
-        val btnVerify = view.findViewById<ImageButton>(R.id.btnVerify)
+        imgProfilePhoto = view.findViewById(R.id.imgProfilePhoto)
+        tvProfileName = view.findViewById(R.id.tvProfileName)
+        tvVipBadge = view.findViewById(R.id.tvVipBadge)
+        btnVerify = view.findViewById(R.id.btnVerify)
+        btnActualizar = view.findViewById(R.id.btnActualizar)
+        tvSubscriptionInfo = view.findViewById(R.id.tvSubscriptionInfo)
+
         val llManageDouble = view.findViewById<View>(R.id.ll_manage_double)
-        val btnActualizar = view.findViewById<Button>(R.id.btnActualizar)
-        val btnEditProfile = view.findViewById<Button>(R.id.btnEditProfile) // ¡AÑADIDO!
-
-        // 3. Cargar datos del usuario
-        val currentUser = LocalDatabase.getCurrentUser()
-
-        if (currentUser != null) {
-            // Cargar foto principal (la primera de la lista)
-            val firstPhoto = currentUser.userPhotos.firstOrNull()
-            if (firstPhoto != null) {
-                Glide.with(this)
-                    .load(firstPhoto)
-                    .placeholder(R.drawable.user_thumb)
-                    .centerCrop()
-                    .into(imgProfilePhoto)
-            }
-
-            // Calcular edad y mostrar nombre
-            val age = calculateAgeFromDate(currentUser.birthDate.toString())
-            tvProfileName.text = "${currentUser.username}, $age"
-
-            // Lógica de Verificación (Icono y Click)
-            if (currentUser.isVerified) {
-                btnVerify.setImageResource(R.drawable.ic_verified)
-                btnVerify.setOnClickListener(null)
-            } else {
-                btnVerify.setImageResource(R.drawable.ic_non_verified)
-                btnVerify.setOnClickListener {
-                    showVerificationDialog()
-                }
-            }
-        }
-
-        // 4. Lógica de Navegación a otras pantallas (¡YA ACTIVADAS!)
+        val btnEditProfile = view.findViewById<Button>(R.id.btnEditProfile)
 
         btnEditProfile.setOnClickListener {
-            val intent = Intent(requireContext(), com.mireyaserrano.linder.ui.edit.EditProfileActivity::class.java)
-            startActivity(intent)
+            // val intent = Intent(requireContext(), com.mireyaserrano.linder.ui.edit.EditProfileActivity::class.java)
+            // startActivity(intent)
         }
 
         llManageDouble.setOnClickListener {
-            val intent = Intent(requireContext(), com.mireyaserrano.linder.ui.edit.ManageDoubleActivity::class.java)
-            startActivity(intent)
+            // val intent = Intent(requireContext(), com.mireyaserrano.linder.ui.edit.ManageDoubleActivity::class.java)
+            // startActivity(intent)
         }
 
         btnActualizar.setOnClickListener {
-            val intent = Intent(requireContext(), com.mireyaserrano.linder.ui.edit.SubscriptionActivity::class.java)
+            // Importante: Asegúrate de que esta ruta coincida con tu Activity de suscripciones
+            val intent = Intent(requireContext(), SubscriptionActivity::class.java)
             startActivity(intent)
         }
     }
 
-    /**
-     * Calcula la edad a partir de un string de fecha (ej: "15/05/2000").
-     */
+    // Usamos onResume para que recargue los datos cada vez que volvemos a la pantalla
+    override fun onResume() {
+        super.onResume()
+        refreshProfileData()
+    }
+
+    private fun refreshProfileData() {
+        val currentUser = LocalDatabase.getCurrentUser() ?: return
+
+        // 1. Cargar Foto y Nombre
+        val firstPhoto = currentUser.userPhotos.firstOrNull()
+        if (firstPhoto != null) {
+            Glide.with(this)
+                .load(firstPhoto)
+                .placeholder(R.drawable.user_thumb)
+                .centerCrop()
+                .into(imgProfilePhoto)
+        }
+
+        val age = calculateAgeFromDate(currentUser.birthDate.toString())
+        tvProfileName.text = "${currentUser.username}, $age"
+
+        // 2. Lógica de Verificación
+        if (currentUser.isVerified) {
+            btnVerify.setImageResource(R.drawable.ic_verified)
+            btnVerify.setOnClickListener(null)
+        } else {
+            btnVerify.setImageResource(R.drawable.ic_non_verified)
+            btnVerify.setOnClickListener { showVerificationDialog() }
+        }
+
+        // 3. Lógica de Linder PLUS (VIP) con EASTER EGG
+        val now = System.currentTimeMillis()
+        if (currentUser.subscriptionEndDate > now) {
+            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val dateStr = sdf.format(Date(currentUser.subscriptionEndDate))
+
+            // ¡AQUÍ ESTÁ LA MAGIA!
+            val typeStr = when(currentUser.subscriptionType) {
+                SubscriptionType.WEEKLY -> "PLUS Semanal"
+                SubscriptionType.MONTHLY -> "PLUS Mensual"
+                SubscriptionType.YEARLY -> "PLUG anal" // 🤫
+                else -> "PLUS"
+            }
+
+            tvVipBadge.text = typeStr
+            tvVipBadge.visibility = View.VISIBLE
+
+            tvSubscriptionInfo.text = "Tu suscripción acaba el $dateStr"
+            tvSubscriptionInfo.visibility = View.VISIBLE
+            btnActualizar.text = "Ampliar Plan"
+        } else {
+            tvVipBadge.visibility = View.GONE
+            tvSubscriptionInfo.visibility = View.GONE
+            btnActualizar.text = "Actualizar"
+        }
+    }
+
     private fun calculateAgeFromDate(birthDateStr: String): Int {
         if (birthDateStr.isEmpty()) return 0
         try {
@@ -102,9 +137,6 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         }
     }
 
-    /**
-     * Muestra el diálogo para verificar las imágenes.
-     */
     private fun showVerificationDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_verify_images, null)
 

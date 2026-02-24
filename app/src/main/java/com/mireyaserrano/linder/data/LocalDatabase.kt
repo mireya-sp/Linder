@@ -57,7 +57,9 @@ object LocalDatabase {
             distancePreferenceKm = 100,
             habits = "Me encanta el robar y apoyar genocidios.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_isabel_1","android.resource://$pkg/drawable/user_isabel_2","android.resource://$pkg/drawable/user_isabel_3"),
-            likedByUsers = mutableListOf("612983744", "699231002", "654112233")
+            likedByUsers = mutableListOf("612983744", "699231002", "654112233"),
+            matches = mutableListOf("123456789"), // Match pendiente con Eduard
+            activeChats = mutableListOf("654112233") // Chat iniciado con Leticia
         ))
 
         // USUARIO 2 - Marta
@@ -72,7 +74,8 @@ object LocalDatabase {
             distancePreferenceKm = 50,
             habits = "Amante de la pizza, el cine de terror y viajar sola.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_marta_1","android.resource://$pkg/drawable/user_marta_2"),
-            likedByUsers = mutableListOf("644012665", "677889900", "622334455")
+            likedByUsers = mutableListOf("644012665", "677889900", "622334455"),
+            activeChats = mutableListOf("677889900") // Chat iniciado con Carmen
         ))
 
         // USUARIO 3 - Elena
@@ -102,7 +105,8 @@ object LocalDatabase {
             distancePreferenceKm = 80,
             habits = "Estudiante de artes, apasionada de la pintura y la playa.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_leticia_1","android.resource://$pkg/drawable/user_leticia_2","android.resource://$pkg/drawable/user_leticia_3","android.resource://$pkg/drawable/user_leticia_4","android.resource://$pkg/drawable/user_leticia_5","android.resource://$pkg/drawable/user_leticia_6"),
-            likedByUsers = mutableListOf("677889900", "612983744")
+            likedByUsers = mutableListOf("677889900", "612983744"),
+            activeChats = mutableListOf("644012665") // Chat iniciado con Isabel
         ))
 
         // USUARIO 5 - Carmen
@@ -117,7 +121,8 @@ object LocalDatabase {
             distancePreferenceKm = 15,
             habits = "Adoro cocinar recetas nuevas y el vino tinto.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_carmen_1"),
-            likedByUsers = mutableListOf("622334455", "699231002", "654112233", "666777888")
+            likedByUsers = mutableListOf("622334455", "699231002", "654112233", "666777888"),
+            activeChats = mutableListOf("612983744") // Chat iniciado con Marta
         ))
 
         // USUARIO 6 - Carla
@@ -135,7 +140,7 @@ object LocalDatabase {
             likedByUsers = mutableListOf("644012665")
         ))
 
-        // USUARIO 6 - Hermenigilda
+        // USUARIO 7 - Hermenigilda
         seedUsers.add(UserAccount(
             dniNumber = "51037384Z",
             phoneNumber = "666777888",
@@ -150,7 +155,7 @@ object LocalDatabase {
             likedByUsers = mutableListOf("622334455", "612983744", "699231002")
         ))
 
-        // USUARIO 7 - Eduard
+        // USUARIO 8 - Eduard
         seedUsers.add(UserAccount(
             dniNumber = "58579384Z",
             phoneNumber = "123456789",
@@ -162,7 +167,8 @@ object LocalDatabase {
             distancePreferenceKm = 100,
             habits = "Me gustan mucho las interfaces y los juegos de ponis uwu.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_profe"),
-            likedByUsers = mutableListOf("622334455", "612983744", "699231002")
+            likedByUsers = mutableListOf("622334455", "612983744", "699231002"),
+            matches = mutableListOf("644012665") // Match pendiente con Isabel
         ))
 
         seedUsers.forEach { user ->
@@ -170,7 +176,18 @@ object LocalDatabase {
                 usersMap[phone] = user
             }
         }
+
         saveUsersToDisk()
+
+        // --- PRECARGAR MENSAJES DE CHAT DE PRUEBA ---
+
+        // Conversación: Isabel (644012665) y Leticia (654112233)
+        saveMessage(ChatMessage(senderPhone = "644012665", receiverPhone = "654112233", message = "¡Hola Leticia! Qué perfil más interesante tienes.", timestamp = System.currentTimeMillis() - 100000))
+        saveMessage(ChatMessage(senderPhone = "654112233", receiverPhone = "644012665", message = "¡Hola Isabel! Muchas gracias. ¿Qué tal estás?", timestamp = System.currentTimeMillis() - 50000))
+
+        // Conversación: Marta (612983744) y Carmen (677889900)
+        saveMessage(ChatMessage(senderPhone = "612983744", receiverPhone = "677889900", message = "¡Hola Carmen! ¿Cuál es tu receta de pizza favorita?", timestamp = System.currentTimeMillis() - 80000))
+        saveMessage(ChatMessage(senderPhone = "677889900", receiverPhone = "612983744", message = "¡Hola Marta! Definitivamente la de 4 quesos con un buen vino tinto.", timestamp = System.currentTimeMillis() - 20000))
     }
 
     /**
@@ -274,5 +291,62 @@ object LocalDatabase {
 
     fun getAllUsers(): Map<String, UserAccount> {
         return usersMap
+    }
+
+
+    // --- SECCIÓN DE CHATS EN LOCALDATABASE ---
+
+    // Lista en memoria para guardar todos los mensajes durante la sesión
+    private val allMessages: MutableList<ChatMessage> = mutableListOf()
+
+    /**
+     * Recupera el historial de conversación entre dos usuarios, ordenado por tiempo.
+     */
+    fun getChatHistory(phone1: String, phone2: String): List<ChatMessage> {
+        return allMessages.filter { msg ->
+            (msg.senderPhone == phone1 && msg.receiverPhone == phone2) ||
+                    (msg.senderPhone == phone2 && msg.receiverPhone == phone1)
+        }.sortedBy { it.timestamp }
+    }
+
+    /**
+     * Guarda un nuevo mensaje en la "base de datos".
+     */
+    fun saveMessage(msg: ChatMessage) {
+        allMessages.add(msg)
+        // NOTA: En una app real, aquí guardaríamos 'allMessages' en SharedPreferences
+        // o Room para que persista al cerrar la app. Para este prototipo,
+        // se mantendrá en memoria mientras la app esté abierta.
+    }
+
+    /**
+     * Método auxiliar para obtener el último mensaje de una conversación (para la lista de chats)
+     */
+    fun getLastMessage(myPhone: String, otherPhone: String): String {
+        val history = getChatHistory(myPhone, otherPhone)
+        return if (history.isNotEmpty()) {
+            val lastMsg = history.last()
+            if (lastMsg.senderPhone == myPhone) "Tú: ${lastMsg.message}" else lastMsg.message
+        } else {
+            "Nuevo Match"
+        }
+    }
+
+    /**
+     * Actualiza un usuario en la base de datos SIN cambiar la sesión activa.
+     * Útil para actualizar likes, matches o datos de otros perfiles.
+     */
+    fun updateUser(user: UserAccount) {
+        val key = user.phoneNumber ?: return
+        usersMap[key] = user
+
+        // Guardamos en el almacenamiento físico
+        saveUsersToDisk()
+
+        // Si justo estamos actualizando al usuario que está usando la app,
+        // refrescamos sus datos en memoria, pero si es otro, no hacemos nada.
+        if (currentUser?.phoneNumber == key) {
+            currentUser = user
+        }
     }
 }

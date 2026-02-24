@@ -86,6 +86,24 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="@id/tvProfileName" />
 
+                    <TextView
+                        android:id="@+id/tvVipBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_plus_tag"
+                        android:fontFamily="@font/nunito"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:text="PLUS Mensual"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:layout_constraintStart_toStartOf="@id/tvProfileName"
+                        app:layout_constraintTop_toBottomOf="@id/tvProfileName" />
+
                     <Button
                         android:id="@+id/btnEditProfile"
                         android:layout_width="wrap_content"
@@ -97,8 +115,9 @@
                         android:backgroundTint="#3A0050"
                         android:layout_marginTop="8dp"
                         app:cornerRadius="18dp"
-                        app:layout_constraintTop_toBottomOf="@id/tvProfileName"
-                        app:layout_constraintStart_toStartOf="@id/tvProfileName" />
+                        app:layout_constraintTop_toBottomOf="@id/tvVipBadge"
+                        app:layout_constraintStart_toStartOf="@id/tvProfileName"
+                        app:layout_goneMarginTop="8dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -157,16 +176,44 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView android:id="@+id/cardPlus" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:cardBackgroundColor="#1A0020" app:cardCornerRadius="16dp" app:cardElevation="4dp">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPlus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="#1A0020"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Linder" android:fontFamily="@font/marko_one" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PLUS" android:fontFamily="@font/nunito" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:paddingHorizontal="8dp" android:paddingVertical="2dp" android:layout_marginStart="8dp" android:background="@drawable/bg_plus_tag" />
                         <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
 
                         <Button android:id="@+id/btnActualizar" android:layout_width="wrap_content" android:layout_height="36dp" android:text="Actualizar" android:fontFamily="@font/nunito" android:textColor="#FFFFFF" android:textSize="13sp" android:backgroundTint="#E53935" app:cornerRadius="18dp" />
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvSubscriptionInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito"
+                        android:text="Tu suscripción se renueva el 12/05/2026"
+                        android:textColor="#CC99FF"
+                        android:textSize="13sp"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
 
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="20dp">
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Incluye:" android:fontFamily="@font/nunito" android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />

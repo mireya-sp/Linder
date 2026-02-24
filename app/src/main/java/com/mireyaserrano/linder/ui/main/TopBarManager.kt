@@ -11,9 +11,6 @@ import com.mireyaserrano.linder.data.LocalDatabase
 import com.mireyaserrano.linder.ui.edit.SettingsGeneralActivity
 import com.mireyaserrano.linder.ui.edit.SubscriptionActivity
 
-// Importa aquí tus activities si están en otro paquete:
-// import com.mireyaserrano.linder.SubscriptionActivity
-// import com.mireyaserrano.linder.SettingsGeneralActivity
 
 object TopBarManager {
 

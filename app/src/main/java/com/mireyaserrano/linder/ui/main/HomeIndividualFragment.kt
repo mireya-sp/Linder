@@ -68,7 +68,21 @@ class HomeIndividualFragment : Fragment() {
     private fun loadUsers() {
         val loggedInUser = LocalDatabase.getCurrentUser() ?: return
         val allUsersMap = LocalDatabase.getAllUsers()
-        usersList = allUsersMap.values.filter { it.phoneNumber != loggedInUser.phoneNumber }
+
+        // Filtramos la lista de usuarios para la pila de cartas:
+        usersList = allUsersMap.values.filter { targetUser ->
+            // 1. Que no sea yo misma
+            val isNotMe = targetUser.phoneNumber != loggedInUser.phoneNumber
+
+            // 2. Que no hayamos hecho match ya (esperando a chatear)
+            val isNotAMatch = !loggedInUser.matches.contains(targetUser.phoneNumber)
+
+            // 3. Que no estemos chateando ya
+            val isNotAnActiveChat = !loggedInUser.activeChats.contains(targetUser.phoneNumber)
+
+            // Solo pasa el filtro si cumple TODAS estas condiciones
+            isNotMe && isNotAMatch && isNotAnActiveChat
+        }
 
         currentUserIndex = 0
         historyStack.clear()
@@ -229,13 +243,59 @@ class HomeIndividualFragment : Fragment() {
         val loggedInUser = LocalDatabase.getCurrentUser() ?: return
         val likedUser = usersList[currentUserIndex]
 
-        likedUser.likedByUsers.add(loggedInUser.phoneNumber ?: "")
-        LocalDatabase.saveUser(likedUser)
+        if (loggedInUser.likedByUsers.contains(likedUser.phoneNumber)) {
+            // ¡MATCH! Guardamos el match mutuo inmediatamente
+            loggedInUser.matches.add(likedUser.phoneNumber ?: "")
+            likedUser.matches.add(loggedInUser.phoneNumber ?: "")
 
-        Toast.makeText(requireContext(), "¡Le has dado Like a ${likedUser.username}!", Toast.LENGTH_SHORT).show()
-        moveToNextUser()
+            // USAMOS updateUser PARA NO CAMBIAR DE SESIÓN
+            LocalDatabase.updateUser(loggedInUser)
+            LocalDatabase.updateUser(likedUser)
+
+            showMatchDialog(likedUser)
+        } else {
+            // Like Normal
+            likedUser.likedByUsers.add(loggedInUser.phoneNumber ?: "")
+
+            // USAMOS updateUser PARA NO CAMBIAR DE SESIÓN
+            LocalDatabase.updateUser(likedUser)
+
+            Toast.makeText(requireContext(), "¡Le has dado Like a ${likedUser.username}!", Toast.LENGTH_SHORT).show()
+            moveToNextUser()
+        }
     }
 
+    private fun showMatchDialog(matchedUser: UserAccount) {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+
+        builder.setTitle("¡Es un Match!")
+        builder.setMessage("Tú y ${matchedUser.username} os habéis gustado.")
+
+        builder.setPositiveButton("Iniciar Chat") { dialog, _ ->
+            dialog.dismiss()
+
+            // 1. Preparamos la siguiente carta para cuando la usuaria vuelva atrás
+            moveToNextUser()
+
+            // 2. Navegamos al chat individual
+            matchedUser.phoneNumber?.let { phone ->
+                val chatFragment = ChatFragment.newInstance(phone)
+                parentFragmentManager.beginTransaction()
+                    // Asegúrate de que "fragment_container" es el ID correcto de tu contenedor en MainActivity
+                    .replace(R.id.fragment_container, chatFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+        builder.setNegativeButton("Seguir deslizando") { dialog, _ ->
+            dialog.dismiss()
+            moveToNextUser()
+        }
+
+        builder.setCancelable(false)
+        builder.show()
+    }
     private fun processPass() {
         if (currentUserIndex >= usersList.size) return
 
@@ -267,4 +327,6 @@ class HomeIndividualFragment : Fragment() {
             btnRewind.isEnabled = false
         }
     }
+
+
 }

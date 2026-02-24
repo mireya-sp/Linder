@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,14 +12,14 @@
         android:layout_height="match_parent" />
 
     <ImageView
-    android:id="@+id/btnBack"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:layout_margin="16dp"
-    android:src="@drawable/ic_chevron_left"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:tint="@android:color/white" />
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_chevron_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/white" />
 
     <LinearLayout
         android:id="@+id/tvTitle"
@@ -33,6 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/marko_one"
             android:text="Linder"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
@@ -41,6 +43,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
             android:text="PLUS"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
@@ -55,14 +58,13 @@
         android:id="@+id/tvSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/trirong"
         android:text="Mejora tus likes y con Linder +"
         android:textColor="#FFFFFF"
         android:paddingHorizontal="24dp"
         android:layout_marginTop="32dp"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,6 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
 
         <FrameLayout
+            android:id="@+id/cardWeekly"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_marginBottom="20dp"
@@ -86,6 +89,7 @@
                     android:id="@+id/tvDuration1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/trirong"
                     android:text="1 SEMANA"
                     android:textColor="#FFFFFF"
                     android:textSize="35sp"
@@ -95,6 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDuration1"
+                    android:fontFamily="@font/nunito"
                     android:text="29.99€/semana"
                     android:textColor="#FFCCEE" />
 
@@ -102,6 +107,7 @@
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/cardMonthly"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_marginBottom="20dp"
@@ -116,6 +122,7 @@
                     android:id="@+id/tvDuration2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/trirong"
                     android:text="1 MES"
                     android:textColor="#FFFFFF"
                     android:textSize="35sp"
@@ -125,6 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDuration2"
+                    android:fontFamily="@font/nunito"
                     android:text="19.99€/semana"
                     android:textColor="#FFCCEE" />
 
@@ -151,6 +159,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito"
                             android:text="33%"
                             android:textColor="#4E4200"
                             android:textSize="22sp"
@@ -160,6 +169,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito"
                             android:text="AHORRO"
                             android:textColor="#4E4200"
                             android:textSize="12sp"
@@ -170,6 +180,7 @@
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/cardYearly"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_marginBottom="20dp"
@@ -184,6 +195,7 @@
                     android:id="@+id/tvDuration3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/trirong"
                     android:text="1 AÑO"
                     android:textColor="#FFFFFF"
                     android:textSize="35sp"
@@ -193,6 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDuration3"
+                    android:fontFamily="@font/nunito"
                     android:text="9.99€/semana"
                     android:textColor="#FFCCEE" />
 
@@ -219,6 +232,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito"
                             android:text="67%"
                             android:textColor="#4E4200"
                             android:textSize="22sp"
@@ -228,6 +242,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito"
                             android:text="AHORRO"
                             android:textColor="#4E4200"
                             android:textSize="12sp"
@@ -245,6 +260,7 @@
         android:layout_height="60dp"
         android:layout_margin="24dp"
         android:background="@drawable/subscription_button_gradient"
+        android:fontFamily="@font/nunito"
         android:text="Continuar por 630,30€"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

@@ -5,11 +5,10 @@ import java.util.Date
 // Enums definidos
 enum class SexualOrientation { LESBIANA, BISEXUAL, ASEXUAL }
 enum class Intent { RELACION_SERIA, ROLLO_UNA_NOCHE, HACER_AMIGAS }
-enum class SubscriptionType { NINGUNA, PLUS }
-
+enum class SubscriptionType { NONE, WEEKLY, MONTHLY, YEARLY }
 // Datos de suscripción
 data class SubscriptionData(
-    val type: SubscriptionType = SubscriptionType.NINGUNA,
+    val type: SubscriptionType = SubscriptionType.NONE,
     val startDate: Date? = null,
     val endDate: Date? = null,
     val purchaseToken: String? = null
@@ -40,8 +39,10 @@ data class UserAccount(
     var isVerified: Boolean = false,
 
     // Suscripción
-    var subscription: SubscriptionData = SubscriptionData(),
+    var subscriptionType: SubscriptionType = SubscriptionType.NONE,
+    var subscriptionEndDate: Long = 0L,
 
-    var likedByUsers: MutableList<String> = mutableListOf()
-
+    var likedByUsers: MutableList<String> = mutableListOf(),
+    val matches: MutableList<String> = mutableListOf(),
+    val activeChats: MutableList<String> = mutableListOf()
 )
