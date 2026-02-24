@@ -1,1 +1,0 @@
-/home/mireyasp/Escritorio/Diseño de interfaces/Desarrollo de la App/Linder/app/build/intermediates/compiled_navigation_res/debug/compileDebugNavigationResources/navigation_mobile_navigation.xml.flat 
