@@ -23,34 +23,29 @@ object TopBarManager {
         val icMonetization = topBar.findViewById<ImageView>(R.id.ic_monetization_btn)
         val icSettings = topBar.findViewById<ImageView>(R.id.ic_settings)
 
-        // 1. Cargar Foto del usuario activo
         val currentUser = LocalDatabase.getCurrentUser()
         val photoPath = currentUser?.userPhotos?.firstOrNull()
         if (photoPath != null && imgProfileMini != null) {
             Glide.with(fragment).load(photoPath).placeholder(R.drawable.user_thumb).circleCrop().into(imgProfileMini)
         }
 
-        // 2. Navegación: Minifoto -> Perfil
         imgProfileMini?.setOnClickListener {
             fragment.parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, ProfileMainFragment())
-                .addToBackStack(null) // Para poder volver atrás
+                .addToBackStack(null)
                 .commit()
         }
 
-        // 3. Navegación: Monetización -> Activity de Suscripción
         icMonetization?.setOnClickListener {
             val intent = Intent(fragment.requireContext(), SubscriptionActivity::class.java)
             fragment.startActivity(intent)
         }
 
-        // 4. Navegación: Ajustes -> Activity de Ajustes Generales
         icSettings?.setOnClickListener {
             val intent = Intent(fragment.requireContext(), SettingsGeneralActivity::class.java)
             fragment.startActivity(intent)
         }
 
-        // 5. Lógica del Icono Dinámico (Individual/Doble)
         when (screenType) {
             ScreenType.HOME_INDIVIDUAL -> {
                 icModeSwitch?.visibility = View.VISIBLE
@@ -63,7 +58,7 @@ object TopBarManager {
             }
             ScreenType.HOME_DOUBLE -> {
                 icModeSwitch?.visibility = View.VISIBLE
-                icModeSwitch?.setImageResource(R.drawable.ic_person) // Debes tener un ic_person en tus drawables
+                icModeSwitch?.setImageResource(R.drawable.ic_person)
                 icModeSwitch?.setOnClickListener {
                     fragment.parentFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, HomeIndividualFragment())

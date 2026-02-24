@@ -38,7 +38,6 @@ class Reg1PhoneFragment : Fragment() {
         tvError = view.findViewById(R.id.tv_error)
         btnBack = view.findViewById(R.id.btn_back)
 
-        // Estado inicial del botón: desactivado y gris
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
         btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
@@ -73,18 +72,15 @@ class Reg1PhoneFragment : Fragment() {
         val phone = etPhone.text.toString().trim()
         val pass = etPass.text.toString().trim()
 
-        // El botón solo se activa si el teléfono tiene exactamente 9 números y hay contraseña
         val isReady = phone.length == 9 && pass.isNotEmpty()
 
         btnNext.isEnabled = isReady
 
         if (isReady) {
-            // Activo: Morado clarito (ajusta el código hex si prefieres otro tono) y texto blanco
             btnNext.alpha = 1.0f
             btnNext.setBackgroundColor(Color.parseColor("#CC99FF"))
             btnNext.setTextColor(Color.WHITE)
         } else {
-            // Inactivo: Gris claro y texto oscuro
             btnNext.alpha = 0.5f
             btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
             btnNext.setTextColor(Color.parseColor("#202124"))

@@ -19,7 +19,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun checkSessionAndNavigate() {
-        //TODO: En el futuro esto consultará tu base de datos local
         val isUserLoggedIn = false
 
         if (isUserLoggedIn) {

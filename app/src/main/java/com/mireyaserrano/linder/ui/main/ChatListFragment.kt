@@ -30,7 +30,6 @@ class ChatListFragment : Fragment(R.layout.fragment_chat_list) {
         val currentUser = LocalDatabase.getCurrentUser() ?: return
         val myPhone = currentUser.phoneNumber ?: return
 
-        // --- Cargar Chats Activos ---
         val activeChatsList = currentUser.activeChats.mapNotNull { LocalDatabase.getUserByPhone(it) }
         if (activeChatsList.isNotEmpty()) {
             rvChats.visibility = View.VISIBLE
@@ -44,7 +43,6 @@ class ChatListFragment : Fragment(R.layout.fragment_chat_list) {
             tvEmptyChats.visibility = View.VISIBLE
         }
 
-        // --- Cargar Nuevos Matches ---
         val matchesList = currentUser.matches
             .filter { !currentUser.activeChats.contains(it) }
             .mapNotNull { LocalDatabase.getUserByPhone(it) }
@@ -78,7 +76,7 @@ class ConversationAdapter(
     private val users: List<UserAccount>,
     private val isChat: Boolean,
     private val myPhone: String,
-    private val onUserClick: (String) -> Unit // NUEVO: Recibimos el evento click
+    private val onUserClick: (String) -> Unit
 ) : RecyclerView.Adapter<ConversationAdapter.ConversationViewHolder>() {
 
     class ConversationViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -98,7 +96,6 @@ class ConversationAdapter(
         holder.tvName.text = user.username ?: "Usuario"
 
         if (isChat) {
-            // Es un chat activo: Buscamos el último mensaje real en la BD
             val lastMsgText = user.phoneNumber?.let { otherPhone ->
                 LocalDatabase.getLastMessage(myPhone, otherPhone)
             } ?: "Sin mensajes"
@@ -106,7 +103,6 @@ class ConversationAdapter(
             holder.tvLastMessage.text = lastMsgText
             holder.tvLastMessage.setTextColor(android.graphics.Color.parseColor("#BBBBBB"))
         } else {
-            // Es un match nuevo: Mostramos el texto para animar a hablar
             holder.tvLastMessage.text = "¡Acabáis de hacer match! Saluda."
             holder.tvLastMessage.setTextColor(android.graphics.Color.parseColor("#CC99FF"))
         }
@@ -121,7 +117,6 @@ class ConversationAdapter(
             holder.imgProfile.setImageResource(R.drawable.profile_placeholder)
         }
 
-        // NUEVO: Ejecutar navegación al hacer click
         holder.itemView.setOnClickListener {
             user.phoneNumber?.let { phone ->
                 onUserClick(phone)

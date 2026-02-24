@@ -8,7 +8,6 @@ class ManageDoubleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Esto enlaza el archivo Kotlin con tu diseño visual
         setContentView(R.layout.activity_manage_double)
     }
 }
