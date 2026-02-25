@@ -54,8 +54,10 @@ object LocalDatabase {
             habits = "Me encanta el robar y apoyar genocidios.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_isabel_1","android.resource://$pkg/drawable/user_isabel_2","android.resource://$pkg/drawable/user_isabel_3"),
             likedByUsers = mutableListOf("612983744", "699231002", "654112233"),
-            matches = mutableListOf("123456789"), // Match pendiente con Eduard
-            activeChats = mutableListOf("654112233") // Chat iniciado con Leticia
+            matches = mutableListOf("123456789"),
+            activeChats = mutableListOf("654112233"),
+            // PRUEBA: Isabel tiene 2 amigas (Marta y Elena)
+            friendReferences = mutableListOf("612983744", "699231002")
         ))
 
         // USUARIO 2 - Marta
@@ -71,7 +73,9 @@ object LocalDatabase {
             habits = "Amante de la pizza, el cine de terror y viajar sola.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_marta_1","android.resource://$pkg/drawable/user_marta_2"),
             likedByUsers = mutableListOf("644012665", "677889900", "622334455"),
-            activeChats = mutableListOf("677889900") // Chat iniciado con Carmen
+            activeChats = mutableListOf("677889900"),
+            // PRUEBA: Marta tiene 1 amiga (Carmen)
+            friendReferences = mutableListOf("677889900")
         ))
 
         // USUARIO 3 - Elena
@@ -86,7 +90,9 @@ object LocalDatabase {
             distancePreferenceKm = 25,
             habits = "Busco compañera para ir a museos y conciertos de jazz.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_elena_1"),
-            likedByUsers = mutableListOf("666777888", "644012665")
+            likedByUsers = mutableListOf("666777888", "644012665"),
+            // PRUEBA: Elena tiene 3 amigas (Leticia, Carla, Carmen)
+            friendReferences = mutableListOf("654112233", "622334455", "677889900")
         ))
 
         // USUARIO 4 - Leticia
@@ -102,7 +108,7 @@ object LocalDatabase {
             habits = "Estudiante de artes, apasionada de la pintura y la playa.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_leticia_1","android.resource://$pkg/drawable/user_leticia_2","android.resource://$pkg/drawable/user_leticia_3","android.resource://$pkg/drawable/user_leticia_4","android.resource://$pkg/drawable/user_leticia_5","android.resource://$pkg/drawable/user_leticia_6"),
             likedByUsers = mutableListOf("677889900", "612983744"),
-            activeChats = mutableListOf("644012665") // Chat iniciado con Isabel
+            activeChats = mutableListOf("644012665")
         ))
 
         // USUARIO 5 - Carmen
@@ -118,7 +124,7 @@ object LocalDatabase {
             habits = "Adoro cocinar recetas nuevas y el vino tinto.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_carmen_1"),
             likedByUsers = mutableListOf("622334455", "699231002", "654112233", "666777888"),
-            activeChats = mutableListOf("612983744") // Chat iniciado con Marta
+            activeChats = mutableListOf("612983744")
         ))
 
         // USUARIO 6 - Carla
@@ -164,7 +170,7 @@ object LocalDatabase {
             habits = "Me gustan mucho las interfaces y los juegos de ponis uwu.",
             userPhotos = mutableListOf("android.resource://$pkg/drawable/user_profe"),
             likedByUsers = mutableListOf("622334455", "612983744", "699231002"),
-            matches = mutableListOf("644012665") // Match pendiente con Isabel
+            matches = mutableListOf("644012665")
         ))
 
         seedUsers.forEach { user ->

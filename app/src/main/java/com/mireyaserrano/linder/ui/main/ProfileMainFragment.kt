@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import androidx.activity.result.contract.ActivityResultContracts
 import android.widget.Toast
+import com.mireyaserrano.linder.ui.edit.ManageDoubleActivity
 
 class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap ->
@@ -58,8 +59,8 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         }
 
         llManageDouble.setOnClickListener {
-            // val intent = Intent(requireContext(), com.mireyaserrano.linder.ui.edit.ManageDoubleActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(requireContext(), ManageDoubleActivity::class.java)
+            startActivity(intent)
         }
 
         btnActualizar.setOnClickListener {
