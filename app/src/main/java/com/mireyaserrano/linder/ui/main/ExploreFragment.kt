@@ -51,13 +51,25 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
      * Función auxiliar para manejar la navegación hacia los perfiles de esa categoría.
      */
     private fun navigateToCategory(categoryName: String) {
-        Toast.makeText(requireContext(), "Explorando: $categoryName", Toast.LENGTH_SHORT).show()
+        // Definimos qué categorías sí tienen funcionalidad
+        val supportedCategories = listOf("Relación estable", "Libre esta noche", "Hacer amigos")
 
-        // El ID correcto de tu contenedor es "fragment_container", he corregido el comentario:
-        // val fragment = CategoryDetailFragment.newInstance(categoryName)
-        // parentFragmentManager.beginTransaction()
-        //    .replace(R.id.fragment_container, fragment)
-        //    .addToBackStack(null)
-        //    .commit()
+        if (categoryName in supportedCategories) {
+            // Creamos una instancia del fragmento de inicio (el de los perfiles)
+            // pero le pasamos el filtro como argumento
+            val fragment = HomeIndividualFragment().apply {
+                arguments = Bundle().apply {
+                    putString("FILTER_CATEGORY", categoryName)
+                }
+            }
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment) // Asegúrate que este ID sea el de tu contenedor principal
+                .addToBackStack(null)
+                .commit()
+        } else {
+            // Para el resto, mostramos el mensaje de "Próximamente"
+            Toast.makeText(requireContext(), "Funcionalidad de '$categoryName' próximamente", Toast.LENGTH_SHORT).show()
+        }
     }
 }

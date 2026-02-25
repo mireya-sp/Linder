@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.mireyaserrano.linder.R
+import com.mireyaserrano.linder.data.Intent
 import com.mireyaserrano.linder.data.LocalDatabase
 import com.mireyaserrano.linder.data.UserAccount
 import kotlin.math.abs
@@ -67,14 +68,30 @@ class HomeIndividualFragment : Fragment() {
         val loggedInUser = LocalDatabase.getCurrentUser() ?: return
         val allUsersMap = LocalDatabase.getAllUsers()
 
+        // 1. Obtener el filtro enviado desde ExploreFragment
+        val categoryFilter = arguments?.getString("FILTER_CATEGORY")
+
+        // 2. Mapear el texto al enum Intent
+        val intentFilter = when (categoryFilter) {
+            "Relación estable" -> Intent.RELACION_SERIA
+            "Libre esta noche" -> Intent.ROLLO_UNA_NOCHE
+            "Hacer amigos"     -> Intent.HACER_AMIGAS
+            else -> null
+        }
+
         usersList = allUsersMap.values.filter { targetUser ->
             val isNotMe = targetUser.phoneNumber != loggedInUser.phoneNumber
-
             val isNotAMatch = !loggedInUser.matches.contains(targetUser.phoneNumber)
-
             val isNotAnActiveChat = !loggedInUser.activeChats.contains(targetUser.phoneNumber)
 
-            isNotMe && isNotAMatch && isNotAnActiveChat
+            // 3. Aplicar el filtro de intención si existe
+            val matchesIntent = if (intentFilter != null) {
+                targetUser.intent == intentFilter
+            } else {
+                true // Si no hay filtro, pasan todos
+            }
+
+            isNotMe && isNotAMatch && isNotAnActiveChat && matchesIntent
         }
 
         currentUserIndex = 0
@@ -90,8 +107,16 @@ class HomeIndividualFragment : Fragment() {
         swipeableCard.alpha = 1f
 
         if (currentUserIndex >= usersList.size) {
-            tvProfileName.text = "No hay más usuarios"
-            tvProfileBio.text = "Vuelve más tarde para descubrir gente nueva."
+            val categoryFilter = arguments?.getString("FILTER_CATEGORY")
+
+            if (categoryFilter != null) {
+                tvProfileName.text = "No hay resultados"
+                tvProfileBio.text = "Nadie busca '$categoryFilter' cerca de ti por ahora."
+            } else {
+                tvProfileName.text = "No hay más usuarios"
+                tvProfileBio.text = "Vuelve más tarde para descubrir gente nueva."
+            }
+
             ivMainPhoto.setImageResource(R.drawable.profile_placeholder)
             llPhotoIndicators.removeAllViews()
             swipeableCard.setOnTouchListener(null)
