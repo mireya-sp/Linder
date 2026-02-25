@@ -40,23 +40,38 @@ class EditProfileActivity : AppCompatActivity() {
         // Botón atrás
         btnBack.setOnClickListener { finish() }
 
-        // Navegación a las sub-pantallas
         btnImages.setOnClickListener {
-            // Ejemplo de navegación si las conviertes a Activities:
-            // val intent = android.content.Intent(this, EditPhotosActivity::class.java)
-            // startActivity(intent)
+            val fragment = EditPhotosFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         btnLookingFor.setOnClickListener {
-            // Aquí llamarías a tu pantalla de fragment_edit_searching.xml
+            val fragment = EditSearchingFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         btnAboutMe.setOnClickListener {
-            // Aquí llamarías a tu pantalla de fragment_edit_habits.xml
+            val fragment = EditHabitsFragment()
+            supportFragmentManager.beginTransaction()
+                // Reemplazamos el contenido de la Activity por el Fragmento
+                .replace(android.R.id.content, fragment)
+                // Lo añadimos a la pila para que funcione el botón de ir hacia atrás del móvil
+                .addToBackStack(null)
+                .commit()
         }
 
         btnSexualOrientation.setOnClickListener {
-            // Aquí llamarías a tu pantalla de fragment_edit_sexual_orientation.xml
+            val fragment = EditSexualOrientationFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 
