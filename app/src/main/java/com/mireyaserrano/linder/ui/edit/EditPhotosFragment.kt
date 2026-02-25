@@ -1,0 +1,154 @@
+package com.mireyaserrano.linder.ui.edit
+
+import android.graphics.Color
+import android.net.Uri
+import android.os.Bundle
+import android.view.View
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
+import com.mireyaserrano.linder.R
+import com.mireyaserrano.linder.data.LocalDatabase
+
+class EditPhotosFragment : Fragment(R.layout.fragment_edit_photos) {
+
+    private val photoUris = mutableListOf<Uri>()
+
+    private lateinit var imageViews: List<ImageView>
+    private lateinit var deleteButtons: List<ImageButton>
+    private lateinit var btnFinish: MaterialButton
+
+    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        if (uri != null) {
+            photoUris.add(uri)
+            rearrangePhotos()
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val btnBack = view.findViewById<ImageButton>(R.id.btnBack)
+        btnFinish = view.findViewById(R.id.btn_finish)
+
+        imageViews = listOf(
+            view.findViewById(R.id.iv_photo_1),
+            view.findViewById(R.id.iv_photo_2),
+            view.findViewById(R.id.iv_photo_3),
+            view.findViewById(R.id.iv_photo_4),
+            view.findViewById(R.id.iv_photo_5),
+            view.findViewById(R.id.iv_photo_6)
+        )
+
+        deleteButtons = listOf(
+            view.findViewById(R.id.btn_delete_1),
+            view.findViewById(R.id.btn_delete_2),
+            view.findViewById(R.id.btn_delete_3),
+            view.findViewById(R.id.btn_delete_4),
+            view.findViewById(R.id.btn_delete_5),
+            view.findViewById(R.id.btn_delete_6)
+        )
+
+        // Cargamos las fotos que ya tuviera el usuario guardadas
+        val currentUser = LocalDatabase.getCurrentUser()
+        if (currentUser != null) {
+            currentUser.userPhotos.forEach { path ->
+                photoUris.add(Uri.parse(path))
+            }
+        }
+
+        imageViews.forEachIndexed { index, imageView ->
+            imageView.setOnClickListener {
+                if (index >= photoUris.size && photoUris.size < 6) {
+                    pickImageLauncher.launch("image/*")
+                }
+            }
+        }
+
+        deleteButtons.forEachIndexed { index, btnDelete ->
+            btnDelete.setOnClickListener {
+                if (index < photoUris.size) {
+                    photoUris.removeAt(index)
+                    rearrangePhotos()
+                }
+            }
+        }
+
+        btnBack.setOnClickListener { parentFragmentManager.popBackStack() }
+        btnFinish.setOnClickListener { saveChanges() }
+
+        // Inicializamos la vista con las fotos ya colocadas
+        rearrangePhotos()
+    }
+
+    private fun rearrangePhotos() {
+        val paddingPx = (35 * resources.displayMetrics.density).toInt()
+
+        for (i in 0 until 6) {
+            val iv = imageViews[i]
+            val btnDel = deleteButtons[i]
+
+            if (i < photoUris.size) {
+                iv.setImageURI(photoUris[i])
+                iv.scaleType = ImageView.ScaleType.CENTER_CROP
+                iv.imageTintList = null
+                iv.setPadding(0, 0, 0, 0)
+                btnDel.visibility = View.VISIBLE
+            } else {
+                iv.setImageResource(android.R.drawable.ic_menu_camera)
+                iv.scaleType = ImageView.ScaleType.FIT_CENTER
+                iv.imageTintList = android.content.res.ColorStateList.valueOf(Color.parseColor("#80FFFFFF"))
+                iv.setPadding(paddingPx, paddingPx, paddingPx, paddingPx)
+                btnDel.visibility = View.GONE
+            }
+        }
+
+        updateFinishButton()
+    }
+
+    private fun updateFinishButton() {
+        if (photoUris.isNotEmpty()) {
+            btnFinish.isEnabled = true
+            btnFinish.alpha = 1.0f
+            btnFinish.setBackgroundColor(Color.parseColor("#CC99FF"))
+            btnFinish.setTextColor(Color.WHITE)
+        } else {
+            btnFinish.isEnabled = false
+            btnFinish.alpha = 0.5f
+            btnFinish.setBackgroundColor(Color.parseColor("#C4C4C4"))
+            btnFinish.setTextColor(Color.parseColor("#202124"))
+        }
+    }
+
+    private fun saveChanges() {
+        val currentUser = LocalDatabase.getCurrentUser() ?: return
+        val context = requireContext()
+
+        // Distinguimos entre las fotos nuevas (que hay que importar) y las que ya estaban guardadas
+        val updatedPhotoPaths = photoUris.mapNotNull { uri ->
+            val uriString = uri.toString()
+            if (uriString.startsWith("content://")) {
+                // Es una foto recién sacada de la galería, la importamos
+                LocalDatabase.importImageToApp(context, uri)
+            } else {
+                // Ya era una foto del perfil guardada previamente
+                uriString
+            }
+        }
+
+        if (updatedPhotoPaths.isEmpty()) {
+            Toast.makeText(context, "Debes tener al menos una foto en el perfil.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Actualizamos al usuario
+        currentUser.userPhotos = updatedPhotoPaths.toMutableList()
+        LocalDatabase.updateUser(currentUser)
+
+        Toast.makeText(context, "Fotos actualizadas", Toast.LENGTH_SHORT).show()
+        parentFragmentManager.popBackStack()
+    }
+}

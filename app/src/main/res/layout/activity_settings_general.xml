@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -15,30 +16,54 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:layout_marginBottom="24dp">
+
             <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_chevron_left"
+                android:src="@drawable/ic_back_arrow"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 app:tint="@color/white" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/trirong"
                 android:text="Ajustes"
                 android:textColor="#FFFFFF"
                 android:textSize="22sp"
+                android:textStyle="bold"
                 android:layout_marginStart="16dp"/>
         </LinearLayout>
 
-        <TextView style="@style/LabelStyle" android:text="Numero de telefono" />
-        <EditText
-            style="@style/InputStyle"
-            android:text="699116769"
-            android:inputType="phone" />
+        <TextView
+            style="@style/LabelStyle"
+            android:fontFamily="@font/nunito"
+            android:text="Número de teléfono"
+            android:textColor="#FFFFFF"/>
 
-        <TextView style="@style/LabelStyle" android:text="Ubicación" />
         <EditText
+            android:id="@+id/etPhone"
             style="@style/InputStyle"
+            android:fontFamily="@font/nunito"
+            android:text="699116769"
+            android:inputType="phone"
+            android:focusable="false"
+            android:textColor="#888888" />
+
+        <TextView
+            style="@style/LabelStyle"
+            android:fontFamily="@font/nunito"
+            android:text="Ubicación"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etLocation"
+            style="@style/InputStyle"
+            android:fontFamily="@font/nunito"
             android:text="EL Mojon, Murcia"
+            android:textColor="#FFFFFF"
             android:inputType="textPostalAddress" />
 
         <RelativeLayout
@@ -48,7 +73,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Preferencia de distancia?"
+                android:fontFamily="@font/nunito"
+                android:text="Preferencia de distancia"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
             <TextView
@@ -56,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:fontFamily="@font/nunito"
                 android:text="160km"
                 android:textColor="#AAAAAA" />
         </RelativeLayout>
@@ -76,6 +103,7 @@
                 app:tint="#FF0055" />
 
             <com.google.android.material.slider.Slider
+                android:id="@+id/sliderDistance"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -99,6 +127,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
                 android:text="Rango de edad"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
@@ -107,6 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:fontFamily="@font/nunito"
                 android:text="18 - 100 años"
                 android:textColor="#AAAAAA" />
         </RelativeLayout>
@@ -127,6 +157,7 @@
                 app:tint="#FF0055" />
 
             <com.google.android.material.slider.RangeSlider
+                android:id="@+id/sliderAge"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"

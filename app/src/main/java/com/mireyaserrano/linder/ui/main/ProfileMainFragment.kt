@@ -16,8 +16,17 @@ import com.mireyaserrano.linder.data.SubscriptionType
 import com.mireyaserrano.linder.ui.edit.SubscriptionActivity
 import java.text.SimpleDateFormat
 import java.util.*
+import androidx.activity.result.contract.ActivityResultContracts
+import android.widget.Toast
 
 class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
+    private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap ->
+        if (bitmap != null) {
+            verifyUser()
+        } else {
+            Toast.makeText(requireContext(), "Verificación cancelada.", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private lateinit var imgProfilePhoto: ShapeableImageView
     private lateinit var tvProfileName: TextView
@@ -42,8 +51,10 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         val btnEditProfile = view.findViewById<Button>(R.id.btnEditProfile)
 
         btnEditProfile.setOnClickListener {
-            // val intent = Intent(requireContext(), com.mireyaserrano.linder.ui.edit.EditProfileActivity::class.java)
-            // startActivity(intent)
+            // Usamos android.content.Intent con la ruta completa para evitar conflictos
+            // con tu clase enum "Intent" (Rollo una noche, etc.)
+            val intent = android.content.Intent(requireContext(), com.mireyaserrano.linder.ui.edit.EditProfileActivity::class.java)
+            startActivity(intent)
         }
 
         llManageDouble.setOnClickListener {
@@ -133,11 +144,53 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
     private fun showVerificationDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_verify_images, null)
 
-        val dialog = MaterialAlertDialogBuilder(requireContext())
+        val dialog = com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
             .setView(dialogView)
             .create()
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Capturamos los botones exactos de tu diseño
+        val btnContinuar = dialogView.findViewById<Button>(R.id.btnContinuar)
+        val btnTarde = dialogView.findViewById<Button>(R.id.btnTarde)
+        val btnBack = dialogView.findViewById<ImageButton>(R.id.btnBack)
+
+        // Al darle a continuar, abrimos la cámara
+        // Al darle a continuar, abrimos la cámara de forma SEGURA
+        btnContinuar.setOnClickListener {
+            dialog.dismiss()
+
+            try {
+                // Intentamos abrir la cámara
+                takePictureLauncher.launch(null as Void?)
+            } catch (e: android.content.ActivityNotFoundException) {
+                // Si el dispositivo (o emulador) no tiene cámara, atrapamos el error y no crashea
+                android.widget.Toast.makeText(requireContext(), "Tu dispositivo no tiene una aplicación de cámara disponible.", android.widget.Toast.LENGTH_LONG).show()
+            } catch (e: Exception) {
+                // Por si falla cualquier otra cosa rara
+                android.widget.Toast.makeText(requireContext(), "Error al abrir la cámara.", android.widget.Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Los otros dos botones simplemente cierran esta pantalla
+        btnTarde.setOnClickListener { dialog.dismiss() }
+        btnBack.setOnClickListener { dialog.dismiss() }
+
         dialog.show()
+    }
+
+    private fun verifyUser() {
+        val currentUser = LocalDatabase.getCurrentUser() ?: return
+
+        // Marcamos al usuario como verificado
+        currentUser.isVerified = true
+
+        // Actualizamos la base de datos sin cerrar su sesión
+        LocalDatabase.updateUser(currentUser)
+
+        Toast.makeText(requireContext(), "¡Perfil verificado con éxito!", Toast.LENGTH_SHORT).show()
+
+        // Refrescamos la pantalla para que aparezca el tick azul al instante
+        refreshProfileData()
     }
 }

@@ -27,6 +27,11 @@ data class UserAccount(
     var habits: String? = null,
     var distancePreferenceKm: Int = 20,
 
+    var location: String = "",
+    var minAgePreference: Int = 18,
+    var maxAgePreference: Int = 100,
+
+    // Listas y Multimedia
     var userPhotos: MutableList<String> = mutableListOf(),
     var friendReferences: MutableList<String> = mutableListOf(),
     var isVerified: Boolean = false,

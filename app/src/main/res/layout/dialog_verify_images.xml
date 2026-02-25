@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -19,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
+        android:fontFamily="@font/marko_one"
         android:text="Linder"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -53,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="serif"
+            android:fontFamily="@font/trirong"
             android:text="Verifica tu foto"
             android:textColor="@color/white"
             android:textSize="24sp"
@@ -66,8 +67,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunito"
             android:gravity="center"
-            android:text="Ayudenos a demostrar que realmente te ves como en tus fotos"
+            android:text="Ayúdanos a demostrar que realmente te ves como en tus fotos"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/tvTituloVerifica" />
@@ -78,6 +80,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="#C4C4C4"
+            android:fontFamily="@font/nunito"
             android:text="Continuar"
             android:textColor="#000000"
             android:textAllCaps="false"
@@ -90,11 +93,12 @@
             android:layout_height="48dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="#C4C4C4"
-            android:text="Quizás mas tarde"
+            android:fontFamily="@font/nunito"
+            android:text="Quizás más tarde"
             android:textColor="#000000"
             android:textAllCaps="false"
             app:cornerRadius="24dp"
-            app:layout_constraintTop_toBottomOf="@id/btnContinuar" />
+            app:layout_constraintTop_toBottomOf="@id/btnContinuar"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
