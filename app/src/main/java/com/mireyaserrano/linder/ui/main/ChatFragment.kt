@@ -55,25 +55,20 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         currentUserPhone = currentUser.phoneNumber ?: return
         val targetUser = LocalDatabase.getUserByPhone(targetUserPhone) ?: return
 
-        // 1. Configurar Top Bar (Back, Foto, Nombre)
         setupTopBar(view, targetUser)
 
-        // 2. Configurar RecyclerView y Adaptador
         rvMessages = view.findViewById(R.id.rvMessages)
         etMessage = view.findViewById(R.id.etMessage)
         val btnSend = view.findViewById<ImageButton>(R.id.btnSend)
 
         messageAdapter = MessageAdapter(messageList, currentUserPhone)
         val layoutManager = LinearLayoutManager(requireContext())
-        // stackFromEnd hace que la lista empiece desde abajo (como un chat real)
         layoutManager.stackFromEnd = true
         rvMessages.layoutManager = layoutManager
         rvMessages.adapter = messageAdapter
 
-        // 3. Cargar historial de mensajes
         loadMessages()
 
-        // 4. Lógica de enviar mensaje
         btnSend.setOnClickListener {
             sendMessage()
         }
@@ -106,24 +101,19 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
     private fun sendMessage() {
         val text = etMessage.text.toString().trim()
         if (text.isNotEmpty()) {
-            // 1. Crear objeto mensaje
             val newMessage = ChatMessage(
                 senderPhone = currentUserPhone,
                 receiverPhone = targetUserPhone,
                 message = text
             )
 
-            // 2. Guardar en BD
             LocalDatabase.saveMessage(newMessage)
 
-            // 3. Actualizar UI
             messageList.add(newMessage)
-            // Notificamos que se insertó un ítem al final para una animación suave
             messageAdapter.notifyItemInserted(messageList.size - 1)
             scrollToBottom()
             etMessage.setText("")
 
-            // 4. Asegurar que el chat está en 'activeChats' de ambos si es el primer mensaje
             ensureChatIsActive()
         }
     }
@@ -140,21 +130,17 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
 
         var changed = false
 
-        // Añadimos a la otra persona a MIS chats activos
         if (!me.activeChats.contains(targetUserPhone)) {
             me.activeChats.add(targetUserPhone)
             changed = true
         }
 
-        // Me añadimos a MÍ a los chats activos de LA OTRA PERSONA
         if (!other.activeChats.contains(currentUserPhone)) {
             other.activeChats.add(currentUserPhone)
             changed = true
         }
 
         if (changed) {
-            // ¡AQUÍ ESTABA EL ERROR!
-            // Cambiamos saveUser por updateUser para no machacar la sesión
             LocalDatabase.updateUser(me)
             LocalDatabase.updateUser(other)
         }
@@ -162,14 +148,11 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
 
     override fun onResume() {
         super.onResume()
-        // Ocultamos la barra de navegación inferior de la MainActivity
-        // NOTA: Si el ID de tu barra inferior en MainActivity es distinto, cámbialo aquí.
         requireActivity().findViewById<View>(R.id.include_bottom_nav)?.visibility = View.GONE
     }
 
     override fun onPause() {
         super.onPause()
-        // Volvemos a mostrar la barra inferior al salir del chat
         requireActivity().findViewById<View>(R.id.include_bottom_nav)?.visibility = View.VISIBLE
     }
 }
@@ -182,11 +165,9 @@ class MessageAdapter(
     private val currentUserPhone: String
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    // Constantes para definir tipos de mensaje
     private val TYPE_SENT = 1
     private val TYPE_RECEIVED = 2
 
-    // Decide qué layout usar según quién envió el mensaje
     override fun getItemViewType(position: Int): Int {
         return if (messages[position].senderPhone == currentUserPhone) {
             TYPE_SENT
@@ -218,7 +199,6 @@ class MessageAdapter(
 
     override fun getItemCount(): Int = messages.size
 
-    // ViewHolders simples
     class SentMessageHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvBody: TextView = view.findViewById(R.id.tvMessageBody)
     }

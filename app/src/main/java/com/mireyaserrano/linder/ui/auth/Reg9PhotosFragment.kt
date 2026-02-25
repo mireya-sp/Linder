@@ -1,4 +1,4 @@
-package com.mireyaserrano.linder
+package com.mireyaserrano.linder.ui.auth
 
 import android.graphics.Color
 import android.net.Uri
@@ -10,11 +10,13 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
+import com.mireyaserrano.linder.R
 import com.mireyaserrano.linder.data.LocalDatabase
 import com.mireyaserrano.linder.data.SexualOrientation
 import com.mireyaserrano.linder.data.UserAccount
 import com.mireyaserrano.linder.data.Intent as UserIntent
 import android.content.Intent as AndroidIntent
+import com.mireyaserrano.linder.MainActivity
 
 class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
 
@@ -103,7 +105,6 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
     }
 
     private fun rearrangePhotos() {
-        // Revertimos el padding a 35dp exactos para que la cámara no se deforme
         val paddingPx = (35 * resources.displayMetrics.density).toInt()
 
         for (i in 0 until 6) {
@@ -118,7 +119,6 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
                 btnDel.visibility = View.VISIBLE
             } else {
                 iv.setImageResource(android.R.drawable.ic_menu_camera)
-                // Usamos FIT_CENTER para recuperar tu diseño original
                 iv.scaleType = ImageView.ScaleType.FIT_CENTER
                 iv.imageTintList = android.content.res.ColorStateList.valueOf(Color.parseColor("#80FFFFFF"))
                 iv.setPadding(paddingPx, paddingPx, paddingPx, paddingPx)

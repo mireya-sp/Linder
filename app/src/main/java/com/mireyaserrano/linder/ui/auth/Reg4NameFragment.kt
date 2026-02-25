@@ -1,4 +1,4 @@
-package com.mireyaserrano.linder
+package com.mireyaserrano.linder.ui.auth
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.mireyaserrano.linder.R
 
 class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
 
@@ -39,7 +40,6 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
         btnNext = view.findViewById(R.id.btn_next_name)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
 
-        // Estado inicial
         disableNextButton()
 
         etUsername.addTextChangedListener(object : TextWatcher {
@@ -50,7 +50,6 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
                     tvError.visibility = View.GONE
                 }
 
-                // Habilitar botón si hay texto
                 if (s.toString().trim().isNotEmpty()) {
                     enableNextButton()
                 } else {
@@ -91,7 +90,6 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
     }
 
     private fun navigateToNextStep(validUsername: String) {
-        // Asegúrate de tener creado Reg5SexualOrientationFragment
         val nextFragment = Reg5SexualOrientationFragment()
 
         val bundle = Bundle().apply {
@@ -119,14 +117,14 @@ class Reg4NameFragment : Fragment(R.layout.fragment_reg4_name) {
     private fun enableNextButton() {
         btnNext.isEnabled = true
         btnNext.alpha = 1.0f
-        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF"))
         btnNext.setTextColor(Color.WHITE)
     }
 
     private fun disableNextButton() {
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
-        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
         btnNext.setTextColor(Color.parseColor("#202124"))
     }
 }

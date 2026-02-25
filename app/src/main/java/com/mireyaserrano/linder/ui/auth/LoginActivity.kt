@@ -27,7 +27,6 @@ class LoginActivity : AppCompatActivity() {
         btnPhone.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
-            // No cerramos LoginActivity por si el usuario quiere volver atrás
         }
     }
 

@@ -9,19 +9,11 @@ import com.mireyaserrano.linder.databinding.FragmentEditSexualOrientationBinding
 class EditOrientationFragment : Fragment(R.layout.fragment_edit_sexual_orientation) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Si usas ViewBinding:
         val binding = FragmentEditSexualOrientationBinding.bind(view)
 
         binding.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
-        /*
-        binding.btnGuardar.setOnClickListener {
-            // Aquí cierras y vuelves al perfil
-            parentFragmentManager.popBackStack()
-        }
-
-         */
     }
 }

@@ -19,39 +19,33 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.mireyaserrano.linder.R
-import com.mireyaserrano.linder.Reg4NameFragment
 import java.io.File
 
 class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
 
-    // Datos acumulados
     private var receivedPhone: String? = null
     private var receivedPass: String? = null
     private var receivedDni: String? = null
     private var receivedBirthDate: String? = null
 
-    // URI temporal para la foto
     private var selfieUri: Uri? = null
     private var isFaceValid = false
 
-    // Vistas
     private lateinit var ivPreview: ImageView
     private lateinit var tvStatus: TextView
     private lateinit var btnNext: Button
     private lateinit var btnTake: Button
 
-    // Permisos
     private val requestCameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) takeSelfieHD() else showError("Necesitamos la cámara para verificar tu identidad.")
         }
 
-    // Lanzador Cámara
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
         if (isSuccess && selfieUri != null) {
-            ivPreview.setImageURI(selfieUri) // Mostrar foto en el círculo
-            ivPreview.imageTintList = null // Quitar el tinte gris del placeholder
-            ivPreview.setPadding(0, 0, 0, 0) // Quitar padding para que ocupe todo el círculo
+            ivPreview.setImageURI(selfieUri)
+            ivPreview.imageTintList = null
+            ivPreview.setPadding(0, 0, 0, 0)
             detectFace(selfieUri!!)
         }
     }
@@ -59,7 +53,6 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Recuperar datos
         arguments?.let {
             receivedPhone = it.getString("phone")
             receivedPass = it.getString("password")
@@ -67,7 +60,6 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
             receivedBirthDate = it.getString("birthDate")
         }
 
-        // Inicializar vistas
         btnNext = view.findViewById(R.id.btn_next_selfie)
         btnTake = view.findViewById(R.id.btn_take_selfie)
         val btnBack = view.findViewById<ImageButton>(R.id.btn_back)
@@ -153,7 +145,6 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
                         isFaceValid = false
                         disableNextButton()
                     } else {
-                        // ÉXITO
                         isFaceValid = true
                         showSuccess("¡Identidad verificada!\nEl rostro coincide con tu DNI.")
                     }
@@ -183,18 +174,17 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
             .commit()
     }
 
-    // --- UI HELPERS (COLORES Y ESTADOS) ---
 
     private fun showError(message: String) {
         tvStatus.text = message
-        tvStatus.setTextColor(Color.parseColor("#FF5252")) // Rojo Material
+        tvStatus.setTextColor(Color.parseColor("#FF5252"))
         tvStatus.visibility = View.VISIBLE
         disableNextButton()
     }
 
     private fun showSuccess(message: String) {
         tvStatus.text = message
-        tvStatus.setTextColor(Color.parseColor("#4CAF50")) // Verde Material
+        tvStatus.setTextColor(Color.parseColor("#4CAF50"))
         tvStatus.visibility = View.VISIBLE
         enableNextButton()
     }
@@ -206,14 +196,14 @@ class Reg3SelfieFragment : Fragment(R.layout.fragment_reg3_selfie) {
     private fun enableNextButton() {
         btnNext.isEnabled = true
         btnNext.alpha = 1.0f
-        btnNext.setBackgroundColor(Color.parseColor("#CC99FF")) // Morado clarito
+        btnNext.setBackgroundColor(Color.parseColor("#CC99FF"))
         btnNext.setTextColor(Color.WHITE)
     }
 
     private fun disableNextButton() {
         btnNext.isEnabled = false
         btnNext.alpha = 0.5f
-        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4")) // Gris
+        btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
         btnNext.setTextColor(Color.parseColor("#202124"))
     }
 }

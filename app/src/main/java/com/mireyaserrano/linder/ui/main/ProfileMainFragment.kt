@@ -12,7 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.imageview.ShapeableImageView
 import com.mireyaserrano.linder.R
 import com.mireyaserrano.linder.data.LocalDatabase
-import com.mireyaserrano.linder.data.SubscriptionType // Importante para el enum
+import com.mireyaserrano.linder.data.SubscriptionType
 import com.mireyaserrano.linder.ui.edit.SubscriptionActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,7 +28,6 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         }
     }
 
-    // Declaramos las vistas a nivel de clase para poder actualizarlas desde onResume
     private lateinit var imgProfilePhoto: ShapeableImageView
     private lateinit var tvProfileName: TextView
     private lateinit var tvVipBadge: TextView
@@ -64,13 +63,11 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         }
 
         btnActualizar.setOnClickListener {
-            // Importante: Asegúrate de que esta ruta coincida con tu Activity de suscripciones
             val intent = Intent(requireContext(), SubscriptionActivity::class.java)
             startActivity(intent)
         }
     }
 
-    // Usamos onResume para que recargue los datos cada vez que volvemos a la pantalla
     override fun onResume() {
         super.onResume()
         refreshProfileData()
@@ -79,7 +76,6 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
     private fun refreshProfileData() {
         val currentUser = LocalDatabase.getCurrentUser() ?: return
 
-        // 1. Cargar Foto y Nombre
         val firstPhoto = currentUser.userPhotos.firstOrNull()
         if (firstPhoto != null) {
             Glide.with(this)
@@ -92,7 +88,6 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         val age = calculateAgeFromDate(currentUser.birthDate.toString())
         tvProfileName.text = "${currentUser.username}, $age"
 
-        // 2. Lógica de Verificación
         if (currentUser.isVerified) {
             btnVerify.setImageResource(R.drawable.ic_verified)
             btnVerify.setOnClickListener(null)
@@ -101,17 +96,15 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
             btnVerify.setOnClickListener { showVerificationDialog() }
         }
 
-        // 3. Lógica de Linder PLUS (VIP) con EASTER EGG
         val now = System.currentTimeMillis()
         if (currentUser.subscriptionEndDate > now) {
             val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val dateStr = sdf.format(Date(currentUser.subscriptionEndDate))
 
-            // ¡AQUÍ ESTÁ LA MAGIA!
             val typeStr = when(currentUser.subscriptionType) {
                 SubscriptionType.WEEKLY -> "PLUS Semanal"
                 SubscriptionType.MONTHLY -> "PLUS Mensual"
-                SubscriptionType.YEARLY -> "PLUG anal" // 🤫
+                SubscriptionType.YEARLY -> "PLUG anal " + "🤫"
                 else -> "PLUS"
             }
 
