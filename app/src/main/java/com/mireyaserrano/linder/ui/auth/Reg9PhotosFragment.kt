@@ -169,6 +169,10 @@ class Reg9PhotosFragment : Fragment(R.layout.fragment_reg9_photos) {
                 userPhotos = savedPhotoPaths.toMutableList()
             )
 
+            LocalDatabase.globalMetrics.loginIncomplete--
+            LocalDatabase.globalMetrics.loginComplete++
+            LocalDatabase.globalMetrics.loginPhone++
+
             LocalDatabase.saveUser(newUser)
 
             val nextScreen = AndroidIntent(requireContext(), MainActivity::class.java)

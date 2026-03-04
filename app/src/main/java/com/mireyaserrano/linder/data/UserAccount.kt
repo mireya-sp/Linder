@@ -12,6 +12,18 @@ data class SubscriptionData(
     val purchaseToken: String? = null
 )
 
+data class UserMetrics(
+    // Historial de compras de este usuario
+    var subWeeklyPurchases: Int = 0,
+    var subMonthlyPurchases: Int = 0,
+    var subYearlyPurchases: Int = 0,
+
+    var interestTravel: Boolean = false,
+    var interestEvents: Boolean = false,
+    var interestNature: Boolean = false,
+    var interestBeach: Boolean = false
+)
+
 data class UserAccount(
     var dniNumber: String? = null,
 
@@ -41,5 +53,13 @@ data class UserAccount(
 
     var likedByUsers: MutableList<String> = mutableListOf(),
     val matches: MutableList<String> = mutableListOf(),
-    val activeChats: MutableList<String> = mutableListOf()
+    val activeChats: MutableList<String> = mutableListOf(),
+
+    var hasCompletedTutorial: Boolean = false,
+    var hasSeenExploreTutorial: Boolean = false,
+    var hasSeenLikesTutorial: Boolean = false,
+    var hasSeenChatsTutorial: Boolean = false,
+    var hasSeenProfileTutorial: Boolean = false,
+
+    var metrics: UserMetrics = UserMetrics()
 )

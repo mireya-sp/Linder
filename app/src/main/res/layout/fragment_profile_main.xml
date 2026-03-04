@@ -45,7 +45,9 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgProfilePhoto"
@@ -118,6 +120,68 @@
                         app:layout_constraintTop_toBottomOf="@id/tvVipBadge"
                         app:layout_constraintStart_toStartOf="@id/tvProfileName"
                         app:layout_goneMarginTop="8dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cv_simple_tutorial"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:elevation="10dp"
+                        android:translationZ="10dp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:layout_constraintTop_toBottomOf="@id/btnVerify"
+                        app:layout_constraintEnd_toEndOf="@id/btnVerify">
+
+                        <View
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="#4A2A6A"
+                            android:rotation="45"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:cardBackgroundColor="#4A2A6A"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="12dp">
+
+                                <TextView
+                                    android:id="@+id/tv_tutorial_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_toStartOf="@id/btn_close_tutorial"
+                                    android:fontFamily="@font/nunito"
+                                    android:text="¡Destaca en la comunidad! Toca este icono para verificar tus fotos. Darás más confianza demostrando que eres 100% real."
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp" />
+
+                                <ImageButton
+                                    android:id="@+id/btn_close_tutorial"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:src="@drawable/ic_close"
+                                    app:tint="#CC99FF" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -253,4 +317,5 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

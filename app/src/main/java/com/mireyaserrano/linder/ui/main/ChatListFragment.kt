@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -57,6 +58,24 @@ class ChatListFragment : Fragment(R.layout.fragment_chat_list) {
         } else {
             rvMatches.visibility = View.GONE
             tvEmptyMatches.visibility = View.VISIBLE
+        }
+
+        // --- LÓGICA DEL POPUP TUTORIAL ---
+        val tutorialPopup = view.findViewById<View>(R.id.cv_simple_tutorial)
+        if (tutorialPopup != null) {
+            if (!currentUser.hasSeenChatsTutorial) {
+                val btnCloseTutorial = view.findViewById<ImageButton>(R.id.btn_close_tutorial)
+                val tvTutorialText = view.findViewById<TextView>(R.id.tv_tutorial_text)
+
+                tutorialPopup.visibility = View.VISIBLE
+                tvTutorialText.text = "Tu espacio para conectar. Aquí encontrarás tus nuevos Matches listos para romper el hielo y tus conversaciones activas. ¡Da el primer paso!"
+
+                btnCloseTutorial.setOnClickListener {
+                    tutorialPopup.visibility = View.GONE
+                    currentUser.hasSeenChatsTutorial = true
+                    LocalDatabase.updateUser(currentUser)
+                }
+            }
         }
     }
 

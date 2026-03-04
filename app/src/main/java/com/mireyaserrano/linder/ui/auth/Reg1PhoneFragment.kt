@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import com.mireyaserrano.linder.MainActivity
 import com.mireyaserrano.linder.R
 import com.mireyaserrano.linder.data.LocalDatabase
+import com.mireyaserrano.linder.ui.admin.AdminDashboardActivity
 
 class Reg1PhoneFragment : Fragment() {
 
@@ -25,6 +26,15 @@ class Reg1PhoneFragment : Fragment() {
     private lateinit var btnNext: Button
     private lateinit var tvError: TextView
     private lateinit var btnBack: ImageButton
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState == null) {
+            LocalDatabase.globalMetrics.loginIncomplete++
+            LocalDatabase.saveMetrics(requireContext())
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +53,7 @@ class Reg1PhoneFragment : Fragment() {
         btnNext.setBackgroundColor(Color.parseColor("#C4C4C4"))
         btnNext.setTextColor(Color.parseColor("#202124"))
 
+        // El botón atrás vuelve a su comportamiento normal
         btnBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
@@ -91,10 +102,33 @@ class Reg1PhoneFragment : Fragment() {
         val phone = etPhone.text.toString().trim()
         val pass = etPass.text.toString().trim()
 
+        // 1. INTERCEPCIÓN SECRETA DEL PANEL DE ADMIN
+        if (phone == "111111111" && pass == "password123") {
+            // Como el Admin no cuenta como un usuario normal que abandona, le perdonamos el abandono
+            LocalDatabase.globalMetrics.loginIncomplete--
+            LocalDatabase.saveMetrics(requireContext())
+
+            val adminIntent = Intent(requireContext(), AdminDashboardActivity::class.java)
+            startActivity(adminIntent)
+            return
+        }
+
         val existingUser = LocalDatabase.getUserByPhone(phone)
 
         if (existingUser != null) {
+            // USUARIO EXISTENTE INTENTANDO ENTRAR
             if (existingUser.password == pass) {
+
+                // ¡TU LÓGICA MAESTRA! Ha logrado entrar: le restamos el incompleto y le sumamos el completo.
+                LocalDatabase.globalMetrics.loginIncomplete--
+                LocalDatabase.globalMetrics.loginComplete++
+
+                // Métricas adicionales
+                LocalDatabase.globalMetrics.passwordOk++
+                LocalDatabase.globalMetrics.loginPhone++
+
+                LocalDatabase.saveMetrics(requireContext())
+
                 LocalDatabase.saveUser(existingUser)
                 Toast.makeText(requireContext(), "Bienvenida, ${existingUser.username}", Toast.LENGTH_SHORT).show()
 
@@ -103,10 +137,17 @@ class Reg1PhoneFragment : Fragment() {
                 startActivity(intent)
                 requireActivity().finish()
             } else {
+                // Falla la contraseña, el loginIncomplete sigue estando sumado desde que entró a la pantalla,
+                // así que solo le sumamos el fallo de contraseña.
+                LocalDatabase.globalMetrics.passwordWrong++
+                LocalDatabase.saveMetrics(requireContext())
                 showError("La contraseña es incorrecta para este número.")
             }
         } else {
+            // NUEVO USUARIO REGISTRÁNDOSE
             if (isValidPassword(pass)) {
+                // Aquí ya NO sumamos incompleto porque ya se lo sumamos al entrar en onViewCreated.
+
                 val nextFragment = Reg2DniFragment()
                 val bundle = Bundle()
                 bundle.putString("phone", phone)

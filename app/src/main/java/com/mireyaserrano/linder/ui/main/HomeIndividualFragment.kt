@@ -29,12 +29,19 @@ class HomeIndividualFragment : Fragment() {
     private var currentPhotoIndex: Int = 0
     private val historyStack = mutableListOf<Int>()
 
+    // Vistas principales
     private lateinit var swipeableCard: View
     private lateinit var ivMainPhoto: ImageView
     private lateinit var tvProfileName: TextView
     private lateinit var tvProfileBio: TextView
     private lateinit var llPhotoIndicators: LinearLayout
     private lateinit var btnRewind: ImageButton
+
+    // Vistas del tutorial
+    private lateinit var cvTutorialMessage: View
+    private lateinit var tvTutorialText: TextView
+    private var isTutorialMode = false
+    private var tutorialState = 0 // Pasos del 0 al 5
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,27 +58,102 @@ class HomeIndividualFragment : Fragment() {
         llPhotoIndicators = view.findViewById(R.id.ll_photo_indicators)
         btnRewind = view.findViewById(R.id.btn_rewind)
 
+        cvTutorialMessage = view.findViewById(R.id.cv_tutorial_message)
+        tvTutorialText = view.findViewById(R.id.tv_tutorial_text)
+
         val btnLike = view.findViewById<ImageButton>(R.id.btn_like)
         val btnDislike = view.findViewById<ImageButton>(R.id.btn_dislike)
 
         setupTouchAndSwipeListeners()
-        loadUsers()
 
-        btnLike.setOnClickListener { animateCardOffScreen(true) }
-        btnDislike.setOnClickListener { animateCardOffScreen(false) }
-        btnRewind.setOnClickListener { processRewind() }
+        // Secuestro de los botones reales
+        btnLike.setOnClickListener {
+            if (isTutorialMode && tutorialState != 4) return@setOnClickListener // Bloqueado si no es su turno
+            animateCardOffScreen(true)
+        }
+
+        btnDislike.setOnClickListener {
+            if (isTutorialMode && tutorialState != 2) return@setOnClickListener // Bloqueado si no es su turno
+            animateCardOffScreen(false)
+        }
+
+        btnRewind.setOnClickListener {
+            if (isTutorialMode && tutorialState != 3) return@setOnClickListener // Bloqueado si no es su turno
+            processRewind()
+        }
+
+        val currentUser = LocalDatabase.getCurrentUser()
+        if (currentUser != null && !currentUser.hasCompletedTutorial) {
+            startTutorial()
+        } else {
+            loadUsers()
+        }
 
         return view
     }
 
+    // --- MOTOR DEL TUTORIAL INTERACTIVO ---
+    private fun startTutorial() {
+        isTutorialMode = true
+        cvTutorialMessage.visibility = View.VISIBLE
+
+        val pkgName = requireContext().packageName
+
+        val dummyUser = UserAccount(
+            dniNumber = "DUMMY_TUTORIAL",
+            phoneNumber = "000000000",
+            password = "x",
+            birthDate = "1995-05-15",
+            username = "Guía Linder",
+            location = "Linder HQ",
+            habits = "¡Bienvenida al tutorial! Sigue las instrucciones del globo lila.",
+            userPhotos = mutableListOf(
+                "android.resource://$pkgName/${R.drawable.img_tutorial_1}",
+                "android.resource://$pkgName/${R.drawable.img_tutorial_2}",
+                "android.resource://$pkgName/${R.drawable.img_tutorial_3}"
+            )
+        )
+
+        usersList = listOf(dummyUser)
+        currentUserIndex = 0
+        historyStack.clear()
+        showCurrentUser()
+
+        advanceTutorial(0)
+    }
+
+    private fun advanceTutorial(step: Int) {
+        tutorialState = step
+        when (step) {
+            0 -> tvTutorialText.text = "Toca la parte DERECHA de la foto para ver la siguiente imagen."
+            1 -> tvTutorialText.text = "¡Genial! Ahora toca la parte IZQUIERDA para volver a la foto anterior."
+            2 -> tvTutorialText.text = "¡Perfecto! Ahora desliza la tarjeta a la IZQUIERDA o pulsa la X para descartar el perfil."
+            3 -> tvTutorialText.text = "¡Uy! ¿Y si no querías descartar? Pulsa el botón de REVERSA (la flecha) para recuperarlo."
+            4 -> tvTutorialText.text = "¡Recuperado! Ahora desliza a la DERECHA o pulsa el Corazón para darle Like."
+            5 -> {
+                tvTutorialText.text = "¡Todo listo! Toca este mensaje para empezar a conocer gente real."
+                cvTutorialMessage.setOnClickListener { finishTutorial() }
+            }
+        }
+    }
+
+    private fun finishTutorial() {
+        val currentUser = LocalDatabase.getCurrentUser()
+        if (currentUser != null) {
+            currentUser.hasCompletedTutorial = true
+            LocalDatabase.updateUser(currentUser)
+        }
+        isTutorialMode = false
+        cvTutorialMessage.visibility = View.GONE
+        cvTutorialMessage.setOnClickListener(null)
+        loadUsers()
+    }
+    // --------------------------------------
+
     private fun loadUsers() {
         val loggedInUser = LocalDatabase.getCurrentUser() ?: return
         val allUsersMap = LocalDatabase.getAllUsers()
-
-        // 1. Obtener el filtro enviado desde ExploreFragment
         val categoryFilter = arguments?.getString("FILTER_CATEGORY")
-
-        // 2. Mapear el texto al enum Intent
         val intentFilter = when (categoryFilter) {
             "Relación estable" -> Intent.RELACION_SERIA
             "Libre esta noche" -> Intent.ROLLO_UNA_NOCHE
@@ -83,20 +165,13 @@ class HomeIndividualFragment : Fragment() {
             val isNotMe = targetUser.phoneNumber != loggedInUser.phoneNumber
             val isNotAMatch = !loggedInUser.matches.contains(targetUser.phoneNumber)
             val isNotAnActiveChat = !loggedInUser.activeChats.contains(targetUser.phoneNumber)
-
-            // 3. Aplicar el filtro de intención si existe
-            val matchesIntent = if (intentFilter != null) {
-                targetUser.intent == intentFilter
-            } else {
-                true // Si no hay filtro, pasan todos
-            }
+            val matchesIntent = if (intentFilter != null) targetUser.intent == intentFilter else true
 
             isNotMe && isNotAMatch && isNotAnActiveChat && matchesIntent
         }
 
         currentUserIndex = 0
         historyStack.clear()
-
         showCurrentUser()
     }
 
@@ -108,7 +183,6 @@ class HomeIndividualFragment : Fragment() {
 
         if (currentUserIndex >= usersList.size) {
             val categoryFilter = arguments?.getString("FILTER_CATEGORY")
-
             if (categoryFilter != null) {
                 tvProfileName.text = "No hay resultados"
                 tvProfileBio.text = "Nadie busca '$categoryFilter' cerca de ti por ahora."
@@ -116,10 +190,14 @@ class HomeIndividualFragment : Fragment() {
                 tvProfileName.text = "No hay más usuarios"
                 tvProfileBio.text = "Vuelve más tarde para descubrir gente nueva."
             }
-
             ivMainPhoto.setImageResource(R.drawable.profile_placeholder)
             llPhotoIndicators.removeAllViews()
+
+            // Cuando no hay usuarios, apagamos el listener para evitar errores
             swipeableCard.setOnTouchListener(null)
+
+            if (isTutorialMode && tutorialState == 2) updateRewindButton()
+
             return
         }
 
@@ -130,7 +208,11 @@ class HomeIndividualFragment : Fragment() {
         tvProfileBio.text = user.habits
 
         updatePhotoView(user)
-        updateRewindButton()
+
+        // ¡LA CLAVE ESTÁ AQUÍ! Volvemos a encender el listener porque vuelve a haber tarjeta
+        setupTouchAndSwipeListeners()
+
+        if (!isTutorialMode) updateRewindButton() else updateRewindButton()
     }
 
     private fun updatePhotoView(user: UserAccount) {
@@ -155,12 +237,8 @@ class HomeIndividualFragment : Fragment() {
 
             val shape = GradientDrawable()
             shape.shape = GradientDrawable.OVAL
-            if (i == currentPhotoIndex) {
-                shape.setColor(Color.WHITE)
-            } else {
-                shape.setColor(Color.TRANSPARENT)
-                shape.setStroke(2, Color.WHITE)
-            }
+            shape.setColor(if (i == currentPhotoIndex) Color.WHITE else Color.TRANSPARENT)
+            if (i != currentPhotoIndex) shape.setStroke(2, Color.WHITE)
             dot.background = shape
 
             llPhotoIndicators.addView(dot)
@@ -185,7 +263,6 @@ class HomeIndividualFragment : Fragment() {
                     val deltaY = event.rawY - startY
                     v.translationX = deltaX
                     v.translationY = deltaY
-
                     v.rotation = deltaX * 0.05f
                     true
                 }
@@ -194,8 +271,10 @@ class HomeIndividualFragment : Fragment() {
                     val deltaY = event.rawY - startY
 
                     if (deltaX > swipeThreshold) {
+                        if (isTutorialMode && tutorialState != 4) { resetCardPosition(); return@setOnTouchListener true }
                         animateCardOffScreen(isLike = true)
                     } else if (deltaX < -swipeThreshold) {
+                        if (isTutorialMode && tutorialState != 2) { resetCardPosition(); return@setOnTouchListener true }
                         animateCardOffScreen(isLike = false)
                     } else if (abs(deltaX) < 15f && abs(deltaY) < 15f) {
                         handleTapToChangePhoto(event.x, v.width)
@@ -219,21 +298,19 @@ class HomeIndividualFragment : Fragment() {
                 currentPhotoIndex--
                 updatePhotoView(user)
             }
+            if (isTutorialMode && tutorialState == 1) advanceTutorial(2)
+
         } else {
             if (currentPhotoIndex < user.userPhotos.size - 1) {
                 currentPhotoIndex++
                 updatePhotoView(user)
             }
+            if (isTutorialMode && tutorialState == 0) advanceTutorial(1)
         }
     }
 
     private fun resetCardPosition() {
-        swipeableCard.animate()
-            .translationX(0f)
-            .translationY(0f)
-            .rotation(0f)
-            .setDuration(300)
-            .start()
+        swipeableCard.animate().translationX(0f).translationY(0f).rotation(0f).setDuration(300).start()
     }
 
     private fun animateCardOffScreen(isLike: Boolean) {
@@ -247,30 +324,34 @@ class HomeIndividualFragment : Fragment() {
             .alpha(0f)
             .setDuration(300)
             .withEndAction {
-                if (isLike) processLike() else processPass()
+                if (isTutorialMode) {
+                    historyStack.add(currentUserIndex)
+                    currentUserIndex++
+                    showCurrentUser()
+
+                    if (!isLike && tutorialState == 2) advanceTutorial(3)
+                    if (isLike && tutorialState == 4) advanceTutorial(5)
+                } else {
+                    if (isLike) processLike() else processPass()
+                }
             }
             .start()
     }
 
     private fun processLike() {
         if (currentUserIndex >= usersList.size) return
-
         val loggedInUser = LocalDatabase.getCurrentUser() ?: return
         val likedUser = usersList[currentUserIndex]
 
         if (loggedInUser.likedByUsers.contains(likedUser.phoneNumber)) {
             loggedInUser.matches.add(likedUser.phoneNumber ?: "")
             likedUser.matches.add(loggedInUser.phoneNumber ?: "")
-
             LocalDatabase.updateUser(loggedInUser)
             LocalDatabase.updateUser(likedUser)
-
             showMatchDialog(likedUser)
         } else {
             likedUser.likedByUsers.add(loggedInUser.phoneNumber ?: "")
-
             LocalDatabase.updateUser(likedUser)
-
             Toast.makeText(requireContext(), "¡Le has dado Like a ${likedUser.username}!", Toast.LENGTH_SHORT).show()
             moveToNextUser()
         }
@@ -278,15 +359,11 @@ class HomeIndividualFragment : Fragment() {
 
     private fun showMatchDialog(matchedUser: UserAccount) {
         val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
-
         builder.setTitle("¡Es un Match!")
         builder.setMessage("Tú y ${matchedUser.username} os habéis gustado.")
-
         builder.setPositiveButton("Iniciar Chat") { dialog, _ ->
             dialog.dismiss()
-
             moveToNextUser()
-
             matchedUser.phoneNumber?.let { phone ->
                 val chatFragment = ChatFragment.newInstance(phone)
                 parentFragmentManager.beginTransaction()
@@ -295,21 +372,18 @@ class HomeIndividualFragment : Fragment() {
                     .commit()
             }
         }
-
         builder.setNegativeButton("Seguir deslizando") { dialog, _ ->
             dialog.dismiss()
             moveToNextUser()
         }
-
         builder.setCancelable(false)
         builder.show()
     }
+
     private fun processPass() {
         if (currentUserIndex >= usersList.size) return
-
         val passedUser = usersList[currentUserIndex]
         Toast.makeText(requireContext(), "Has pasado de ${passedUser.username}", Toast.LENGTH_SHORT).show()
-
         moveToNextUser()
     }
 
@@ -323,6 +397,8 @@ class HomeIndividualFragment : Fragment() {
         if (historyStack.isNotEmpty()) {
             currentUserIndex = historyStack.removeAt(historyStack.size - 1)
             showCurrentUser()
+
+            if (isTutorialMode && tutorialState == 3) advanceTutorial(4)
         }
     }
 
@@ -335,6 +411,4 @@ class HomeIndividualFragment : Fragment() {
             btnRewind.isEnabled = false
         }
     }
-
-
 }
