@@ -52,8 +52,6 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         val btnEditProfile = view.findViewById<Button>(R.id.btnEditProfile)
 
         btnEditProfile.setOnClickListener {
-            // Usamos android.content.Intent con la ruta completa para evitar conflictos
-            // con tu clase enum "Intent" (Rollo una noche, etc.)
             val intent = android.content.Intent(requireContext(), com.mireyaserrano.linder.ui.edit.EditProfileActivity::class.java)
             startActivity(intent)
         }
@@ -66,6 +64,25 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
         btnActualizar.setOnClickListener {
             val intent = Intent(requireContext(), SubscriptionActivity::class.java)
             startActivity(intent)
+        }
+
+        // --- LÓGICA DEL POPUP TUTORIAL ---
+        val tutorialPopup = view.findViewById<View>(R.id.cv_simple_tutorial)
+        if (tutorialPopup != null) {
+            val currentUser = LocalDatabase.getCurrentUser()
+            if (currentUser != null && !currentUser.hasSeenProfileTutorial) {
+                val btnCloseTutorial = view.findViewById<ImageButton>(R.id.btn_close_tutorial)
+                val tvTutorialText = view.findViewById<TextView>(R.id.tv_tutorial_text)
+
+                tutorialPopup.visibility = View.VISIBLE
+                tvTutorialText.text = "¡Destaca en la comunidad! Toca este icono para verificar tus fotos. Darás más confianza demostrando que eres 100% real."
+
+                btnCloseTutorial.setOnClickListener {
+                    tutorialPopup.visibility = View.GONE
+                    currentUser.hasSeenProfileTutorial = true
+                    LocalDatabase.updateUser(currentUser)
+                }
+            }
         }
     }
 
@@ -151,29 +168,21 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-        // Capturamos los botones exactos de tu diseño
         val btnContinuar = dialogView.findViewById<Button>(R.id.btnContinuar)
         val btnTarde = dialogView.findViewById<Button>(R.id.btnTarde)
         val btnBack = dialogView.findViewById<ImageButton>(R.id.btnBack)
 
-        // Al darle a continuar, abrimos la cámara
-        // Al darle a continuar, abrimos la cámara de forma SEGURA
         btnContinuar.setOnClickListener {
             dialog.dismiss()
-
             try {
-                // Intentamos abrir la cámara
                 takePictureLauncher.launch(null as Void?)
             } catch (e: android.content.ActivityNotFoundException) {
-                // Si el dispositivo (o emulador) no tiene cámara, atrapamos el error y no crashea
                 android.widget.Toast.makeText(requireContext(), "Tu dispositivo no tiene una aplicación de cámara disponible.", android.widget.Toast.LENGTH_LONG).show()
             } catch (e: Exception) {
-                // Por si falla cualquier otra cosa rara
                 android.widget.Toast.makeText(requireContext(), "Error al abrir la cámara.", android.widget.Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Los otros dos botones simplemente cierran esta pantalla
         btnTarde.setOnClickListener { dialog.dismiss() }
         btnBack.setOnClickListener { dialog.dismiss() }
 
@@ -182,16 +191,9 @@ class ProfileMainFragment : Fragment(R.layout.fragment_profile_main) {
 
     private fun verifyUser() {
         val currentUser = LocalDatabase.getCurrentUser() ?: return
-
-        // Marcamos al usuario como verificado
         currentUser.isVerified = true
-
-        // Actualizamos la base de datos sin cerrar su sesión
         LocalDatabase.updateUser(currentUser)
-
         Toast.makeText(requireContext(), "¡Perfil verificado con éxito!", Toast.LENGTH_SHORT).show()
-
-        // Refrescamos la pantalla para que aparezca el tick azul al instante
         refreshProfileData()
     }
 }

@@ -8,7 +8,19 @@ import com.google.gson.reflect.TypeToken
 import java.io.File
 import java.io.FileOutputStream
 
+data class AppMetrics(
+    var passwordOk: Int = 0,
+    var passwordWrong: Int = 0,
+    var loginComplete: Int = 0,
+    var loginIncomplete: Int = 0,
+    var loginGoogle: Int = 0,
+    var loginFacebook: Int = 0,
+    var loginPhone: Int = 0
+)
+
 object LocalDatabase {
+
+    var globalMetrics = AppMetrics()
 
     private const val PREFS_NAME = "LinderDB"
     private const val KEY_USERS = "users_json"
@@ -332,5 +344,41 @@ object LocalDatabase {
         if (currentUser?.phoneNumber == key) {
             currentUser = user
         }
+    }
+
+    private val tutorialDummyUser = UserAccount(
+        dniNumber = "DUMMY_TUTORIAL",
+        phoneNumber = "000000000",
+        password = "x",
+        birthDate = "1995-05-15",
+        username = "Guía Linder",
+        location = "Tutorial inmersivo",
+        userPhotos = mutableListOf(
+            "android.resource://com.mireyaserrano.linder/drawable/img_tutorial_1",
+            "android.resource://com.mireyaserrano.linder/drawable/img_tutorial_2",
+            "android.resource://com.mireyaserrano.linder/drawable/img_tutorial_3"
+        ),
+        // Otros campos necesarios por defecto
+        intent = Intent.HACER_AMIGAS,
+        sexualOrientation = SexualOrientation.ASEXUAL,
+        hasCompletedTutorial = false
+    )
+
+    fun getTutorialDummyUser(): UserAccount {
+        return tutorialDummyUser
+    }
+
+    fun loadMetrics(context: Context) {
+        val prefs = context.getSharedPreferences("LinderData", Context.MODE_PRIVATE)
+        val json = prefs.getString("metrics_data", null)
+        if (json != null) {
+            globalMetrics = Gson().fromJson(json, AppMetrics::class.java)
+        }
+    }
+
+    fun saveMetrics(context: Context) {
+        val prefs = context.getSharedPreferences("LinderData", Context.MODE_PRIVATE)
+        val json = Gson().toJson(globalMetrics)
+        prefs.edit().putString("metrics_data", json).apply()
     }
 }

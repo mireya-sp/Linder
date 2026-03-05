@@ -58,13 +58,16 @@ class SubscriptionActivity : AppCompatActivity() {
             }
         }
 
+        // Asignar los listeners de selección
         cardWeekly.setOnClickListener { updateSelection(SubscriptionType.WEEKLY, "29,99€") }
         cardMonthly.setOnClickListener { updateSelection(SubscriptionType.MONTHLY, "79,96€") }
         cardYearly.setOnClickListener { updateSelection(SubscriptionType.YEARLY, "519,48€") }
 
+        // Selección por defecto
         updateSelection(SubscriptionType.YEARLY, "519,48€")
 
-        btnContinue.setOnClickListener {
+        val btnContinuePayment = findViewById<Button>(R.id.btnContinue)
+        btnContinuePayment.setOnClickListener {
             simulatePayment()
         }
     }
@@ -82,9 +85,20 @@ class SubscriptionActivity : AppCompatActivity() {
 
             val currentEnd = if (currentUser.subscriptionEndDate > now) currentUser.subscriptionEndDate else now
 
+            // Actualizamos el plan y la fecha
             currentUser.subscriptionType = selectedPlan
             currentUser.subscriptionEndDate = currentEnd + extraTime
 
+            // --- AÑADIDO: REGISTRO DE MÉTRICAS DE COMPRA ---
+            when (selectedPlan) {
+                SubscriptionType.WEEKLY -> currentUser.metrics.subWeeklyPurchases++
+                SubscriptionType.MONTHLY -> currentUser.metrics.subMonthlyPurchases++
+                SubscriptionType.YEARLY -> currentUser.metrics.subYearlyPurchases++
+                else -> {}
+            }
+            // -----------------------------------------------
+
+            // Guardamos el usuario en la base de datos
             LocalDatabase.updateUser(currentUser)
 
             Toast.makeText(this, "¡Pago simulado con éxito!", Toast.LENGTH_LONG).show()
