@@ -45,4 +45,4 @@ El código fuente sigue una arquitectura organizada por funcionalidades dentro d
 4. **Ejecuta la app:** Conecta un dispositivo o inicia un emulador y presiona "Run"[cite: 1].
 
 ---
-**Desarrollado por [Mireya Serrano], [Luka Lopez], [Nico Hustea](https://github.com/mireya-sp)**
+**Desarrollado por [Mireya Serrano](https://github.com/mireya-sp), [Luka Lopez](https://github.com/luklpz), [Nico Hustea](https://github.com/Hustea)**
